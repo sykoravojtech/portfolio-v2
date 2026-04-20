@@ -224,7 +224,7 @@ git commit -m "chore: move CV+CNAME into public/, drop stub index.html, add .git
 - Create: `src/app/page.tsx` (stub)
 - Create: `src/app/globals.css` (stub — real content ported in M2)
 
-- [ ] **Step 1: Write `package.json`**
+- [x] **Step 1: Write `package.json`**
 
 ```json
 {
@@ -274,7 +274,7 @@ git commit -m "chore: move CV+CNAME into public/, drop stub index.html, add .git
 }
 ```
 
-- [ ] **Step 2: Write `tsconfig.json`**
+- [x] **Step 2: Write `tsconfig.json`**
 
 ```json
 {
@@ -302,7 +302,7 @@ git commit -m "chore: move CV+CNAME into public/, drop stub index.html, add .git
 }
 ```
 
-- [ ] **Step 3: Write `next.config.ts`**
+- [x] **Step 3: Write `next.config.ts`**
 
 ```ts
 import type { NextConfig } from "next";
@@ -333,7 +333,7 @@ export default withMDX(nextConfig);
 
 > **Note:** `rehype-pretty-code` will be wired in M8 (writing pipeline) once a theme is selected. Keeping it out of the MDX options here avoids failures on zero-post builds.
 
-- [ ] **Step 4: Write `postcss.config.mjs`**
+- [x] **Step 4: Write `postcss.config.mjs`**
 
 ```js
 export default {
@@ -343,7 +343,7 @@ export default {
 };
 ```
 
-- [ ] **Step 5: Write stub `src/app/layout.tsx`**
+- [x] **Step 5: Write stub `src/app/layout.tsx`**
 
 ```tsx
 import type { Metadata } from "next";
@@ -367,7 +367,7 @@ export default function RootLayout({
 }
 ```
 
-- [ ] **Step 6: Write stub `src/app/page.tsx`**
+- [x] **Step 6: Write stub `src/app/page.tsx`**
 
 ```tsx
 export default function Home() {
@@ -380,13 +380,13 @@ export default function Home() {
 }
 ```
 
-- [ ] **Step 7: Write stub `src/app/globals.css`**
+- [x] **Step 7: Write stub `src/app/globals.css`**
 
 ```css
 @import "tailwindcss";
 ```
 
-- [ ] **Step 8: Install dependencies**
+- [x] **Step 8: Install dependencies**
 
 ```bash
 cd /home/vojta/Documents/projects/portfolio-v2
@@ -395,7 +395,7 @@ pnpm install
 
 Expected: installs successfully. If `radix-ui@1.4.3` or `@next/mdx@16.2.2` version is unavailable, adjust to the latest minor and note the change — do not silently replace with `@radix-ui/react-*`.
 
-- [ ] **Step 9: Verify build works**
+- [x] **Step 9: Verify build works**
 
 ```bash
 pnpm build
@@ -403,7 +403,7 @@ pnpm build
 
 Expected: builds to `out/` with an index page. If it fails on `trailingSlash` + export, check `node_modules/next/dist/docs/` for static-export guidance in Next 16.
 
-- [ ] **Step 10: Verify dev server**
+- [x] **Step 10: Verify dev server**
 
 ```bash
 pnpm dev
@@ -411,7 +411,7 @@ pnpm dev
 
 Expected: http://localhost:3200 serves the stub page. Stop with `Ctrl+C` after confirming.
 
-- [ ] **Step 11: Commit**
+- [x] **Step 11: Commit**
 
 ```bash
 git add -A
