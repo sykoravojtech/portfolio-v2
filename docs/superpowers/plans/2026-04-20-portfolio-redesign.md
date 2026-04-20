@@ -1855,7 +1855,7 @@ git commit -m "feat: wire Nav + Footer into root layout"
 - Create: `src/components/section-header.tsx`
 - Create: `src/components/tag-pill.tsx`
 
-- [ ] **Step 1: `src/components/section-header.tsx`**
+- [x] **Step 1: `src/components/section-header.tsx`**
 
 ```tsx
 import { cn } from "@/lib/utils";
@@ -1889,7 +1889,7 @@ export function SectionHeader({
 }
 ```
 
-- [ ] **Step 2: `src/components/tag-pill.tsx`**
+- [x] **Step 2: `src/components/tag-pill.tsx`**
 
 ```tsx
 import { cn } from "@/lib/utils";
@@ -1919,7 +1919,7 @@ export function TagPill({
 }
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A
@@ -1934,7 +1934,7 @@ git commit -m "feat: SectionHeader and TagPill components"
 - Create: `src/components/experience-item.tsx`
 - Create: `src/components/education-item.tsx`
 
-- [ ] **Step 1: `src/components/experience-item.tsx`**
+- [x] **Step 1: `src/components/experience-item.tsx`**
 
 ```tsx
 import Image from "next/image";
@@ -2005,7 +2005,7 @@ export function ExperienceItem({
 }
 ```
 
-- [ ] **Step 2: `src/components/education-item.tsx`**
+- [x] **Step 2: `src/components/education-item.tsx`**
 
 ```tsx
 import Image from "next/image";
@@ -2071,7 +2071,7 @@ export function EducationItem({ item }: { item: Education }) {
 }
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A
@@ -2089,7 +2089,7 @@ git commit -m "feat: ExperienceItem and EducationItem components"
 - Create: `src/components/testimonial.tsx`
 - Create: `src/components/hero.tsx`
 
-- [ ] **Step 1: `src/components/certification-card.tsx`**
+- [x] **Step 1: `src/components/certification-card.tsx`**
 
 ```tsx
 import type { Certification } from "@/content/types";
@@ -2115,7 +2115,7 @@ export function CertificationCard({ item }: { item: Certification }) {
 }
 ```
 
-- [ ] **Step 2: `src/components/project-card.tsx`**
+- [x] **Step 2: `src/components/project-card.tsx`**
 
 ```tsx
 import type { Project } from "@/content/types";
@@ -2164,7 +2164,7 @@ export function ProjectCard({ item }: { item: Project }) {
 }
 ```
 
-- [ ] **Step 3: `src/components/writing-row.tsx`**
+- [x] **Step 3: `src/components/writing-row.tsx`**
 
 ```tsx
 import Link from "next/link";
@@ -2196,7 +2196,7 @@ export function WritingRow({ meta }: { meta: WritingMeta }) {
 }
 ```
 
-- [ ] **Step 4: `src/components/testimonial.tsx`**
+- [x] **Step 4: `src/components/testimonial.tsx`**
 
 ```tsx
 import type { Testimonial as T } from "@/content/types";
@@ -2216,7 +2216,7 @@ export function Testimonial({ item }: { item: T }) {
 }
 ```
 
-- [ ] **Step 5: `src/components/hero.tsx`**
+- [x] **Step 5: `src/components/hero.tsx`**
 
 ```tsx
 export function Hero({
@@ -2259,7 +2259,7 @@ export function Hero({
 }
 ```
 
-- [ ] **Step 6: Build check**
+- [x] **Step 6: Build check**
 
 ```bash
 pnpm build
@@ -2267,7 +2267,7 @@ pnpm build
 
 Expected: succeeds.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add -A
