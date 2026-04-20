@@ -426,7 +426,7 @@ git commit -m "feat: scaffold Next.js 16 + Tailwind 4 project (static export)"
 - Create: `vitest.config.ts`
 - Create: `tests/smoke.test.ts`
 
-- [ ] **Step 1: Write `vitest.config.ts`**
+- [x] **Step 1: Write `vitest.config.ts`**
 
 ```ts
 import { defineConfig } from "vitest/config";
@@ -447,7 +447,7 @@ export default defineConfig({
 });
 ```
 
-- [ ] **Step 2: Write a smoke test to prove the runner works**
+- [x] **Step 2: Write a smoke test to prove the runner works**
 
 `tests/smoke.test.ts`:
 
@@ -461,7 +461,7 @@ describe("smoke", () => {
 });
 ```
 
-- [ ] **Step 3: Run tests**
+- [x] **Step 3: Run tests**
 
 ```bash
 pnpm test
@@ -469,7 +469,7 @@ pnpm test
 
 Expected: `1 passed`.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add -A
@@ -486,7 +486,7 @@ git commit -m "chore: add vitest with smoke test"
 - Modify: `src/app/globals.css`
 - Modify: `src/app/layout.tsx`
 
-- [ ] **Step 1: Replace `src/app/globals.css` with the full Phthalo Cream tokens**
+- [x] **Step 1: Replace `src/app/globals.css` with the full Phthalo Cream tokens**
 
 Copy the entire contents of `/home/vojta/Documents/projects/projects-web/apps/web/src/app/globals.css` into `src/app/globals.css`. This includes:
 - `:root` tokens (green, green-dark, green-mid, bordeaux, cedar, bone, bg, bg2, bg3, text, text-muted, text-dim, border, radius, plus legacy aliases)
@@ -497,7 +497,7 @@ Copy the entire contents of `/home/vojta/Documents/projects/projects-web/apps/we
 
 Do not modify values. If the file in projects-web diverges from what this plan references, prefer the live file.
 
-- [ ] **Step 2: Wire DM Sans in `src/app/layout.tsx`**
+- [x] **Step 2: Wire DM Sans in `src/app/layout.tsx`**
 
 ```tsx
 import type { Metadata } from "next";
@@ -533,7 +533,7 @@ export default function RootLayout({
 
 > **Note on Next.js 16:** confirm `next/font/google` still exports `DM_Sans` by checking `node_modules/next/dist/docs/` (font-optimization guide). If the API has shifted, adjust but keep the `--font-dm-sans` CSS variable name — it's referenced by globals.css.
 
-- [ ] **Step 3: Sanity check — a styled stub page**
+- [x] **Step 3: Sanity check — a styled stub page**
 
 Edit `src/app/page.tsx` to use Tailwind tokens:
 
@@ -563,7 +563,7 @@ export default function Home() {
 }
 ```
 
-- [ ] **Step 4: Run dev server and eyeball palette**
+- [x] **Step 4: Run dev server and eyeball palette**
 
 ```bash
 pnpm dev
@@ -571,7 +571,7 @@ pnpm dev
 
 Visit http://localhost:3200 — expect cream background, phthalo heading, bordeaux accent, and 8 color swatches rendering. Stop the server.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add -A
@@ -586,7 +586,7 @@ git commit -m "feat: port Phthalo Cream tokens + DM Sans font from projects-web"
 - Create: `src/lib/utils.ts`
 - Create: `src/components/ui/button.tsx`
 
-- [ ] **Step 1: Write `src/lib/utils.ts`**
+- [x] **Step 1: Write `src/lib/utils.ts`**
 
 ```ts
 import { clsx, type ClassValue } from "clsx";
@@ -597,11 +597,11 @@ export function cn(...inputs: ClassValue[]) {
 }
 ```
 
-- [ ] **Step 2: Port Button from projects-web**
+- [x] **Step 2: Port Button from projects-web**
 
 Copy `/home/vojta/Documents/projects/projects-web/apps/web/src/components/ui/button.tsx` verbatim into `src/components/ui/button.tsx`. It uses `radix-ui` → `Slot.Root`, `cva`, `cn` from `@/lib/utils`, and hard-coded Phthalo hex values for robustness — keep all of this.
 
-- [ ] **Step 3: Render a Button on the sanity page**
+- [x] **Step 3: Render a Button on the sanity page**
 
 Edit `src/app/page.tsx` — add below the swatches:
 
@@ -618,11 +618,11 @@ import { Button } from "@/components/ui/button";
 </div>
 ```
 
-- [ ] **Step 4: Dev check**
+- [x] **Step 4: Dev check**
 
 Run `pnpm dev`, load page, confirm all 5 button variants render with Phthalo styling.
 
-- [ ] **Step 5: Build check**
+- [x] **Step 5: Build check**
 
 ```bash
 pnpm build
@@ -630,7 +630,7 @@ pnpm build
 
 Expected: succeeds, produces `out/index.html`.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add -A
