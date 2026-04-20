@@ -90,7 +90,13 @@ Inherit the design system from `projects-web` (`docs/DESIGN_SYSTEM.md`) verbatim
 
 ### 5.2 About — `/about`
 
-Dedicated page. Longer bio, photo (optional, placeholder if not provided), values, current focus, what Vojtěch is open to. One or two sections max — keep it readable in 60 seconds.
+Dedicated page. Three stacked blocks:
+
+1. **Bio** — avatar (ported from LinkedIn to `public/images/avatar.jpg`), longer paragraph form of the LinkedIn "about" copy (see content source), languages with proficiency (Czech/English/German).
+2. **Testimonial pull-quote** — one recommendation excerpted as a large phthalo-bordered quote block. Source: Lukas Chrpa (CTU FEE AI Center supervisor). Full text in content source; render a ~60-word excerpt.
+3. **Personal flavor** (optional, keep short) — one line on travel, sports, cooking (matches the LinkedIn bio's personal tone); optionally reference the 2019 castle-renovation volunteer bit as a single line with a wink.
+
+Keep the whole page readable in 60 seconds.
 
 ### 5.3 Experience — `/experience`
 
@@ -102,18 +108,24 @@ Full timeline, newest first. Each item:
 
 Bottom: "What I'm looking for" section with contact CTA.
 
-**Initial content** (ported from `/home/vojta/Documents/projects/portfolio/DATABASE.json`):
-- 2025 – Present · FZI (Master Thesis — Computer Vision, Karlsruhe, remote)
-- 2024 – Present · synthavo (CV Working Student, Stuttgart, hybrid)
-- 2023 · CIIRC (ML Researcher, Prague)
-- 2020 – 2022 · Charles University (Data Scientist, Prague)
-- 2021 – 2022 · US AFRL + CTU FEE AI Center (AI Researcher)
-- 2021 · SCILIF / SUNFIBRE (Android Dev)
-- 2016 – 2020 · Czech Basketball Federation (Referee)
+**Initial content** (see `docs/content-source/linkedin-2026-04.md` for full data; this list is just the ordering):
+- Oct 2025 – Present · Miton (AI Engineer & Venture Builder, Prague)
+- May 2025 – Jan 2026 · Stealth Startup Robotics & AI (Founder & CEO, Munich)
+- Mar 2025 – Sep 2025 · FZI (GenAI & CV Master's Thesis, Karlsruhe, remote)
+- Dec 2024 – Jul 2025 · synthavo (ML Engineer, Stuttgart, hybrid)
+- Mar 2023 – Jul 2023 · CIIRC (ML Researcher, Prague)
+- Jul 2020 – Dec 2022 · Charles University (Data Analyst, Prague)
+- Sep 2021 – Jul 2022 · US AFRL + CTU FEE AI Center (AI Researcher, Prague)
+- Jul 2021 – Oct 2021 · SCILIF (Android Developer, Prague)
+- Sep 2016 – Jun 2020 · Czech Basketball Federation (Referee, Prague)
+- Apr 2017 – Aug 2019 · CIIRC (Robotics Intern, Prague)
+- Sep 2018 – Jun 2019 · LaunchX (Founder, Brussels — MIT competition winner)
 
 ### 5.4 Education — `/education`
 
-Dedicated page. Each entry:
+Dedicated page with two stacked subsections: **Degrees** (4) and **Certifications** (7).
+
+**Degrees — each entry renders:**
 - School logo (from `public/images/education/*`)
 - Degree + school + location
 - Dates
@@ -122,11 +134,20 @@ Dedicated page. Each entry:
 - Skills (small pills)
 - Optional "Thesis" or "Certificate" link
 
-**Entries (4):**
-1. **University of Tübingen** (Sep 2023 – Sep 2025) — MSc Machine Learning. DAAD full scholarship. Deep Learning, Computer Vision. Thesis: Multi-modal Deep Learning for Automated Schematic Analysis.
-2. **Czech Technical University in Prague** (Sep 2020 – Jun 2023) — BSc Open Informatics (AI specialization). Thesis: Proximal Policy Optimization for Car Racing with unpredictable Wind.
-3. **prg.ai Minor** (2021 – 2023) — Interdisciplinary AI curriculum across Prague universities. Certificate.
-4. **PORG** (2018 – 2020) — IB Diploma. Grade 39/45. HL Math/Physics/Econ, SL English/Czech/German. EE: Mathematics (Quaternions).
+**Degree entries (4):** see `docs/content-source/linkedin-2026-04.md` → Education. Summary:
+1. **University of Tübingen** (2023 – 2025) — MSc Machine Learning. DAAD scholarship.
+2. **Czech Technical University in Prague** (2020 – 2023) — BSc Open Informatics (AI).
+3. **prg.ai Minor** (2021 – 2023) — Interdisciplinary AI curriculum.
+4. **PORG** (2018 – 2020) — IB Diploma, Mathematics. Grade 39/45.
+
+**Certifications subsection — compact grid of 7 cards:**
+
+Each card shows issuer, title, issue month, and "See credential →" link. Full list in content source. Highlights:
+- Coursera (5): Deep Learning with PyTorch ×2, CNNs in TensorFlow, Intro to TensorFlow, Neural Networks and Deep Learning
+- Udemy: Modern Python 3 Bootcamp
+- Cambridge: Certificate in Advanced English (C1)
+
+**Honors inline banner** (one item): DAAD Full Scholarship, 2023 — rendered as a small call-out near the Tübingen entry rather than a separate section.
 
 ### 5.5 Projects — `/projects`
 
@@ -160,9 +181,11 @@ Content initially hardcoded in `src/content/projects.ts` (~6–10 entries curate
 
 ```
 src/content/
-  bio.ts              — name, role, email, socials, spoken languages, tech stack
+  bio.ts              — name, role, email, socials, spoken languages (with proficiency), tech stack, long-about paragraph
   experiences.ts      — Experience[]
   education.ts        — Education[]
+  certifications.ts   — Certification[]
+  testimonials.ts     — Testimonial[] (v1: one entry)
   projects.ts         — Project[] with featured flag
   writing/
     *.mdx             — blog posts with frontmatter
@@ -215,13 +238,29 @@ type Bio = {
   name: string;              // "Vojtěch Sýkora"
   role: string;              // "AI Engineer & Product Builder"
   location: string;          // "Prague"
-  tagline: string;
-  description: string;
+  tagline: string;           // one-line hero tagline
+  description: string;       // long-form about paragraph (from LinkedIn "about")
   email: string;             // sykoravojtech01@gmail.com
   github: string;            // https://github.com/sykoravojtech
   linkedin: string;          // https://www.linkedin.com/in/sykoravojtech/
-  spokenLanguages: string[]; // ["Czech", "English", "German"]
+  avatar?: string;           // /images/avatar.jpg
+  spokenLanguages: { name: string; proficiency: string }[];
   techStack: string[];
+}
+
+type Certification = {
+  title: string;
+  issuer: string;            // "Coursera", "Udemy", "Cambridge Assessment English"
+  issuedAt: string;          // "Oct 2024"
+  credentialId?: string;
+  credentialUrl?: string;
+}
+
+type Testimonial = {
+  author: string;            // "Lukas Chrpa"
+  authorRole: string;        // "Supervisor, CTU FEE AI Center"
+  excerpt: string;           // short pull-quote (~60 words)
+  fullText?: string;         // optional full version for modal or /about extended
 }
 ```
 
@@ -237,7 +276,11 @@ published: true
 ---
 ```
 
-**Migration from old portfolio:** a one-off migration step (manual or scripted) copies text from `/home/vojta/Documents/projects/portfolio/DATABASE.json` into the new TS modules, plus logos from `src/images/` into `public/images/`. User will edit text afterwards — the migration carries outdated content on purpose (per user instruction: "those info are a little older but add them for now").
+**Migration source:** `docs/content-source/linkedin-2026-04.md` is the authoritative content source for v1. Curated from a LinkedIn dump (2026-04-09). Supersedes the older `/home/vojta/Documents/projects/portfolio/DATABASE.json` — but that repo still holds the **logos** (`src/images/experience/*`, `src/images/education/*`) which should be copied into `public/images/` during migration. User will edit content text after initial migration.
+
+**Content not yet captured in a TS module** (add types during implementation):
+- `certifications.ts` — `Certification[]` rendered on `/education`
+- `testimonials.ts` — `Testimonial[]` rendered on `/about` (v1 has one entry)
 
 ---
 
