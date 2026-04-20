@@ -1341,7 +1341,7 @@ git commit -m "feat: add projects content module (curated portfolio)"
 - Create: `src/lib/dates.ts`
 - Create: `tests/dates.test.ts`
 
-- [ ] **Step 1: Write failing tests first**
+- [x] **Step 1: Write failing tests first**
 
 `tests/dates.test.ts`:
 
@@ -1376,7 +1376,7 @@ describe("compareByStartDesc", () => {
 });
 ```
 
-- [ ] **Step 2: Run tests — expect fail**
+- [x] **Step 2: Run tests — expect fail**
 
 ```bash
 pnpm test
@@ -1384,7 +1384,7 @@ pnpm test
 
 Expected: fails on "Cannot find module '@/lib/dates'".
 
-- [ ] **Step 3: Implement `src/lib/dates.ts`**
+- [x] **Step 3: Implement `src/lib/dates.ts`**
 
 ```ts
 export function parseStart(value: string): Date {
@@ -1405,13 +1405,13 @@ export function compareByStartDesc<T extends { start: string }>(
 }
 ```
 
-- [ ] **Step 4: Run tests — expect pass**
+- [x] **Step 4: Run tests — expect pass**
 
 ```bash
 pnpm test
 ```
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add -A
@@ -1426,7 +1426,7 @@ git commit -m "feat: add date parsing and sort helpers (TDD)"
 - Create: `src/lib/content.ts`
 - Create: `tests/content-helpers.test.ts`
 
-- [ ] **Step 1: Write failing tests**
+- [x] **Step 1: Write failing tests**
 
 `tests/content-helpers.test.ts`:
 
@@ -1467,13 +1467,13 @@ describe("getFeaturedProjects", () => {
 });
 ```
 
-- [ ] **Step 2: Run — expect fail**
+- [x] **Step 2: Run — expect fail**
 
 ```bash
 pnpm test
 ```
 
-- [ ] **Step 3: Implement `src/lib/content.ts`**
+- [x] **Step 3: Implement `src/lib/content.ts`**
 
 ```ts
 import { experiences } from "@/content/experiences";
@@ -1497,13 +1497,13 @@ export function getFeaturedProjects(): Project[] {
 }
 ```
 
-- [ ] **Step 4: Run — expect pass**
+- [x] **Step 4: Run — expect pass**
 
 ```bash
 pnpm test
 ```
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add -A
@@ -1519,7 +1519,7 @@ git commit -m "feat: add content helpers with tests"
 - Create: `src/content/writing/_fixture.mdx` (fixture only)
 - Create: `tests/mdx.test.ts`
 
-- [ ] **Step 1: Create fixture post**
+- [x] **Step 1: Create fixture post**
 
 `src/content/writing/_fixture.mdx`:
 
@@ -1539,7 +1539,7 @@ Content body.
 Second paragraph with **bold** text.
 ```
 
-- [ ] **Step 2: Write failing tests**
+- [x] **Step 2: Write failing tests**
 
 `tests/mdx.test.ts`:
 
@@ -1576,13 +1576,13 @@ describe("writing loader", () => {
 });
 ```
 
-- [ ] **Step 3: Run — expect fail**
+- [x] **Step 3: Run — expect fail**
 
 ```bash
 pnpm test
 ```
 
-- [ ] **Step 4: Implement `src/lib/mdx.ts`**
+- [x] **Step 4: Implement `src/lib/mdx.ts`**
 
 ```ts
 import fs from "node:fs";
@@ -1645,13 +1645,13 @@ export function getPublishedWritingMeta(): WritingMeta[] {
 }
 ```
 
-- [ ] **Step 5: Run — expect pass**
+- [x] **Step 5: Run — expect pass**
 
 ```bash
 pnpm test
 ```
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add -A
