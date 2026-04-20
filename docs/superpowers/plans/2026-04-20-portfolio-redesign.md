@@ -646,7 +646,7 @@ git commit -m "feat: port Button primitive and cn() from projects-web"
 **Files:**
 - Create: `src/content/types.ts`
 
-- [ ] **Step 1: Write `src/content/types.ts`**
+- [x] **Step 1: Write `src/content/types.ts`**
 
 ```ts
 export type Bio = {
@@ -744,7 +744,7 @@ export type WritingMeta = {
 };
 ```
 
-- [ ] **Step 2: Verify TypeScript compiles**
+- [x] **Step 2: Verify TypeScript compiles**
 
 ```bash
 pnpm exec tsc --noEmit
@@ -752,7 +752,7 @@ pnpm exec tsc --noEmit
 
 Expected: no errors.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A
@@ -766,7 +766,7 @@ git commit -m "feat: define content model types"
 **Files:**
 - Create: `src/content/bio.ts`
 
-- [ ] **Step 1: Write `src/content/bio.ts`**
+- [x] **Step 1: Write `src/content/bio.ts`**
 
 Content drawn from `docs/content-source/linkedin-2026-04.md`.
 
@@ -804,13 +804,13 @@ export const bio: Bio = {
 };
 ```
 
-- [ ] **Step 2: Typecheck**
+- [x] **Step 2: Typecheck**
 
 ```bash
 pnpm exec tsc --noEmit
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A
@@ -824,7 +824,7 @@ git commit -m "feat: add bio content module"
 **Files:**
 - Create: `src/content/experiences.ts`
 
-- [ ] **Step 1: Write `src/content/experiences.ts`**
+- [x] **Step 1: Write `src/content/experiences.ts`**
 
 Content sourced from `docs/content-source/linkedin-2026-04.md` → Experience section. Order = newest first.
 
@@ -1034,13 +1034,13 @@ export const experiences: Experience[] = [
 ];
 ```
 
-- [ ] **Step 2: Typecheck**
+- [x] **Step 2: Typecheck**
 
 ```bash
 pnpm exec tsc --noEmit
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A
@@ -1056,7 +1056,7 @@ git commit -m "feat: add experiences content module (11 entries from LinkedIn 20
 - Create: `src/content/certifications.ts`
 - Create: `src/content/testimonials.ts`
 
-- [ ] **Step 1: Write `src/content/education.ts`**
+- [x] **Step 1: Write `src/content/education.ts`**
 
 ```ts
 import type { Education } from "./types";
@@ -1139,7 +1139,7 @@ export const education: Education[] = [
 ];
 ```
 
-- [ ] **Step 2: Write `src/content/certifications.ts`**
+- [x] **Step 2: Write `src/content/certifications.ts`**
 
 ```ts
 import type { Certification } from "./types";
@@ -1207,7 +1207,7 @@ export const certifications: Certification[] = [
 ];
 ```
 
-- [ ] **Step 3: Write `src/content/testimonials.ts`**
+- [x] **Step 3: Write `src/content/testimonials.ts`**
 
 ```ts
 import type { Testimonial } from "./types";
@@ -1225,13 +1225,13 @@ export const testimonials: Testimonial[] = [
 ];
 ```
 
-- [ ] **Step 4: Typecheck**
+- [x] **Step 4: Typecheck**
 
 ```bash
 pnpm exec tsc --noEmit
 ```
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add -A
@@ -1245,7 +1245,7 @@ git commit -m "feat: add education, certifications, and testimonials content mod
 **Files:**
 - Create: `src/content/projects.ts`
 
-- [ ] **Step 1: Write `src/content/projects.ts`**
+- [x] **Step 1: Write `src/content/projects.ts`**
 
 ```ts
 import type { Project } from "./types";
@@ -1318,13 +1318,13 @@ export const projects: Project[] = [
 ];
 ```
 
-- [ ] **Step 2: Typecheck**
+- [x] **Step 2: Typecheck**
 
 ```bash
 pnpm exec tsc --noEmit
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A
