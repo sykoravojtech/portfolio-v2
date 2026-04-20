@@ -1,0 +1,78 @@
+import type { Education } from "./types";
+
+export const education: Education[] = [
+  {
+    id: "tuebingen",
+    school: "University of Tübingen",
+    degree: "Master's degree",
+    field: "Machine Learning",
+    start: "2023-09",
+    end: "2025-09",
+    dateDisplay: "Sep 2023 — Sep 2025",
+    location: "Tübingen, Germany",
+    logo: "/images/education/uni-tue-logo.jpeg",
+    link: "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/machine-learning-master/",
+    description: [
+      "Full scholarship from the DAAD German Academic Exchange Service for the whole 2-year program.",
+      "Focused on Deep Learning, Computer Vision, and Entrepreneurship.",
+      "Thesis: Multi-modal Deep Learning for Automated Schematic Analysis.",
+    ],
+    skills: ["Python", "AI", "ML", "Deep Learning", "Computer Vision"],
+    thesis:
+      "Multi-modal Deep Learning for Automated Schematic Analysis (FZI Research Center)",
+  },
+  {
+    id: "ctu",
+    school: "Czech Technical University in Prague",
+    degree: "Bachelor's degree",
+    field: "Open Informatics (specialization Artificial Intelligence)",
+    start: "2020-09",
+    end: "2023-06",
+    dateDisplay: "Sep 2020 — Jun 2023",
+    location: "Prague, Czechia",
+    logo: "/images/education/ctu-logo-small.png",
+    link: "https://fel.cvut.cz/en/study-programs/oi-open-informatics",
+    description: [
+      "Computer Science studies with a focus on Artificial Intelligence.",
+      "Thesis: Proximal Policy Optimization for Car Racing with unpredictable Wind.",
+      "Data Structures & Algorithms, C/C++, Java, Python, Parallel Computing.",
+    ],
+    skills: ["Python", "C++", "AI", "C"],
+    thesis:
+      "Proximal Policy Optimization for Car Racing with unpredictable Wind",
+  },
+  {
+    id: "prgai",
+    school: "prg.ai Minor",
+    degree: "Artificial Intelligence",
+    start: "2021-09",
+    end: "2023-06",
+    dateDisplay: "2021 — 2023",
+    location: "Prague, Czechia",
+    logo: "/images/education/prgai.webp",
+    link: "https://prg.ai/en/minor/",
+    description: [
+      "Interdisciplinary AI curriculum bringing together students, teachers, and researchers from prestigious Prague universities.",
+    ],
+    skills: ["Neural Networks"],
+  },
+  {
+    id: "porg",
+    school: "PORG",
+    degree: "International Baccalaureate — Diploma Programme",
+    field: "Mathematics",
+    start: "2018-09",
+    end: "2020-06",
+    dateDisplay: "2018 — 2020",
+    location: "Prague, Czechia",
+    logo: "/images/education/porg.jpeg",
+    link: "https://www.porg.cz/en/",
+    description: [
+      "Higher Level — Mathematics, Physics, Economics.",
+      "Standard Level — English, Czech, German.",
+      "Extended Essay — Mathematics (Quaternions).",
+    ],
+    skills: [],
+    grade: "39/45",
+  },
+];
