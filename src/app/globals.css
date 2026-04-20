@@ -1,1 +1,174 @@
 @import "tailwindcss";
+
+:root {
+  /* Dark layer: nav, hero, footer */
+  --green: #123624;
+  --green-dark: #133834;
+  --green-mid: #5C8B73;
+  --bordeaux: #4A1A23;
+  --cedar: #8C603E;
+  --bone: #D8D0C2;
+
+  /* Light layer: content */
+  --bg: #EDE8DF;
+  --bg2: #F2EDE4;
+  --bg3: #D8D0C2;
+
+  /* Text on light */
+  --text: #123624;
+  --text-muted: #5a5248;
+  --text-dim: rgba(0, 0, 0, 0.05);
+
+  /* Borders */
+  --border: #d0c8be;
+  --radius: 12px;
+
+  /* Legacy aliases (safety net for un-migrated references) */
+  --phthalo: var(--green);
+  --jungle: var(--green-dark);
+  --surface: var(--green-dark);
+  --wintergreen: var(--green-mid);
+  --white: var(--bg2);
+  --black: var(--text);
+  --gold: var(--cedar);
+  --umber: var(--bordeaux);
+  --muted: var(--text-muted);
+  --dim: var(--text-dim);
+  --card-bg: var(--bg2);
+  --card-border: var(--border);
+}
+
+@theme inline {
+  /* Light layer */
+  --color-bg: var(--bg);
+  --color-bg2: var(--bg2);
+  --color-bg3: var(--bg3);
+  --color-ink: var(--text);
+  --color-muted: var(--text-muted);
+  --color-border: var(--border);
+
+  /* Dark layer */
+  --color-green: var(--green);
+  --color-green-dark: var(--green-dark);
+  --color-green-mid: var(--green-mid);
+  --color-bordeaux: var(--bordeaux);
+  --color-cedar: var(--cedar);
+  --color-bone: var(--bone);
+
+  /* Legacy color utilities (kept for existing class names) */
+  --color-phthalo: var(--green);
+  --color-jungle: var(--green-dark);
+  --color-surface: var(--green-dark);
+  --color-wintergreen: var(--green-mid);
+  --color-white: var(--bg2);
+  --color-black: var(--text);
+  --color-gold: var(--cedar);
+  --color-umber: var(--bordeaux);
+  --color-card-bg: var(--bg2);
+  --color-card-border: var(--border);
+
+  --font-sans: var(--font-dm-sans);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-muted);
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+::selection {
+  background: var(--bordeaux);
+  color: var(--bone);
+}
+
+/* Markdown body for showcase project pages */
+.prose-showcase {
+  font-size: 14px;
+  line-height: 1.7;
+}
+.prose-showcase h1,
+.prose-showcase h2,
+.prose-showcase h3,
+.prose-showcase h4 {
+  color: var(--text);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  line-height: 1.2;
+}
+.prose-showcase h1 { font-size: 1.85rem; }
+.prose-showcase h2 { font-size: 1.4rem; }
+.prose-showcase h3 { font-size: 1.15rem; }
+.prose-showcase h4 { font-size: 1rem; }
+.prose-showcase p { margin: 0.9em 0; }
+.prose-showcase strong { color: var(--text); font-weight: 600; }
+.prose-showcase em { font-style: italic; }
+.prose-showcase a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-showcase a:hover { color: var(--bordeaux); }
+.prose-showcase ul,
+.prose-showcase ol { padding-left: 1.4em; margin: 0.9em 0; }
+.prose-showcase ul { list-style: disc; }
+.prose-showcase ol { list-style: decimal; }
+.prose-showcase li { margin: 0.3em 0; }
+.prose-showcase code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: var(--bg3);
+  color: var(--text);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
+.prose-showcase pre {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 1em;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin: 1.2em 0;
+}
+.prose-showcase pre code {
+  background: transparent;
+  padding: 0;
+  font-size: 0.85em;
+}
+.prose-showcase img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin: 1.4em auto;
+  display: block;
+  background: var(--bg2);
+}
+.prose-showcase blockquote {
+  border-left: 3px solid var(--cedar);
+  padding-left: 1em;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 1em 0;
+}
+.prose-showcase hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+.prose-showcase table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2em 0;
+  font-size: 0.95em;
+}
+.prose-showcase th,
+.prose-showcase td {
+  border: 1px solid var(--border);
+  padding: 0.5em 0.8em;
+  text-align: left;
+}
+.prose-showcase th { background: var(--bg3); color: var(--text); font-weight: 600; }
