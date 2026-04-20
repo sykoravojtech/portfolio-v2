@@ -1667,7 +1667,7 @@ git commit -m "feat: MDX frontmatter loader with reading-time estimate (TDD)"
 **Files:**
 - Create: `src/components/nav.tsx`
 
-- [ ] **Step 1: Write the component**
+- [x] **Step 1: Write the component**
 
 ```tsx
 "use client";
@@ -1729,7 +1729,7 @@ export function Nav() {
 
 > **Note:** If `next/navigation` → `usePathname` has shifted in Next 16, check `node_modules/next/dist/docs/` (App Router client APIs). The `"use client"` directive is required because `usePathname` is a client hook.
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A
@@ -1743,7 +1743,7 @@ git commit -m "feat: Nav component with active-link detection"
 **Files:**
 - Create: `src/components/footer.tsx`
 
-- [ ] **Step 1: Write the component**
+- [x] **Step 1: Write the component**
 
 ```tsx
 import Link from "next/link";
@@ -1774,7 +1774,7 @@ export function Footer() {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A
@@ -1788,7 +1788,7 @@ git commit -m "feat: Footer component"
 **Files:**
 - Modify: `src/app/layout.tsx`
 
-- [ ] **Step 1: Update `src/app/layout.tsx`**
+- [x] **Step 1: Update `src/app/layout.tsx`**
 
 Replace the body of the existing layout with:
 
@@ -1830,7 +1830,7 @@ export default function RootLayout({
 }
 ```
 
-- [ ] **Step 2: Build + dev check**
+- [x] **Step 2: Build + dev check**
 
 ```bash
 pnpm build && pnpm dev
@@ -1838,7 +1838,7 @@ pnpm build && pnpm dev
 
 Visit http://localhost:3200 — expect nav (dark), stub page, footer (bone bg). Stop server.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A
