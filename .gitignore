@@ -1,1 +1,28 @@
+# Next.js
+/.next/
+/out/
+/build/
+
+# Node
+/node_modules/
+.pnpm-store/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# System
+.DS_Store
+Thumbs.db
+
+# Vitest
+/coverage/
+
+# Superpowers brainstorm artifacts (already present)
 .superpowers/
