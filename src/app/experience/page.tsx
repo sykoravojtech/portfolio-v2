@@ -1,0 +1,42 @@
+import Link from "next/link";
+import { bio } from "@/content/bio";
+import { getLatestExperiences } from "@/lib/content";
+import { Hero } from "@/components/hero";
+import { SectionHeader } from "@/components/section-header";
+import { ExperienceItem } from "@/components/experience-item";
+import { Button } from "@/components/ui/button";
+
+export default function ExperiencePage() {
+  const items = getLatestExperiences();
+
+  return (
+    <>
+      <Hero
+        compact
+        kicker="Experience"
+        headline={
+          <>
+            The <em className="font-light italic text-green-mid">full</em> timeline.
+          </>
+        }
+        tagline="Every role, every stack — newest first."
+      />
+      <div className="max-w-[900px] mx-auto px-6 py-12 space-y-10">
+        <section>
+          {items.map((e) => (
+            <ExperienceItem key={e.id} item={e} />
+          ))}
+        </section>
+        <section className="bg-bg2 border border-border rounded-xl p-6">
+          <SectionHeader kicker="What I'm looking for" title="Teams, problems, technologies" />
+          <p className="text-[13px] text-muted leading-relaxed mb-4">
+            I'm most energized when engineering meets product: shipping AI-powered tools that real people use, with a small team that ships fast and cares about craft. Open to senior engineering and AI-focused founding roles.
+          </p>
+          <Button asChild>
+            <Link href={`mailto:${bio.email}`}>Get in touch</Link>
+          </Button>
+        </section>
+      </div>
+    </>
+  );
+}
