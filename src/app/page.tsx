@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-bg text-muted p-12">
@@ -17,6 +19,13 @@ export default function Home() {
         <div className="h-8 w-8 rounded bg-bone" />
         <div className="h-8 w-8 rounded bg-bg2 border border-border" />
         <div className="h-8 w-8 rounded bg-bg3" />
+      </div>
+      <div className="mt-6 flex gap-3">
+        <Button>Default (bordeaux)</Button>
+        <Button variant="outline">Outline</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="ghost">Ghost</Button>
+        <Button variant="link">Link</Button>
       </div>
     </main>
   );
