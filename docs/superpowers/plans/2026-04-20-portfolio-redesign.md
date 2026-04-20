@@ -126,7 +126,7 @@ Each milestone ends with the site still buildable (`pnpm build`) and commits eve
 - Modify: `.gitignore`
 - Create: `README.md`
 
-- [ ] **Step 1: Create `public/` and move assets**
+- [x] **Step 1: Create `public/` and move assets**
 
 ```bash
 cd /home/vojta/Documents/projects/portfolio-v2
@@ -137,7 +137,7 @@ git rm index.html
 touch public/.gitkeep
 ```
 
-- [ ] **Step 2: Extend `.gitignore`**
+- [x] **Step 2: Extend `.gitignore`**
 
 Append to `.gitignore`:
 ```
@@ -171,7 +171,7 @@ Thumbs.db
 .superpowers/
 ```
 
-- [ ] **Step 3: Create `README.md`**
+- [x] **Step 3: Create `README.md`**
 
 ```markdown
 # portfolio-v2
@@ -201,7 +201,7 @@ Structured content lives in `src/content/*.ts`. Blog posts in `src/content/writi
 Source of truth for v1 migration: `docs/content-source/linkedin-2026-04.md`.
 ```
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add -A
