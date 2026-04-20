@@ -2283,7 +2283,7 @@ git commit -m "feat: CertificationCard, ProjectCard, WritingRow, Testimonial, He
 **Files:**
 - Modify: `src/app/page.tsx`
 
-- [ ] **Step 1: Replace home page**
+- [x] **Step 1: Replace home page**
 
 ```tsx
 import Link from "next/link";
@@ -2428,7 +2428,7 @@ export default function Home() {
 }
 ```
 
-- [ ] **Step 2: Build check**
+- [x] **Step 2: Build check**
 
 ```bash
 pnpm build
@@ -2436,7 +2436,7 @@ pnpm build
 
 Expected: succeeds (images may warn about missing files — that's fine until M9). If the build hard-fails due to missing images, add `missingImagesAllowed: true` logic or temporarily comment-out the `logo` prop for experiences.
 
-- [ ] **Step 3: Dev check**
+- [x] **Step 3: Dev check**
 
 ```bash
 pnpm dev
@@ -2444,7 +2444,7 @@ pnpm dev
 
 Visit http://localhost:3200. Expect full hybrid home page. Stop server.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add -A
@@ -2458,7 +2458,7 @@ git commit -m "feat: home page with hero + 6 teaser sections"
 **Files:**
 - Create: `src/app/about/page.tsx`
 
-- [ ] **Step 1: Write page**
+- [x] **Step 1: Write page**
 
 ```tsx
 import Image from "next/image";
@@ -2532,7 +2532,7 @@ export default function AboutPage() {
 }
 ```
 
-- [ ] **Step 2: Build + dev check**
+- [x] **Step 2: Build + dev check**
 
 ```bash
 pnpm build && pnpm dev
@@ -2540,7 +2540,7 @@ pnpm build && pnpm dev
 
 Visit http://localhost:3200/about. Stop server.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A
@@ -2554,7 +2554,7 @@ git commit -m "feat: /about page (bio, languages, testimonial, personal flavor)"
 **Files:**
 - Create: `src/app/experience/page.tsx`
 
-- [ ] **Step 1: Write page**
+- [x] **Step 1: Write page**
 
 ```tsx
 import Link from "next/link";
@@ -2601,7 +2601,7 @@ export default function ExperiencePage() {
 }
 ```
 
-- [ ] **Step 2: Build + dev check**
+- [x] **Step 2: Build + dev check**
 
 ```bash
 pnpm build && pnpm dev
@@ -2609,7 +2609,7 @@ pnpm build && pnpm dev
 
 Visit http://localhost:3200/experience. Stop server.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A
@@ -2623,7 +2623,7 @@ git commit -m "feat: /experience page"
 **Files:**
 - Create: `src/app/education/page.tsx`
 
-- [ ] **Step 1: Write page**
+- [x] **Step 1: Write page**
 
 ```tsx
 import { education } from "@/content/education";
@@ -2676,9 +2676,9 @@ export default function EducationPage() {
 }
 ```
 
-- [ ] **Step 2: Build + dev check**
+- [x] **Step 2: Build + dev check**
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A
@@ -2692,7 +2692,7 @@ git commit -m "feat: /education page (degrees + certifications + DAAD honor)"
 **Files:**
 - Create: `src/app/projects/page.tsx`
 
-- [ ] **Step 1: Write page**
+- [x] **Step 1: Write page**
 
 ```tsx
 import { projects } from "@/content/projects";
@@ -2726,9 +2726,9 @@ export default function ProjectsPage() {
 }
 ```
 
-- [ ] **Step 2: Build + dev check**
+- [x] **Step 2: Build + dev check**
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A
