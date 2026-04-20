@@ -1,32 +1,140 @@
+import Link from "next/link";
+import { bio } from "@/content/bio";
+import { Hero } from "@/components/hero";
 import { Button } from "@/components/ui/button";
+import { SectionHeader } from "@/components/section-header";
+import { ExperienceItem } from "@/components/experience-item";
+import { EducationItem } from "@/components/education-item";
+import { ProjectCard } from "@/components/project-card";
+import { WritingRow } from "@/components/writing-row";
+import {
+  getLatestExperiences,
+  getLatestEducation,
+  getFeaturedProjects,
+} from "@/lib/content";
+import { getPublishedWritingMeta } from "@/lib/mdx";
 
 export default function Home() {
+  const experiences = getLatestExperiences(3);
+  const education = getLatestEducation(2);
+  const featured = getFeaturedProjects().slice(0, 3);
+  const posts = getPublishedWritingMeta().slice(0, 3);
+
   return (
-    <main className="min-h-screen bg-bg text-muted p-12">
-      <h1 className="text-ink text-4xl font-black tracking-tight">
-        Vojtěch Sýkora
-      </h1>
-      <p className="mt-4">
-        Phthalo Cream is wired. <span className="text-bordeaux font-bold">CTA color</span>.
-        <span className="text-green-mid"> Link color</span>.
-      </p>
-      <div className="mt-6 flex gap-3">
-        <div className="h-8 w-8 rounded bg-green" />
-        <div className="h-8 w-8 rounded bg-green-dark" />
-        <div className="h-8 w-8 rounded bg-green-mid" />
-        <div className="h-8 w-8 rounded bg-bordeaux" />
-        <div className="h-8 w-8 rounded bg-cedar" />
-        <div className="h-8 w-8 rounded bg-bone" />
-        <div className="h-8 w-8 rounded bg-bg2 border border-border" />
-        <div className="h-8 w-8 rounded bg-bg3" />
+    <>
+      <Hero
+        kicker={`${bio.location} · ${bio.role}`}
+        headline={
+          <>
+            I <em className="font-light italic text-green-mid">build</em> tools I wish existed.
+          </>
+        }
+        tagline={bio.description.split(". ").slice(0, 2).join(". ") + "."}
+        ctas={
+          <>
+            <Button asChild>
+              <a href={`mailto:${bio.email}`}>Get in touch</a>
+            </Button>
+            <Button asChild variant="outline" className="bg-transparent border-green-mid text-green-mid hover:bg-green-mid/10">
+              <Link href="/VojtechSykora_CV_2026.pdf" target="_blank">Download CV ↓</Link>
+            </Button>
+          </>
+        }
+      />
+
+      <div className="max-w-[1120px] mx-auto px-6 py-12 space-y-14">
+        {/* About teaser */}
+        <section>
+          <SectionHeader kicker="About · teaser" />
+          <p className="text-[14px] text-muted leading-relaxed max-w-2xl">
+            {bio.description.split(". ").slice(0, 2).join(". ")}.
+          </p>
+          <Link href="/about" className="inline-block mt-3 text-green-mid font-bold text-[12px]">
+            Read more →
+          </Link>
+        </section>
+
+        {/* Experience teaser */}
+        <section>
+          <SectionHeader kicker="Experience · latest three" />
+          <div>
+            {experiences.map((e) => (
+              <ExperienceItem key={e.id} item={e} showSkills={false} />
+            ))}
+          </div>
+          <Link href="/experience" className="inline-block mt-4 text-green-mid font-bold text-[12px]">
+            Full timeline →
+          </Link>
+        </section>
+
+        {/* Education teaser */}
+        <section>
+          <SectionHeader kicker="Education · latest two" />
+          <div>
+            {education.map((e) => (
+              <EducationItem key={e.id} item={e} />
+            ))}
+          </div>
+          <Link href="/education" className="inline-block mt-4 text-green-mid font-bold text-[12px]">
+            All education →
+          </Link>
+        </section>
+
+        {/* Featured projects */}
+        <section>
+          <SectionHeader kicker="Featured projects" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {featured.map((p) => (
+              <ProjectCard key={p.id} item={p} />
+            ))}
+          </div>
+          <Link href="/projects" className="inline-block mt-4 text-green-mid font-bold text-[12px]">
+            All projects →
+          </Link>
+        </section>
+
+        {/* Languages & tech stack */}
+        <section>
+          <SectionHeader kicker="Languages & stack" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-ink mb-2">Languages</div>
+              <ul className="text-[12px] text-muted space-y-1">
+                {bio.spokenLanguages.map((l) => (
+                  <li key={l.name}>
+                    <span className="font-semibold text-ink">{l.name}</span> · {l.proficiency}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-ink mb-2">Tech I reach for</div>
+              <div className="flex flex-wrap gap-1.5">
+                {bio.techStack.map((t) => (
+                  <span key={t} className="text-[11px] px-2 py-0.5 rounded bg-bg3 text-ink border border-border">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Latest writing (hide when empty) */}
+        {posts.length > 0 && (
+          <section>
+            <SectionHeader kicker="Latest writing" />
+            <div>
+              {posts.map((p) => (
+                <WritingRow key={p.slug} meta={p} />
+              ))}
+            </div>
+            <Link href="/writing" className="inline-block mt-4 text-green-mid font-bold text-[12px]">
+              All posts →
+            </Link>
+          </section>
+        )}
       </div>
-      <div className="mt-6 flex gap-3">
-        <Button>Default (bordeaux)</Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="ghost">Ghost</Button>
-        <Button variant="link">Link</Button>
-      </div>
-    </main>
+    </>
   );
 }
