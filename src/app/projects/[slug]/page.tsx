@@ -19,6 +19,7 @@ export default async function ProjectDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  // Card-only projects (hasDetail: false) have no detail page; they 404 here.
   const project = projects.find((p) => p.slug === slug && p.hasDetail);
   if (!project) notFound();
 
@@ -39,13 +40,11 @@ export default async function ProjectDetailPage({
           {project.description}
         </p>
 
-        {project.tags.length > 0 && (
-          <div className="flex gap-1.5 flex-wrap mt-4">
-            {project.tags.map((t) => (
-              <TagPill key={t}>{t}</TagPill>
-            ))}
-          </div>
-        )}
+        <div className="flex gap-1.5 flex-wrap mt-4">
+          {project.tags.map((t) => (
+            <TagPill key={t}>{t}</TagPill>
+          ))}
+        </div>
 
         {project.techStack && project.techStack.length > 0 && (
           <div className="flex gap-1.5 flex-wrap mt-3">
@@ -108,7 +107,7 @@ function LinkButton({
     <a
       href={href}
       target="_blank"
-      rel="noreferrer noopener"
+      rel="noreferrer"
       className="inline-flex items-center gap-1.5 text-xs font-medium text-bone bg-bordeaux px-3 py-1.5 rounded-md hover:opacity-90 transition-opacity"
     >
       {icon}
