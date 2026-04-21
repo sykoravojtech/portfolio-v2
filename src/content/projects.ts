@@ -51,7 +51,7 @@ export const projects: Project[] = [
     github: "https://github.com/sykoravojtech/od-symbol",
     paper:
       "https://github.com/sykoravojtech/od-symbol/blob/main/assets/VojtechSykora_MasterThesis.pdf",
-    // heroImage set in a later task (requires fetching from the od-symbol repo)
+    heroImage: "/images/projects/multimodal-schematic-analysis.png",
     hasDetail: true,
     featured: true,
   },
