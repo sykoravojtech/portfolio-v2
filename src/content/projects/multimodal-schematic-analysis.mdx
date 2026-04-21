@@ -1,0 +1,21 @@
+## What it does
+
+Object detection for electrical schematics — given an image of a circuit diagram, find every symbol and box it. The research question: can a carefully modified specialist detector beat a pretrained vision-language model at this task?
+
+## The problem
+
+Two issues dominate automated schematic analysis. **Severe class imbalance** (some symbols appear thousands of times more often than others) and a **scarcity of good training data**, which forces a large domain shift between messy handwritten schematics and clean computer-generated ones.
+
+## Contributions
+
+- **A new dataset.** The **Raspberry Pi (RPi) dataset**: 22 high-resolution CAD schematics, 1,675 annotated symbols. Designed to test cross-domain adaptation from the hand-drawn CGHD dataset (3,137 images, ~246k annotations).
+- **A tuned Faster R-CNN.** Enhanced the detector from the Modular Graph Extraction pipeline with Focal + GIoU losses, architectural changes, hyperparameter tuning, and targeted image transformations. Lift over a strong baseline: **+7.3% mAP on CGHD**, **+3.7% on the RPi dataset**.
+- **A VLM comparison.** Benchmarked Molmo-7B-D, a pretrained VLM, on the same object detection task. Result: **17.5% accuracy vs. Faster R-CNN's 32.0%** — a carefully modified specialist still beats a general-purpose VLM for symbol detection. The VLM shows basic task understanding but isn't close.
+
+## Why it matters
+
+Releasing the RPi dataset gives the community a clean-schematic benchmark for cross-domain work, and the Focal + GIoU + tuning recipe is a drop-in lift for anyone using the MGE pipeline on similar data.
+
+---
+
+*Master's thesis, University of Tübingen, submitted July 2025. Supervisors: Prof. Dr. Oliver Bringmann (Tübingen), Prof. Dr.-Ing. Cristóbal Curio (Reutlingen). Graduate Advisor: M.Sc. Tobias Hald (FZI Forschungszentrum Informatik).*
