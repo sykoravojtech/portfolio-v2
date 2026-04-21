@@ -65,7 +65,6 @@ export type Testimonial = {
   author: string;
   authorRole: string;
   excerpt: string;
-  fullText?: string;
 };
 
 export type Project = {
