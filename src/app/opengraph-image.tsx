@@ -53,7 +53,7 @@ export default function OpengraphImage() {
             display: "flex",
           }}
         >
-          I build tools I wish existed.
+          I build products I wish existed.
         </div>
       </div>
     ),
