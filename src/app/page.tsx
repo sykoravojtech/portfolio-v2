@@ -2,6 +2,7 @@ import Link from "next/link";
 import { bio } from "@/content/bio";
 import { Hero } from "@/components/hero";
 import { Button } from "@/components/ui/button";
+import { ContactMenu } from "@/components/contact-menu";
 import { SectionHeader } from "@/components/section-header";
 import { ExperienceItem } from "@/components/experience-item";
 import { EducationItem } from "@/components/education-item";
@@ -24,17 +25,17 @@ export default function Home() {
     <>
       <Hero
         kicker={`${bio.location} · ${bio.role}`}
-        headline={
+        headline={bio.name}
+        tagline={
           <>
             I <em className="font-light italic text-green-mid">build</em> tools I wish existed.
           </>
         }
-        tagline={bio.description.split(". ").slice(0, 2).join(". ") + "."}
         ctas={
           <>
-            <Button asChild>
-              <a href={`mailto:${bio.email}`}>Get in touch</a>
-            </Button>
+            <ContactMenu>
+              <Button>Get in touch</Button>
+            </ContactMenu>
             <Button asChild variant="outline" className="bg-transparent border-green-mid text-green-mid hover:bg-green-mid/10">
               <Link href="/VojtechSykora_CV_2026.pdf" target="_blank">Download CV ↓</Link>
             </Button>

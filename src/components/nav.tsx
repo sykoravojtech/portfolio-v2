@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { ContactMenu } from "./contact-menu";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -41,12 +42,14 @@ export function Nav() {
             </li>
           ))}
           <li>
-            <a
-              href="mailto:sykoravojtech01@gmail.com"
-              className="inline-flex items-center rounded-md bg-bordeaux text-bone px-3 py-1.5 text-[12px] font-semibold hover:bg-[#5E2230] transition-colors"
-            >
-              Contact
-            </a>
+            <ContactMenu align="end">
+              <button
+                type="button"
+                className="inline-flex items-center rounded-md bg-bordeaux text-bone px-3 py-1.5 text-[12px] font-semibold hover:bg-[#5E2230] transition-colors"
+              >
+                Contact
+              </button>
+            </ContactMenu>
           </li>
         </ul>
       </nav>

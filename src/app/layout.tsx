@@ -1,8 +1,8 @@
+import { Footer } from "@/components/footer";
+import { Nav } from "@/components/nav";
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
-import { Nav } from "@/components/nav";
-import { Footer } from "@/components/footer";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -12,7 +12,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Vojtěch Sýkora — AI Engineer & Product Builder",
+  title: "Vojtěch Sýkora",
   description:
     "AI Engineer & Product Builder in Prague. Building AI products at Miton VC.",
   metadataBase: new URL("https://vojtechsykora.com"),

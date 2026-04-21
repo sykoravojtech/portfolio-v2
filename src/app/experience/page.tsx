@@ -1,10 +1,9 @@
-import Link from "next/link";
-import { bio } from "@/content/bio";
 import { getLatestExperiences } from "@/lib/content";
 import { Hero } from "@/components/hero";
 import { SectionHeader } from "@/components/section-header";
 import { ExperienceItem } from "@/components/experience-item";
 import { Button } from "@/components/ui/button";
+import { ContactMenu } from "@/components/contact-menu";
 
 export default function ExperiencePage() {
   const items = getLatestExperiences();
@@ -32,9 +31,9 @@ export default function ExperiencePage() {
           <p className="text-[13px] text-muted leading-relaxed mb-4">
             I'm most energized when engineering meets product: shipping AI-powered tools that real people use, with a small team that ships fast and cares about craft. Open to senior engineering and AI-focused founding roles.
           </p>
-          <Button asChild>
-            <Link href={`mailto:${bio.email}`}>Get in touch</Link>
-          </Button>
+          <ContactMenu>
+            <Button>Get in touch</Button>
+          </ContactMenu>
         </section>
       </div>
     </>

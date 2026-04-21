@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { bio } from "@/content/bio";
+import { EmailCopy } from "./email-copy";
 
 export function Footer() {
   return (
@@ -13,9 +14,7 @@ export function Footer() {
           <a href={bio.linkedin} className="text-bordeaux font-semibold hover:underline" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
-          <a href={`mailto:${bio.email}`} className="text-bordeaux font-semibold hover:underline">
-            Email
-          </a>
+          <EmailCopy className="text-bordeaux font-semibold hover:underline cursor-pointer" />
           <Link href="/VojtechSykora_CV_2026.pdf" className="text-bordeaux font-semibold hover:underline" target="_blank">
             CV ↓
           </Link>
