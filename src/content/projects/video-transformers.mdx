@@ -1,0 +1,22 @@
+## What it does
+
+Given a video clip, the system tags what's happening (action classification) and writes a short caption describing the scene. Trained on **Charades**, a dataset of everyday household activities filmed from multiple angles.
+
+## The experiment
+
+Two very different video backbones are compared under identical training conditions:
+
+- **SVT**: Self-supervised Video Transformer, a standard attention-based architecture.
+- **Video Mamba**: a newer state-space model that scales linearly with video length.
+
+Both encoders are frozen. Only a lightweight task head is trained on top, which makes the comparison cheap and keeps the study focused on how much useful signal lives in each pretrained representation.
+
+![architecture](https://raw.githubusercontent.com/sykoravojtech/VideoMamba_SVT_VideoUnderstanding/main/assets/class_diagram.jpg)
+
+## Result
+
+Video Mamba wins, reaching **22.7% mAP** on Charades classification versus **16.5% mAP** for SVT under the same head-only protocol. Both backbones are then extended to a GPT-2 captioning head for natural-language video descriptions.
+
+![sample clip](https://raw.githubusercontent.com/sykoravojtech/VideoMamba_SVT_VideoUnderstanding/main/assets/sample_ufc101.gif)
+
+Master's group project at the University of Tübingen. Code, checkpoints and the technical report are on GitHub.

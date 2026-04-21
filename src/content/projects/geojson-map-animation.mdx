@@ -1,0 +1,21 @@
+## What it shows
+
+An interactive animated choropleth of **Czech citizen migration** between ORP (municipal) districts from 2015 through 2020, based on official government microdata.
+
+![ORP animation](https://raw.githubusercontent.com/sykoravojtech/geojson-map-animation/main/orp.gif)
+
+## How it's built
+
+Three tools, one Jupyter notebook:
+
+- **`geopandas`** loads the ORP boundary GeoJSON and joins it to the migration table.
+- **`numpy`** aggregates annual net-migration counts per district.
+- **`plotly.express`** renders the animated choropleth with a year slider and a continuous diverging colour scale.
+
+## What it reveals
+
+- Consistent **in-migration to Prague and Brno** year over year.
+- **Out-migration from peripheral districts**, especially in northern Bohemia and border regions.
+- The animation makes these patterns visible at a glance in a way that static maps can't.
+
+Built for Charles University coursework.

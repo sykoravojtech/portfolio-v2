@@ -1,0 +1,22 @@
+## The question
+
+Germany has persistently higher ischemic heart disease (IHD) mortality than most other developed countries. Using 1990 to 2019 WHO and OECD data, this project asks: which lifestyle and policy factors actually drive the gap?
+
+![CVD rate over time](https://raw.githubusercontent.com/sykoravojtech/IHD_germany_2024/main/doc/IHD_germany_2024/fig/fig_cardiovascular_disease_rate.jpg)
+
+## Method
+
+- **Permutation tests** to check that Germany's elevated IHD rate isn't just noise.
+- **Random Forest regression** predicting IHD mortality from healthcare spend, alcohol consumption, fat consumption and median age.
+- **SHAP values** to explain what the model is actually keying on per country and per age bracket.
+
+![SHAP summary](https://raw.githubusercontent.com/sykoravojtech/IHD_germany_2024/main/doc/IHD_germany_2024/fig/fig_shap_values_summary.jpg)
+
+## Findings
+
+- IHD is the dominant cause of cardiovascular death in Germany across the whole 30-year window.
+- **Median age** and **alcohol consumption** are the two strongest predictors of mortality.
+- **Healthcare expenditure** matters, but with diminishing returns; more spend doesn't linearly translate to lower deaths.
+- **Fat consumption** turns out to be a weak and inconclusive predictor on this data.
+
+Done as part of a Data Literacy course; full report is in the linked PDF.

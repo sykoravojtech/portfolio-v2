@@ -1,0 +1,26 @@
+## What it does
+
+Instance segmentation: for every object in an image, the model outputs both a bounding box and a **pixel-level mask**, the exact shape of the object, not just a rectangle around it.
+
+![prediction](https://raw.githubusercontent.com/sykoravojtech/instance-segmentation-challenge/main/assets/prediction1.png)
+
+## How it's built
+
+- **Mask R-CNN** (ResNet-50 + Feature Pyramid Network) from Facebook's **Detectron2** library: 44M parameters, pretrained on COCO.
+- Custom dataset loaders and augmentation pipeline in `dataset_utils.py`.
+- Training and evaluation notebook in `main.ipynb`; model regressed with Smooth L1 loss on the boxes.
+
+![architecture](https://raw.githubusercontent.com/sykoravojtech/instance-segmentation-challenge/main/assets/rcnn.png)
+
+## Scores
+
+| Metric | Value |
+|---|---|
+| AP (overall) | **46.1** |
+| AP @ IoU=0.5 | 59.9 |
+| AP @ IoU=0.75 | 50.5 |
+| AP large objects | 82.4 |
+| AP medium objects | 46.5 |
+| AP small objects | 10.0 |
+
+Strong on anything big enough to see clearly, weak on tiny objects, which is the classic Mask R-CNN failure mode.
