@@ -14,7 +14,7 @@ export default function ProjectsPage() {
             Things I've <em className="font-light italic text-cedar ml-[-0.02em] mr-[0.1em]">built</em>
           </>
         }
-        tagline="Selected personal and research projects. Live tools at projects.vojtechsykora.com."
+        tagline="Selected personal and research projects."
       />
       <div className="max-w-[1120px] mx-auto px-6 py-12 space-y-6">
         <SectionHeader kicker="All projects" />
