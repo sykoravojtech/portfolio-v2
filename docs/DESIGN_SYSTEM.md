@@ -1,39 +1,39 @@
-# Design System — Phthalo Cream (Hybrid)
+# Design System - Phthalo Cream (Hybrid)
 
 ## Philosophy
-A two-layer design system. **Chrome** (navbar, login hero, footer) sits on a dark phthalo-green identity; **content** (dashboards, admin, forms, long-form reading) sits on a warm cream page. The dark layer carries the brand mark; the light layer carries the work. Bordeaux is the single accent that punches through both layers — the color of every CTA, active state, and destructive pill, so users learn to read it once.
+A two-layer design system. **Chrome** (navbar, login hero, footer) sits on a dark phthalo-green identity; **content** (dashboards, admin, forms, long-form reading) sits on a warm cream page. The dark layer carries the brand mark; the light layer carries the work. Bordeaux is the single accent that punches through both layers - the color of every CTA, active state, and destructive pill, so users learn to read it once.
 
 ## Color Tokens
 
 Declared on `:root` in `apps/web/src/app/globals.css`, exposed as Tailwind utilities via `@theme inline`.
 
-### Dark layer — nav, hero, footer
-- `--green: #123624` — phthalo green. Nav bg, login hero, primary brand color
-- `--green-dark: #133834` — medium jungle. Secondary dark surfaces, dark cards when needed
-- `--green-mid: #5C8B73` — wintergreen dream. Links, icons, secondary text *on dark bg*, outlined button borders
-- `--bordeaux: #4A1A23` — CTAs, tags, badges, active states, filled buttons (both layers)
-- `--cedar: #8C603E` — borders, dividers, section separators, warm icons (usually at alpha, e.g. `cedar/30`)
-- `--bone: #D8D0C2` — body text *on dark bg*, footer background
+### Dark layer - nav, hero, footer
+- `--green: #123624` - phthalo green. Nav bg, login hero, primary brand color
+- `--green-dark: #133834` - medium jungle. Secondary dark surfaces, dark cards when needed
+- `--green-mid: #5C8B73` - wintergreen dream. Links, icons, secondary text *on dark bg*, outlined button borders
+- `--bordeaux: #4A1A23` - CTAs, tags, badges, active states, filled buttons (both layers)
+- `--cedar: #8C603E` - borders, dividers, section separators, warm icons (usually at alpha, e.g. `cedar/30`)
+- `--bone: #D8D0C2` - body text *on dark bg*, footer background
 
-### Light layer — content
-- `--bg: #EDE8DF` — page background, main content sections
-- `--bg2: #F2EDE4` — card surfaces (slightly warmer white)
-- `--bg3: #D8D0C2` — hover states on light, tag pills on light bg (same hex as bone)
+### Light layer - content
+- `--bg: #EDE8DF` - page background, main content sections
+- `--bg2: #F2EDE4` - card surfaces (slightly warmer white)
+- `--bg3: #D8D0C2` - hover states on light, tag pills on light bg (same hex as bone)
 
 ### Text on light bg
-- `--text: #123624` — headings (phthalo doubles as heading color)
-- `--text-muted: #5a5248` — body text, descriptions, labels
-- `--text-dim: rgba(0,0,0,0.05)` — subtle fills
+- `--text: #123624` - headings (phthalo doubles as heading color)
+- `--text-muted: #5a5248` - body text, descriptions, labels
+- `--text-dim: rgba(0,0,0,0.05)` - subtle fills
 
 ### Borders
-- `--border: #d0c8be` — dividers, input borders, card outlines
-- `--radius: 12px` — base corner radius
+- `--border: #d0c8be` - dividers, input borders, card outlines
+- `--radius: 12px` - base corner radius
 
 ### Tailwind utility aliases
 `--text` is exposed as `text-ink` / `bg-ink` / `border-ink` in Tailwind. `--text-muted` is exposed as `text-muted`. All other tokens keep their literal name: `bg-green`, `bg-green-dark`, `text-green-mid`, `bg-bg`, `bg-bg2`, `bg-bg3`, `bg-bordeaux`, `bg-cedar`, `bg-bone`, `border-border`, etc.
 
 ### Legacy aliases
-`--card-bg` → `--bg2`, `--card-border` → `--border`, `--muted` → `--text-muted`, `--phthalo`/`--jungle`/`--surface`/`--wintergreen`/`--white`/`--black`/`--gold`/`--umber` still resolve — new code should prefer the tokens above.
+`--card-bg` → `--bg2`, `--card-border` → `--border`, `--muted` → `--text-muted`, `--phthalo`/`--jungle`/`--surface`/`--wintergreen`/`--white`/`--black`/`--gold`/`--umber` still resolve - new code should prefer the tokens above.
 
 ## Semantic usage
 
@@ -91,12 +91,12 @@ Declared on `:root` in `apps/web/src/app/globals.css`, exposed as Tailwind utili
 
 - **shadcn/ui** under `apps/web/src/components/ui/*`. Button and Input primitives are tuned for the light layer (their common context) and use hardcoded hex matching the palette for robustness.
 - **Button variants:**
-  - `default` — `bg-bordeaux text-bone` (works on both layers)
-  - `destructive` — identical to default (single red-family)
-  - `outline` — `border-border bg-bg2 text-ink hover:bg-bg3` (light-optimized)
-  - `secondary` — `bg-bg2 text-ink hover:bg-bg3`, subtle border
-  - `ghost` — `hover:bg-bg3 text-ink`
-  - `link` — `text-green-mid`, underline on hover
+  - `default` - `bg-bordeaux text-bone` (works on both layers)
+  - `destructive` - identical to default (single red-family)
+  - `outline` - `border-border bg-bg2 text-ink hover:bg-bg3` (light-optimized)
+  - `secondary` - `bg-bg2 text-ink hover:bg-bg3`, subtle border
+  - `ghost` - `hover:bg-bg3 text-ink`
+  - `link` - `text-green-mid`, underline on hover
 - **Input:** `bg-bg2`, `text-ink`, `border-border`, focus ring phthalo/20
 - **Icons:** lucide-react, monochrome
 - **Status dots:** 5–6px circles. Healthy=green-mid (wintergreen), unhealthy=cedar, offline=bordeaux
@@ -110,4 +110,4 @@ Declared on `:root` in `apps/web/src/app/globals.css`, exposed as Tailwind utili
 
 ## Source of truth
 
-When this doc and the code diverge, **the code wins** — specifically `apps/web/src/app/globals.css` for tokens and `apps/web/src/components/ui/*` for primitive styling. Update this doc when you intentionally change the palette or conventions.
+When this doc and the code diverge, **the code wins** - specifically `apps/web/src/app/globals.css` for tokens and `apps/web/src/components/ui/*` for primitive styling. Update this doc when you intentionally change the palette or conventions.

@@ -4,10 +4,10 @@ import { Hero } from "@/components/hero";
 import { SectionHeader } from "@/components/section-header";
 import { EducationItem } from "@/components/education-item";
 import { CertificationCard } from "@/components/certification-card";
-import { compareByStartDesc } from "@/lib/dates";
+import { compareByEndDescThenStartAsc } from "@/lib/dates";
 
 export default function EducationPage() {
-  const sorted = [...education].sort(compareByStartDesc);
+  const sorted = [...education].sort(compareByEndDescThenStartAsc);
 
   return (
     <>
@@ -16,7 +16,7 @@ export default function EducationPage() {
         kicker="Education"
         headline={
           <>
-            Where I <em className="font-light italic text-green-mid">studied</em>.
+            Where I <em className="font-light italic text-cedar ml-[-0.02em] mr-[0.1em]">studied</em>
           </>
         }
         tagline="Degrees and certifications, newest first."
@@ -30,7 +30,7 @@ export default function EducationPage() {
             ))}
           </div>
           <div className="mt-6 bg-bg2 border border-border rounded-xl p-4 text-[12px] text-muted">
-            <span className="font-semibold text-ink">Honor:</span> DAAD Full Scholarship for Master Studies (2023) — full funding for the 2-year MSc at Tübingen, including community events across Germany.
+            <span className="font-semibold text-ink">Honor:</span> DAAD Full Scholarship for Master Studies (2023). Full funding for the 2-year MSc at Tübingen, including community events across Germany.
           </div>
         </section>
 

@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const dynamic = "force-static";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Vojtěch Sýkora — AI Engineer & Product Builder";
+export const alt = "Vojtěch Sýkora · AI Engineer & Product Builder";
 
 export default function OpengraphImage() {
   return new ImageResponse(

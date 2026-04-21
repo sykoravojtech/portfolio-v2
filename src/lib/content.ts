@@ -2,7 +2,7 @@ import { experiences } from "@/content/experiences";
 import { education } from "@/content/education";
 import { projects } from "@/content/projects";
 import type { Experience, Education, Project } from "@/content/types";
-import { compareByStartDesc } from "@/lib/dates";
+import { compareByStartDesc, compareByEndDescThenStartAsc } from "@/lib/dates";
 
 export function getLatestExperiences(count?: number): Experience[] {
   const sorted = [...experiences].sort(compareByStartDesc);
@@ -10,7 +10,7 @@ export function getLatestExperiences(count?: number): Experience[] {
 }
 
 export function getLatestEducation(count?: number): Education[] {
-  const sorted = [...education].sort(compareByStartDesc);
+  const sorted = [...education].sort(compareByEndDescThenStartAsc);
   return count == null ? sorted : sorted.slice(0, count);
 }
 

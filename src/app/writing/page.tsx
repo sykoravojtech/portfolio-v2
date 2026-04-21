@@ -13,7 +13,7 @@ export default function WritingPage() {
         kicker="Writing"
         headline={
           <>
-            Long-form <em className="font-light italic text-green-mid">notes</em>.
+            Long-form <em className="font-light italic text-cedar ml-[-0.02em] mr-[0.1em]">notes</em>
           </>
         }
         tagline="Occasional essays on AI, product, and personal projects."

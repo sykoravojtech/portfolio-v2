@@ -19,7 +19,7 @@ export type Experience = {
   role: string;
   start: string;          // ISO year-month e.g. "2025-10"
   end: string | "present";
-  dateDisplay: string;    // e.g. "Oct 2025 — Present"
+  dateDisplay: string;    // e.g. "Oct 2025 - Present"
   location: string;
   modality?:
     | "Remote"

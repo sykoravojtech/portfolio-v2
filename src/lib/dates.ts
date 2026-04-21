@@ -14,3 +14,11 @@ export function compareByStartDesc<T extends { start: string }>(
 ): number {
   return parseStart(b.start).getTime() - parseStart(a.start).getTime();
 }
+
+export function compareByEndDescThenStartAsc<
+  T extends { start: string; end: string }
+>(a: T, b: T): number {
+  const endDiff = parseStart(b.end).getTime() - parseStart(a.end).getTime();
+  if (endDiff !== 0) return endDiff;
+  return parseStart(a.start).getTime() - parseStart(b.start).getTime();
+}

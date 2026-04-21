@@ -60,7 +60,7 @@ export default function Home() {
           <SectionHeader kicker="Experience · latest three" />
           <div>
             {experiences.map((e) => (
-              <ExperienceItem key={e.id} item={e} showSkills={false} />
+              <ExperienceItem key={e.id} item={e} />
             ))}
           </div>
           <Link href="/experience" className="inline-block mt-4 text-green-mid font-bold text-[12px]">

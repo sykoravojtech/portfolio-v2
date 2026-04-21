@@ -20,7 +20,7 @@ export function EmailCopy({
           setCopied(true);
           setTimeout(() => setCopied(false), 2000);
         } catch {
-          // clipboard API blocked — fall back to selecting visible text
+          // clipboard API blocked, fall back to selecting visible text
         }
       }}
       className={className}

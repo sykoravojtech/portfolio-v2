@@ -13,7 +13,7 @@ export default function AboutPage() {
         kicker="About"
         headline={
           <>
-            The <em className="font-light italic text-green-mid">long</em> version.
+            More <em className="font-light italic text-cedar ml-[-0.02em] mr-[0.1em]">context</em>
           </>
         }
       />
@@ -44,7 +44,7 @@ export default function AboutPage() {
           <ul className="text-[13px] text-muted space-y-1">
             {bio.spokenLanguages.map((l) => (
               <li key={l.name}>
-                <span className="font-semibold text-ink">{l.name}</span> — {l.proficiency}
+                <span className="font-semibold text-ink">{l.name}</span> · {l.proficiency}
               </li>
             ))}
           </ul>
@@ -64,7 +64,7 @@ export default function AboutPage() {
         <section>
           <SectionHeader kicker="Outside the screen" />
           <p className="text-[13px] text-muted leading-relaxed">
-            I travel, play sports, and cook a lot. In 2019 I spent a weekend helping renovate an old castle in eastern Czechia — the kind of hands-on work that makes you appreciate a good desk again.
+            I travel, play sports, and cook a lot. In 2019 I spent a weekend helping renovate an old castle in eastern Czechia, the kind of hands-on work that makes you appreciate a good desk again.
           </p>
         </section>
       </div>

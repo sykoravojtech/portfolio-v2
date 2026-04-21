@@ -1,4 +1,4 @@
-# Portfolio Redesign — Design Spec
+# Portfolio Redesign - Design Spec
 
 **Date:** 2026-04-20
 **Repo:** `portfolio-v2` → deploys to `vojtechsykora.com` via GitHub Pages
@@ -26,7 +26,7 @@ Replace the current `vojtechsykora.com` (a GitHub Pages shell with only `CNAME` 
 - `CNAME` file in the built output preserves `vojtechsykora.com`.
 - Same tech as `projects-web` (Next.js + TypeScript + Tailwind + shadcn/ui) so components and design tokens transfer directly.
 
-**Why not Hugo or Astro:** already answered in brainstorm — Next was chosen because (a) existing familiarity, (b) guaranteed visual parity with the projects hub, (c) MDX handles the 2-4 long-form posts per year without needing a blog-first tool.
+**Why not Hugo or Astro:** already answered in brainstorm - Next was chosen because (a) existing familiarity, (b) guaranteed visual parity with the projects hub, (c) MDX handles the 2-4 long-form posts per year without needing a blog-first tool.
 
 ---
 
@@ -35,12 +35,12 @@ Replace the current `vojtechsykora.com` (a GitHub Pages shell with only `CNAME` 
 **Hybrid pattern.** Home is a curated teaser (elevator pitch + section previews). Each deep section is its own route.
 
 ```
-/                    Home — hero + section teasers
-/about               About — longer personal intro
-/experience          Experience — full work timeline
-/education           Education — MSc, BSc, minor, IB
-/projects            Projects — teaser grid linking out to projects.vojtechsykora.com
-/writing             Writing — blog post list
+/                    Home - hero + section teasers
+/about               About - longer personal intro
+/experience          Experience - full work timeline
+/education           Education - MSc, BSc, minor, IB
+/projects            Projects - teaser grid linking out to projects.vojtechsykora.com
+/writing             Writing - blog post list
 /writing/[slug]      Individual blog post
 ```
 
@@ -52,7 +52,7 @@ Replace the current `vojtechsykora.com` (a GitHub Pages shell with only `CNAME` 
 
 ---
 
-## 4. Visual Design — Phthalo Cream Hybrid
+## 4. Visual Design - Phthalo Cream Hybrid
 
 Inherit the design system from `projects-web` (`docs/DESIGN_SYSTEM.md`) verbatim. Two layers:
 
@@ -62,7 +62,7 @@ Inherit the design system from `projects-web` (`docs/DESIGN_SYSTEM.md`) verbatim
 **Typography:** DM Sans via `next/font` (weights 300/400/500/700/900). Display hero uses weight 900, `letter-spacing: -0.035em`. Italic + weight 300 for de-emphasized words in headlines (e.g., "I *build* things").
 
 **Components reused from `projects-web`:**
-- shadcn/ui primitives (Button, Input, Card) — copied with identical styling (bordeaux default, phthalo focus ring).
+- shadcn/ui primitives (Button, Input, Card) - copied with identical styling (bordeaux default, phthalo focus ring).
 - `globals.css` copied wholesale (same tokens, same Tailwind `@theme inline` wiring).
 - Status dots, tag pills, dividers.
 
@@ -72,33 +72,33 @@ Inherit the design system from `projects-web` (`docs/DESIGN_SYSTEM.md`) verbatim
 
 ## 5. Page Specifications
 
-### 5.1 Home — `/`
+### 5.1 Home - `/`
 
 **Dark phthalo hero:**
 - Kicker: `PRAGUE · AI ENGINEER & PRODUCT BUILDER`
 - H1 (display 900): "I *build* tools I wish existed." (italic/weight-300 styling on "build")
-- Tagline paragraph: 1-2 sentences — focus areas, current role, link to projects hub
+- Tagline paragraph: 1-2 sentences - focus areas, current role, link to projects hub
 - CTAs: `Get in touch` (bordeaux filled) + `Download CV ↓` (green-mid outlined)
 
 **Light content sections (in order):**
-1. **About · teaser** — 2-sentence intro, `Read more →` link to `/about`
-2. **Experience · latest 3** — compact rows (years, role, company, short desc), `Full timeline →` link
-3. **Education · latest 2** — MSc + BSc, `All education →` link to `/education`
-4. **Featured projects** — 3 hardcoded cards with tag + title + desc + external link arrow, `All projects →` link to `/projects`
-5. **Languages & tech stack** — small section: spoken languages (Czech, English, German) + primary tech (Python, TypeScript, React, PyTorch, FastAPI)
-6. **Latest writing** — 2-3 post rows with date + title, `All posts →` link to `/writing`. If zero published posts exist, this section is hidden on home (not shown as "coming soon" — home should never look empty).
+1. **About · teaser** - 2-sentence intro, `Read more →` link to `/about`
+2. **Experience · latest 3** - compact rows (years, role, company, short desc), `Full timeline →` link
+3. **Education · latest 2** - MSc + BSc, `All education →` link to `/education`
+4. **Featured projects** - 3 hardcoded cards with tag + title + desc + external link arrow, `All projects →` link to `/projects`
+5. **Languages & tech stack** - small section: spoken languages (Czech, English, German) + primary tech (Python, TypeScript, React, PyTorch, FastAPI)
+6. **Latest writing** - 2-3 post rows with date + title, `All posts →` link to `/writing`. If zero published posts exist, this section is hidden on home (not shown as "coming soon" - home should never look empty).
 
-### 5.2 About — `/about`
+### 5.2 About - `/about`
 
 Dedicated page. Three stacked blocks:
 
-1. **Bio** — avatar (ported from LinkedIn to `public/images/avatar.jpg`), longer paragraph form of the LinkedIn "about" copy (see content source), languages with proficiency (Czech/English/German).
-2. **Testimonial pull-quote** — one recommendation excerpted as a large phthalo-bordered quote block. Source: Lukas Chrpa (CTU FEE AI Center supervisor). Full text in content source; render a ~60-word excerpt.
-3. **Personal flavor** (optional, keep short) — one line on travel, sports, cooking (matches the LinkedIn bio's personal tone); optionally reference the 2019 castle-renovation volunteer bit as a single line with a wink.
+1. **Bio** - avatar (ported from LinkedIn to `public/images/avatar.jpg`), longer paragraph form of the LinkedIn "about" copy (see content source), languages with proficiency (Czech/English/German).
+2. **Testimonial pull-quote** - one recommendation excerpted as a large phthalo-bordered quote block. Source: Lukas Chrpa (CTU FEE AI Center supervisor). Full text in content source; render a ~60-word excerpt.
+3. **Personal flavor** (optional, keep short) - one line on travel, sports, cooking (matches the LinkedIn bio's personal tone); optionally reference the 2019 castle-renovation volunteer bit as a single line with a wink.
 
 Keep the whole page readable in 60 seconds.
 
-### 5.3 Experience — `/experience`
+### 5.3 Experience - `/experience`
 
 Full timeline, newest first. Each item:
 - Years (left column, ~80px)
@@ -119,13 +119,13 @@ Bottom: "What I'm looking for" section with contact CTA.
 - Jul 2021 – Oct 2021 · SCILIF (Android Developer, Prague)
 - Sep 2016 – Jun 2020 · Czech Basketball Federation (Referee, Prague)
 - Apr 2017 – Aug 2019 · CIIRC (Robotics Intern, Prague)
-- Sep 2018 – Jun 2019 · LaunchX (Founder, Brussels — MIT competition winner)
+- Sep 2018 – Jun 2019 · LaunchX (Founder, Brussels - MIT competition winner)
 
-### 5.4 Education — `/education`
+### 5.4 Education - `/education`
 
 Dedicated page with two stacked subsections: **Degrees** (4) and **Certifications** (7).
 
-**Degrees — each entry renders:**
+**Degrees - each entry renders:**
 - School logo (from `public/images/education/*`)
 - Degree + school + location
 - Dates
@@ -135,32 +135,32 @@ Dedicated page with two stacked subsections: **Degrees** (4) and **Certification
 - Optional "Thesis" or "Certificate" link
 
 **Degree entries (4):** see `docs/content-source/linkedin-2026-04.md` → Education. Summary:
-1. **University of Tübingen** (2023 – 2025) — MSc Machine Learning. DAAD scholarship.
-2. **Czech Technical University in Prague** (2020 – 2023) — BSc Open Informatics (AI).
-3. **prg.ai Minor** (2021 – 2023) — Interdisciplinary AI curriculum.
-4. **PORG** (2018 – 2020) — IB Diploma, Mathematics. Grade 39/45.
+1. **University of Tübingen** (2023 – 2025) - MSc Machine Learning. DAAD scholarship.
+2. **Czech Technical University in Prague** (2020 – 2023) - BSc Open Informatics (AI).
+3. **prg.ai Minor** (2021 – 2023) - Interdisciplinary AI curriculum.
+4. **PORG** (2018 – 2020) - IB Diploma, Mathematics. Grade 39/45.
 
-**Certifications subsection — compact grid of 7 cards:**
+**Certifications subsection - compact grid of 7 cards:**
 
 Each card shows issuer, title, issue month, and "See credential →" link. Full list in content source. Highlights:
 - Coursera (5): Deep Learning with PyTorch ×2, CNNs in TensorFlow, Intro to TensorFlow, Neural Networks and Deep Learning
 - Udemy: Modern Python 3 Bootcamp
 - Cambridge: Certificate in Advanced English (C1)
 
-**Honors inline banner** (one item): DAAD Full Scholarship, 2023 — rendered as a small call-out near the Tübingen entry rather than a separate section.
+**Honors inline banner** (one item): DAAD Full Scholarship, 2023 - rendered as a small call-out near the Tübingen entry rather than a separate section.
 
-### 5.5 Projects — `/projects`
+### 5.5 Projects - `/projects`
 
 Grid of project cards (3 columns desktop, 1 mobile). Each card:
 - Category tag (bordeaux/10 pill)
 - Title
 - Short description
 - Tech tags
-- Primary link (Live / GitHub / Paper) — opens external URL
+- Primary link (Live / GitHub / Paper) - opens external URL
 
 Content initially hardcoded in `src/content/projects.ts` (~6–10 entries curated from the old portfolio). Featured flag (`featured: true`) controls which 3 appear on home.
 
-### 5.6 Writing — `/writing` + `/writing/[slug]`
+### 5.6 Writing - `/writing` + `/writing/[slug]`
 
 **List page:** reverse-chronological rows: date (mmm yyyy), title, 1-sentence excerpt, reading time.
 
@@ -181,14 +181,14 @@ Content initially hardcoded in `src/content/projects.ts` (~6–10 entries curate
 
 ```
 src/content/
-  bio.ts              — name, role, email, socials, spoken languages (with proficiency), tech stack, long-about paragraph
-  experiences.ts      — Experience[]
-  education.ts        — Education[]
-  certifications.ts   — Certification[]
-  testimonials.ts     — Testimonial[] (v1: one entry)
-  projects.ts         — Project[] with featured flag
+  bio.ts              - name, role, email, socials, spoken languages (with proficiency), tech stack, long-about paragraph
+  experiences.ts      - Experience[]
+  education.ts        - Education[]
+  certifications.ts   - Certification[]
+  testimonials.ts     - Testimonial[] (v1: one entry)
+  projects.ts         - Project[] with featured flag
   writing/
-    *.mdx             — blog posts with frontmatter
+    *.mdx             - blog posts with frontmatter
 ```
 
 **Types defined in** `src/content/types.ts`:
@@ -276,11 +276,11 @@ published: true
 ---
 ```
 
-**Migration source:** `docs/content-source/linkedin-2026-04.md` is the authoritative content source for v1. Curated from a LinkedIn dump (2026-04-09). Supersedes the older `/home/vojta/Documents/projects/portfolio/DATABASE.json` — but that repo still holds the **logos** (`src/images/experience/*`, `src/images/education/*`) which should be copied into `public/images/` during migration. User will edit content text after initial migration.
+**Migration source:** `docs/content-source/linkedin-2026-04.md` is the authoritative content source for v1. Curated from a LinkedIn dump (2026-04-09). Supersedes the older `/home/vojta/Documents/projects/portfolio/DATABASE.json` - but that repo still holds the **logos** (`src/images/experience/*`, `src/images/education/*`) which should be copied into `public/images/` during migration. User will edit content text after initial migration.
 
 **Content not yet captured in a TS module** (add types during implementation):
-- `certifications.ts` — `Certification[]` rendered on `/education`
-- `testimonials.ts` — `Testimonial[]` rendered on `/about` (v1 has one entry)
+- `certifications.ts` - `Certification[]` rendered on `/education`
+- `testimonials.ts` - `Testimonial[]` rendered on `/about` (v1 has one entry)
 
 ---
 
@@ -289,27 +289,27 @@ published: true
 ```
 portfolio-v2/
   .github/workflows/
-    deploy.yml              — build + deploy to GitHub Pages
+    deploy.yml              - build + deploy to GitHub Pages
   public/
-    CNAME                   — vojtechsykora.com (moved from repo root into public/ so it ships in the static export)
+    CNAME                   - vojtechsykora.com (moved from repo root into public/ so it ships in the static export)
     VojtechSykora_CV_2026.pdf
     images/
       experience/*
       education/*
       projects/*
-      avatar.jpg            — optional
+      avatar.jpg            - optional
   src/
     app/
-      layout.tsx            — root layout, DM Sans, nav, footer
-      page.tsx              — home
+      layout.tsx            - root layout, DM Sans, nav, footer
+      page.tsx              - home
       about/page.tsx
       experience/page.tsx
       education/page.tsx
       projects/page.tsx
       writing/
-        page.tsx            — list
-        [slug]/page.tsx     — MDX post
-      globals.css           — Phthalo Cream tokens (copied from projects-web)
+        page.tsx            - list
+        [slug]/page.tsx     - MDX post
+      globals.css           - Phthalo Cream tokens (copied from projects-web)
     components/
       nav.tsx
       footer.tsx
@@ -319,7 +319,7 @@ portfolio-v2/
       education-item.tsx
       project-card.tsx
       writing-row.tsx
-      ui/                   — shadcn button, card, etc. (copied from projects-web)
+      ui/                   - shadcn button, card, etc. (copied from projects-web)
     content/
       types.ts
       bio.ts
@@ -329,12 +329,12 @@ portfolio-v2/
       writing/
         *.mdx
     lib/
-      mdx.ts                — MDX loading + frontmatter parsing
-      utils.ts              — cn() helper (from shadcn)
+      mdx.ts                - MDX loading + frontmatter parsing
+      utils.ts              - cn() helper (from shadcn)
   docs/
-    superpowers/specs/      — this spec lives here
-  next.config.ts            — output: 'export', MDX config
-  tailwind.config.ts        — inherits token mapping from projects-web
+    superpowers/specs/      - this spec lives here
+  next.config.ts            - output: 'export', MDX config
+  tailwind.config.ts        - inherits token mapping from projects-web
   tsconfig.json
   package.json
   pnpm-lock.yaml
@@ -373,7 +373,7 @@ pnpm build      # next build → static export in out/
 - i18n (no Czech or German versions)
 - CMS (content is code)
 - Dynamic fetch from `projects.vojtechsykora.com` (hardcoded `featured` flag for now)
-- Analytics (add later if desired — Plausible or similar)
+- Analytics (add later if desired - Plausible or similar)
 - Contact form (mailto link only)
 - Search (blog is small enough)
 - Dark-mode toggle (site already has a dark layer by design)
@@ -396,10 +396,10 @@ pnpm build      # next build → static export in out/
 The detailed plan will live in a separate implementation plan doc. Rough phasing:
 
 1. **Scaffold** Next.js 15 + TS + Tailwind + shadcn in `portfolio-v2`. Port `globals.css` and base UI primitives from `projects-web`. Remove the old `index.html`.
-2. **Chrome** — `Nav` + `Footer` + root layout with DM Sans. Dark phthalo nav, bone footer.
-3. **Home** — Hero + static teaser sections wired to TS content modules.
-4. **Deep pages** — `/about`, `/experience`, `/education`, `/projects` with content ported from DATABASE.json.
-5. **Writing** — MDX pipeline, list page, post template. Ship with 0–1 seed posts.
+2. **Chrome** - `Nav` + `Footer` + root layout with DM Sans. Dark phthalo nav, bone footer.
+3. **Home** - Hero + static teaser sections wired to TS content modules.
+4. **Deep pages** - `/about`, `/experience`, `/education`, `/projects` with content ported from DATABASE.json.
+5. **Writing** - MDX pipeline, list page, post template. Ship with 0–1 seed posts.
 6. **Content migration script** (or manual) to move logos from old portfolio into `public/images/`.
 7. **Deploy workflow** + first production deploy. Verify `vojtechsykora.com` serves the new site. Verify CV link works.
-8. **Polish** — OG image, favicon, transitions, mobile pass.
+8. **Polish** - OG image, favicon, transitions, mobile pass.

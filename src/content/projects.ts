@@ -13,7 +13,7 @@ export const projects: Project[] = [
   },
   {
     id: "black-forest-hackathon",
-    title: "Black Forest Hackathon — Data Decoded",
+    title: "Black Forest Hackathon: Data Decoded",
     category: "Hackathon",
     date: "May 2025",
     description:

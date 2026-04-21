@@ -17,7 +17,7 @@ pnpm build  # static export in ./out
 
 ## Design system
 
-Phthalo Cream (hybrid dark/light). See `/home/vojta/Documents/projects/projects-web/docs/DESIGN_SYSTEM.md` — design is inherited from `projects-web`.
+Phthalo Cream (hybrid dark/light). See `/home/vojta/Documents/projects/projects-web/docs/DESIGN_SYSTEM.md` - design is inherited from `projects-web`.
 
 ## Content
 

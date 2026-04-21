@@ -15,10 +15,10 @@
 - Deploy: GitHub Actions + `actions/deploy-pages@v4`
 
 **Spec reference:** [`docs/superpowers/specs/2026-04-20-portfolio-redesign-design.md`](../specs/2026-04-20-portfolio-redesign-design.md)
-**Content source:** [`docs/content-source/linkedin-2026-04.md`](../../content-source/linkedin-2026-04.md) — authoritative for experiences, education, certifications, testimonial, projects, bio.
+**Content source:** [`docs/content-source/linkedin-2026-04.md`](../../content-source/linkedin-2026-04.md) - authoritative for experiences, education, certifications, testimonial, projects, bio.
 **Design system reference (read-only):** `/home/vojta/Documents/projects/projects-web/docs/DESIGN_SYSTEM.md` and `/home/vojta/Documents/projects/projects-web/apps/web/src/app/globals.css`.
 
-**IMPORTANT — Next.js version hazard:** Next.js 16 has breaking changes from Next 13/14 training data. Before writing Next-specific code (route handlers, `next.config.*`, `next/font`, metadata, async params), check `node_modules/next/dist/docs/` for the current API in this repo. Deprecation warnings surface real bugs.
+**IMPORTANT - Next.js version hazard:** Next.js 16 has breaking changes from Next 13/14 training data. Before writing Next-specific code (route handlers, `next.config.*`, `next/font`, metadata, async params), check `node_modules/next/dist/docs/` for the current API in this repo. Deprecation warnings surface real bugs.
 
 ---
 
@@ -38,18 +38,18 @@ portfolio-v2/
       projects/*                 (optional, used by ProjectCard)
   src/
     app/
-      layout.tsx                 — root layout, DM Sans, nav, footer
-      page.tsx                   — Home (hybrid teaser)
+      layout.tsx                 - root layout, DM Sans, nav, footer
+      page.tsx                   - Home (hybrid teaser)
       about/page.tsx
       experience/page.tsx
       education/page.tsx
       projects/page.tsx
       writing/
-        page.tsx                 — post list
-        [slug]/page.tsx          — MDX post page
-      globals.css                — Phthalo Cream tokens (ported)
-      icon.png                   — favicon
-      opengraph-image.png        — default OG
+        page.tsx                 - post list
+        [slug]/page.tsx          - MDX post page
+      globals.css                - Phthalo Cream tokens (ported)
+      icon.png                   - favicon
+      opengraph-image.png        - default OG
     components/
       nav.tsx
       footer.tsx
@@ -63,7 +63,7 @@ portfolio-v2/
       writing-row.tsx
       testimonial.tsx
       ui/
-        button.tsx               — shadcn primitive, ported
+        button.tsx               - shadcn primitive, ported
     content/
       types.ts
       bio.ts
@@ -76,9 +76,9 @@ portfolio-v2/
         _fixture.mdx             (fixture for MDX loader test; `published: false` so it never gets a route)
         hello-world.mdx          (seed post)
     lib/
-      utils.ts                   — cn() helper
-      mdx.ts                     — MDX loader + frontmatter
-      dates.ts                   — date parsing/sorting helpers
+      utils.ts                   - cn() helper
+      mdx.ts                     - MDX loader + frontmatter
+      dates.ts                   - date parsing/sorting helpers
   tests/
     mdx.test.ts
     dates.test.ts
@@ -97,24 +97,24 @@ portfolio-v2/
 
 ## Milestone overview
 
-- **M0** — Repo prep (move stale files, branch setup)
-- **M1** — Next.js scaffold + Tailwind + base config
-- **M2** — Design system port + shadcn primitives
-- **M3** — Content types + TS modules (migration from content source)
-- **M4** — Helpers + tests (dates, sorting, MDX loader)
-- **M5** — Chrome (root layout, Nav, Footer)
-- **M6** — Reusable components
-- **M7** — Pages (Home, About, Experience, Education, Projects)
-- **M8** — Writing (MDX pipeline, list page, post page)
-- **M9** — Assets (logos, avatar, icons, OG image)
-- **M10** — Deploy + verification
-- **M11** — Polish (mobile pass, a11y, metadata)
+- **M0** - Repo prep (move stale files, branch setup)
+- **M1** - Next.js scaffold + Tailwind + base config
+- **M2** - Design system port + shadcn primitives
+- **M3** - Content types + TS modules (migration from content source)
+- **M4** - Helpers + tests (dates, sorting, MDX loader)
+- **M5** - Chrome (root layout, Nav, Footer)
+- **M6** - Reusable components
+- **M7** - Pages (Home, About, Experience, Education, Projects)
+- **M8** - Writing (MDX pipeline, list page, post page)
+- **M9** - Assets (logos, avatar, icons, OG image)
+- **M10** - Deploy + verification
+- **M11** - Polish (mobile pass, a11y, metadata)
 
-Each milestone ends with the site still buildable (`pnpm build`) and commits every 1-3 tasks. Do not skip `pnpm build` checkpoints — a broken build late in a milestone is much cheaper to catch early.
+Each milestone ends with the site still buildable (`pnpm build`) and commits every 1-3 tasks. Do not skip `pnpm build` checkpoints - a broken build late in a milestone is much cheaper to catch early.
 
 ---
 
-## M0 — Repo prep
+## M0 - Repo prep
 
 ### Task 0.1: Reorganise root files and add baseline configs
 
@@ -193,7 +193,7 @@ pnpm build  # static export in ./out
 
 ## Design system
 
-Phthalo Cream (hybrid dark/light). See `/home/vojta/Documents/projects/projects-web/docs/DESIGN_SYSTEM.md` — design is inherited from `projects-web`.
+Phthalo Cream (hybrid dark/light). See `/home/vojta/Documents/projects/projects-web/docs/DESIGN_SYSTEM.md` - design is inherited from `projects-web`.
 
 ## Content
 
@@ -210,7 +210,7 @@ git commit -m "chore: move CV+CNAME into public/, drop stub index.html, add .git
 
 ---
 
-## M1 — Next.js scaffold + Tailwind
+## M1 - Next.js scaffold + Tailwind
 
 ### Task 1.1: Initialize pnpm workspace and install Next.js 16 + Tailwind 4
 
@@ -222,7 +222,7 @@ git commit -m "chore: move CV+CNAME into public/, drop stub index.html, add .git
 - Create: `postcss.config.mjs`
 - Create: `src/app/layout.tsx` (stub)
 - Create: `src/app/page.tsx` (stub)
-- Create: `src/app/globals.css` (stub — real content ported in M2)
+- Create: `src/app/globals.css` (stub - real content ported in M2)
 
 - [x] **Step 1: Write `package.json`**
 
@@ -351,7 +351,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Vojtěch Sýkora",
-  description: "AI Engineer & Product Builder — Prague.",
+  description: "AI Engineer & Product Builder - Prague.",
 };
 
 export default function RootLayout({
@@ -393,7 +393,7 @@ cd /home/vojta/Documents/projects/portfolio-v2
 pnpm install
 ```
 
-Expected: installs successfully. If `radix-ui@1.4.3` or `@next/mdx@16.2.2` version is unavailable, adjust to the latest minor and note the change — do not silently replace with `@radix-ui/react-*`.
+Expected: installs successfully. If `radix-ui@1.4.3` or `@next/mdx@16.2.2` version is unavailable, adjust to the latest minor and note the change - do not silently replace with `@radix-ui/react-*`.
 
 - [x] **Step 9: Verify build works**
 
@@ -478,7 +478,7 @@ git commit -m "chore: add vitest with smoke test"
 
 ---
 
-## M2 — Design system port
+## M2 - Design system port
 
 ### Task 2.1: Port `globals.css` and DM Sans font
 
@@ -512,7 +512,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Vojtěch Sýkora — AI Engineer & Product Builder",
+  title: "Vojtěch Sýkora - AI Engineer & Product Builder",
   description:
     "AI Engineer & Product Builder in Prague. Building AI products at Miton VC.",
   metadataBase: new URL("https://vojtechsykora.com"),
@@ -531,9 +531,9 @@ export default function RootLayout({
 }
 ```
 
-> **Note on Next.js 16:** confirm `next/font/google` still exports `DM_Sans` by checking `node_modules/next/dist/docs/` (font-optimization guide). If the API has shifted, adjust but keep the `--font-dm-sans` CSS variable name — it's referenced by globals.css.
+> **Note on Next.js 16:** confirm `next/font/google` still exports `DM_Sans` by checking `node_modules/next/dist/docs/` (font-optimization guide). If the API has shifted, adjust but keep the `--font-dm-sans` CSS variable name - it's referenced by globals.css.
 
-- [x] **Step 3: Sanity check — a styled stub page**
+- [x] **Step 3: Sanity check - a styled stub page**
 
 Edit `src/app/page.tsx` to use Tailwind tokens:
 
@@ -569,7 +569,7 @@ export default function Home() {
 pnpm dev
 ```
 
-Visit http://localhost:3200 — expect cream background, phthalo heading, bordeaux accent, and 8 color swatches rendering. Stop the server.
+Visit http://localhost:3200 - expect cream background, phthalo heading, bordeaux accent, and 8 color swatches rendering. Stop the server.
 
 - [x] **Step 5: Commit**
 
@@ -599,11 +599,11 @@ export function cn(...inputs: ClassValue[]) {
 
 - [x] **Step 2: Port Button from projects-web**
 
-Copy `/home/vojta/Documents/projects/projects-web/apps/web/src/components/ui/button.tsx` verbatim into `src/components/ui/button.tsx`. It uses `radix-ui` → `Slot.Root`, `cva`, `cn` from `@/lib/utils`, and hard-coded Phthalo hex values for robustness — keep all of this.
+Copy `/home/vojta/Documents/projects/projects-web/apps/web/src/components/ui/button.tsx` verbatim into `src/components/ui/button.tsx`. It uses `radix-ui` → `Slot.Root`, `cva`, `cn` from `@/lib/utils`, and hard-coded Phthalo hex values for robustness - keep all of this.
 
 - [x] **Step 3: Render a Button on the sanity page**
 
-Edit `src/app/page.tsx` — add below the swatches:
+Edit `src/app/page.tsx` - add below the swatches:
 
 ```tsx
 import { Button } from "@/components/ui/button";
@@ -639,7 +639,7 @@ git commit -m "feat: port Button primitive and cn() from projects-web"
 
 ---
 
-## M3 — Content types + TS modules
+## M3 - Content types + TS modules
 
 ### Task 3.1: Define content types
 
@@ -669,7 +669,7 @@ export type Experience = {
   role: string;
   start: string;          // ISO year-month e.g. "2025-10"
   end: string | "present";
-  dateDisplay: string;    // e.g. "Oct 2025 — Present"
+  dateDisplay: string;    // e.g. "Oct 2025 - Present"
   location: string;
   modality?:
     | "Remote"
@@ -838,13 +838,13 @@ export const experiences: Experience[] = [
     role: "AI Engineer & Venture Builder",
     start: "2025-10",
     end: "present",
-    dateDisplay: "Oct 2025 — Present",
+    dateDisplay: "Oct 2025 - Present",
     location: "Prague, Czechia",
     modality: "Full-time",
     logo: "/images/experience/miton.jpeg",
     link: "https://miton.cz",
     description: [
-      "Project lead, technical and product — Claude Code, Codex, orchestration, agents.",
+      "Project lead, technical and product - Claude Code, Codex, orchestration, agents.",
       "LLM: OpenAI, structured extraction, intent parsing, summarization.",
       "Data pipelines: multi-source ingestion, enrichment, identity resolution, scoring.",
       "Database: PostgreSQL, pgvector (HNSW), Docker, SQLAlchemy, Alembic.",
@@ -870,7 +870,7 @@ export const experiences: Experience[] = [
     role: "Founder & CEO",
     start: "2025-05",
     end: "2026-01",
-    dateDisplay: "May 2025 — Jan 2026",
+    dateDisplay: "May 2025 - Jan 2026",
     location: "Munich, Germany",
     description: [
       "AI, Computer Vision, VLMs; dataset management, crowdfunding and collection; grasping point detection.",
@@ -884,7 +884,7 @@ export const experiences: Experience[] = [
     role: "GenAI & Computer Vision Master's Thesis",
     start: "2025-03",
     end: "2025-09",
-    dateDisplay: "Mar 2025 — Sep 2025",
+    dateDisplay: "Mar 2025 - Sep 2025",
     location: "Karlsruhe, Germany",
     modality: "Remote",
     logo: "/images/experience/fzi.jpeg",
@@ -902,7 +902,7 @@ export const experiences: Experience[] = [
     role: "Machine Learning Engineer",
     start: "2024-12",
     end: "2025-07",
-    dateDisplay: "Dec 2024 — Jul 2025",
+    dateDisplay: "Dec 2024 - Jul 2025",
     location: "Stuttgart, Germany",
     modality: "Hybrid",
     logo: "/images/experience/synthavo.jpeg",
@@ -919,7 +919,7 @@ export const experiences: Experience[] = [
     role: "Machine Learning Researcher",
     start: "2023-03",
     end: "2023-07",
-    dateDisplay: "Mar 2023 — Jul 2023",
+    dateDisplay: "Mar 2023 - Jul 2023",
     location: "Prague, Czechia",
     modality: "Part-time",
     logo: "/images/experience/cvut-ciirc.jpeg",
@@ -938,7 +938,7 @@ export const experiences: Experience[] = [
     role: "Data Analyst",
     start: "2020-07",
     end: "2022-12",
-    dateDisplay: "Jul 2020 — Dec 2022",
+    dateDisplay: "Jul 2020 - Dec 2022",
     location: "Prague, Czechia",
     modality: "Contract",
     logo: "/images/experience/charles-uni.png",
@@ -955,7 +955,7 @@ export const experiences: Experience[] = [
     role: "Artificial Intelligence Researcher",
     start: "2021-09",
     end: "2022-07",
-    dateDisplay: "Sep 2021 — Jul 2022",
+    dateDisplay: "Sep 2021 - Jul 2022",
     location: "Prague, Czechia",
     modality: "Part-time",
     logo: "/images/experience/ai-fee-ctu.png",
@@ -973,7 +973,7 @@ export const experiences: Experience[] = [
     role: "Android App Developer",
     start: "2021-07",
     end: "2021-10",
-    dateDisplay: "Jul 2021 — Oct 2021",
+    dateDisplay: "Jul 2021 - Oct 2021",
     location: "Prague, Czechia",
     modality: "Contract",
     logo: "/images/experience/sunfibre-logo.jpeg",
@@ -989,7 +989,7 @@ export const experiences: Experience[] = [
     role: "Basketball Referee",
     start: "2016-09",
     end: "2020-06",
-    dateDisplay: "Sep 2016 — Jun 2020",
+    dateDisplay: "Sep 2016 - Jun 2020",
     location: "Prague, Czechia",
     modality: "Part-time",
     logo: "/images/experience/cbf-logo.png",
@@ -1006,7 +1006,7 @@ export const experiences: Experience[] = [
     role: "Robotics Intern",
     start: "2017-04",
     end: "2019-08",
-    dateDisplay: "Apr 2017 — Aug 2019",
+    dateDisplay: "Apr 2017 - Aug 2019",
     location: "Prague, Czechia",
     logo: "/images/experience/cvut-ciirc.jpeg",
     link: "https://www.ciirc.cvut.cz/",
@@ -1022,7 +1022,7 @@ export const experiences: Experience[] = [
     role: "Founder & Winner, MIT Startup Competition",
     start: "2018-09",
     end: "2019-06",
-    dateDisplay: "Sep 2018 — Jun 2019",
+    dateDisplay: "Sep 2018 - Jun 2019",
     location: "Brussels, Belgium",
     logo: "/images/experience/mit-launchx.jpeg",
     description: [
@@ -1069,7 +1069,7 @@ export const education: Education[] = [
     field: "Machine Learning",
     start: "2023-09",
     end: "2025-09",
-    dateDisplay: "Sep 2023 — Sep 2025",
+    dateDisplay: "Sep 2023 - Sep 2025",
     location: "Tübingen, Germany",
     logo: "/images/education/uni-tue-logo.jpeg",
     link: "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/machine-learning-master/",
@@ -1089,7 +1089,7 @@ export const education: Education[] = [
     field: "Open Informatics (specialization Artificial Intelligence)",
     start: "2020-09",
     end: "2023-06",
-    dateDisplay: "Sep 2020 — Jun 2023",
+    dateDisplay: "Sep 2020 - Jun 2023",
     location: "Prague, Czechia",
     logo: "/images/education/ctu-logo-small.png",
     link: "https://fel.cvut.cz/en/study-programs/oi-open-informatics",
@@ -1108,7 +1108,7 @@ export const education: Education[] = [
     degree: "Artificial Intelligence",
     start: "2021-09",
     end: "2023-06",
-    dateDisplay: "2021 — 2023",
+    dateDisplay: "2021 - 2023",
     location: "Prague, Czechia",
     logo: "/images/education/prgai.webp",
     link: "https://prg.ai/en/minor/",
@@ -1120,18 +1120,18 @@ export const education: Education[] = [
   {
     id: "porg",
     school: "PORG",
-    degree: "International Baccalaureate — Diploma Programme",
+    degree: "International Baccalaureate - Diploma Programme",
     field: "Mathematics",
     start: "2018-09",
     end: "2020-06",
-    dateDisplay: "2018 — 2020",
+    dateDisplay: "2018 - 2020",
     location: "Prague, Czechia",
     logo: "/images/education/porg.jpeg",
     link: "https://www.porg.cz/en/",
     description: [
-      "Higher Level — Mathematics, Physics, Economics.",
-      "Standard Level — English, Czech, German.",
-      "Extended Essay — Mathematics (Quaternions).",
+      "Higher Level - Mathematics, Physics, Economics.",
+      "Standard Level - English, Czech, German.",
+      "Extended Essay - Mathematics (Quaternions).",
     ],
     skills: [],
     grade: "39/45",
@@ -1263,7 +1263,7 @@ export const projects: Project[] = [
   },
   {
     id: "black-forest-hackathon",
-    title: "Black Forest Hackathon — Data Decoded",
+    title: "Black Forest Hackathon - Data Decoded",
     category: "Hackathon",
     date: "May 2025",
     description:
@@ -1333,7 +1333,7 @@ git commit -m "feat: add projects content module (curated portfolio)"
 
 ---
 
-## M4 — Helpers + tests
+## M4 - Helpers + tests
 
 ### Task 4.1: Date helpers with TDD
 
@@ -1376,7 +1376,7 @@ describe("compareByStartDesc", () => {
 });
 ```
 
-- [x] **Step 2: Run tests — expect fail**
+- [x] **Step 2: Run tests - expect fail**
 
 ```bash
 pnpm test
@@ -1405,7 +1405,7 @@ export function compareByStartDesc<T extends { start: string }>(
 }
 ```
 
-- [x] **Step 4: Run tests — expect pass**
+- [x] **Step 4: Run tests - expect pass**
 
 ```bash
 pnpm test
@@ -1467,7 +1467,7 @@ describe("getFeaturedProjects", () => {
 });
 ```
 
-- [x] **Step 2: Run — expect fail**
+- [x] **Step 2: Run - expect fail**
 
 ```bash
 pnpm test
@@ -1497,7 +1497,7 @@ export function getFeaturedProjects(): Project[] {
 }
 ```
 
-- [x] **Step 4: Run — expect pass**
+- [x] **Step 4: Run - expect pass**
 
 ```bash
 pnpm test
@@ -1527,7 +1527,7 @@ git commit -m "feat: add content helpers with tests"
 ---
 title: "Fixture post"
 date: "2026-01-15"
-excerpt: "Used by tests only — not published."
+excerpt: "Used by tests only - not published."
 tags: ["test"]
 published: false
 ---
@@ -1576,7 +1576,7 @@ describe("writing loader", () => {
 });
 ```
 
-- [x] **Step 3: Run — expect fail**
+- [x] **Step 3: Run - expect fail**
 
 ```bash
 pnpm test
@@ -1645,7 +1645,7 @@ export function getPublishedWritingMeta(): WritingMeta[] {
 }
 ```
 
-- [x] **Step 5: Run — expect pass**
+- [x] **Step 5: Run - expect pass**
 
 ```bash
 pnpm test
@@ -1660,7 +1660,7 @@ git commit -m "feat: MDX frontmatter loader with reading-time estimate (TDD)"
 
 ---
 
-## M5 — Chrome (layout, Nav, Footer)
+## M5 - Chrome (layout, Nav, Footer)
 
 ### Task 5.1: Nav component
 
@@ -1807,7 +1807,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Vojtěch Sýkora — AI Engineer & Product Builder",
+  title: "Vojtěch Sýkora - AI Engineer & Product Builder",
   description:
     "AI Engineer & Product Builder in Prague. Building AI products at Miton VC.",
   metadataBase: new URL("https://vojtechsykora.com"),
@@ -1836,7 +1836,7 @@ export default function RootLayout({
 pnpm build && pnpm dev
 ```
 
-Visit http://localhost:3200 — expect nav (dark), stub page, footer (bone bg). Stop server.
+Visit http://localhost:3200 - expect nav (dark), stub page, footer (bone bg). Stop server.
 
 - [x] **Step 3: Commit**
 
@@ -1847,7 +1847,7 @@ git commit -m "feat: wire Nav + Footer into root layout"
 
 ---
 
-## M6 — Reusable components
+## M6 - Reusable components
 
 ### Task 6.1: SectionHeader and TagPill
 
@@ -2276,7 +2276,7 @@ git commit -m "feat: CertificationCard, ProjectCard, WritingRow, Testimonial, He
 
 ---
 
-## M7 — Pages
+## M7 - Pages
 
 ### Task 7.1: Home page
 
@@ -2434,7 +2434,7 @@ export default function Home() {
 pnpm build
 ```
 
-Expected: succeeds (images may warn about missing files — that's fine until M9). If the build hard-fails due to missing images, add `missingImagesAllowed: true` logic or temporarily comment-out the `logo` prop for experiences.
+Expected: succeeds (images may warn about missing files - that's fine until M9). If the build hard-fails due to missing images, add `missingImagesAllowed: true` logic or temporarily comment-out the `logo` prop for experiences.
 
 - [x] **Step 3: Dev check**
 
@@ -2507,7 +2507,7 @@ export default function AboutPage() {
           <ul className="text-[13px] text-muted space-y-1">
             {bio.spokenLanguages.map((l) => (
               <li key={l.name}>
-                <span className="font-semibold text-ink">{l.name}</span> — {l.proficiency}
+                <span className="font-semibold text-ink">{l.name}</span> - {l.proficiency}
               </li>
             ))}
           </ul>
@@ -2523,7 +2523,7 @@ export default function AboutPage() {
         <section>
           <SectionHeader kicker="Outside the screen" />
           <p className="text-[13px] text-muted leading-relaxed">
-            I travel, play sports, and cook a lot. In 2019 I spent a weekend helping renovate an old castle in eastern Czechia — the kind of hands-on work that makes you appreciate a good desk again.
+            I travel, play sports, and cook a lot. In 2019 I spent a weekend helping renovate an old castle in eastern Czechia - the kind of hands-on work that makes you appreciate a good desk again.
           </p>
         </section>
       </div>
@@ -2578,7 +2578,7 @@ export default function ExperiencePage() {
             The <em className="font-light italic text-green-mid">full</em> timeline.
           </>
         }
-        tagline="Every role, every stack — newest first."
+        tagline="Every role, every stack - newest first."
       />
       <div className="max-w-[900px] mx-auto px-6 py-12 space-y-10">
         <section>
@@ -2658,7 +2658,7 @@ export default function EducationPage() {
             ))}
           </div>
           <div className="mt-6 bg-bg2 border border-border rounded-xl p-4 text-[12px] text-muted">
-            <span className="font-semibold text-ink">Honor:</span> DAAD Full Scholarship for Master Studies (2023) — full funding for the 2-year MSc at Tübingen, including community events across Germany.
+            <span className="font-semibold text-ink">Honor:</span> DAAD Full Scholarship for Master Studies (2023) - full funding for the 2-year MSc at Tübingen, including community events across Germany.
           </div>
         </section>
 
@@ -2737,7 +2737,7 @@ git commit -m "feat: /projects page"
 
 ---
 
-## M8 — Writing (MDX list + post pages)
+## M8 - Writing (MDX list + post pages)
 
 ### Task 8.1: Writing list page
 
@@ -2784,7 +2784,7 @@ export default function WritingPage() {
 }
 ```
 
-- [x] **Step 2: Build + dev check — confirm empty state renders**
+- [x] **Step 2: Build + dev check - confirm empty state renders**
 
 - [x] **Step 3: Commit**
 
@@ -2844,9 +2844,9 @@ export default async function PostPage({
 }
 ```
 
-> **Note on `params`:** Next.js 16 makes route params async. `await params` is required. If your Next version exposes them sync, adjust — but in `next@16.2.2` they are async (confirm via `node_modules/next/dist/docs/app-router/` if behavior changes).
+> **Note on `params`:** Next.js 16 makes route params async. `await params` is required. If your Next version exposes them sync, adjust - but in `next@16.2.2` they are async (confirm via `node_modules/next/dist/docs/app-router/` if behavior changes).
 
-> **Note on MDX rendering:** we use `react-markdown` (already a dep from projects-web) for simplicity. `@next/mdx` is configured in `next.config.ts` but not strictly used here — the loader reads raw MDX text and passes it through react-markdown. JSX-in-MDX is not supported with this approach; upgrade to native MDX if needed later.
+> **Note on MDX rendering:** we use `react-markdown` (already a dep from projects-web) for simplicity. `@next/mdx` is configured in `next.config.ts` but not strictly used here - the loader reads raw MDX text and passes it through react-markdown. JSX-in-MDX is not supported with this approach; upgrade to native MDX if needed later.
 
 - [x] **Step 2: Install react-markdown**
 
@@ -2883,8 +2883,8 @@ pnpm build && pnpm dev
 ```
 
 Visit:
-- http://localhost:3200/writing — should list "Hello, world"
-- http://localhost:3200/writing/hello-world — should render the post with prose-showcase styling
+- http://localhost:3200/writing - should list "Hello, world"
+- http://localhost:3200/writing/hello-world - should render the post with prose-showcase styling
 
 Stop server.
 
@@ -2897,7 +2897,7 @@ git commit -m "feat: /writing/[slug] MDX post page + seed post"
 
 ---
 
-## M9 — Assets
+## M9 - Assets
 
 ### Task 9.1: Logos, avatar, icons
 
@@ -2921,24 +2921,24 @@ ls public/images/education/
 
 - [x] **Step 2: Rename files to match content modules**
 
-The `experiences.ts` content references paths like `/images/experience/miton.jpeg`. The old portfolio doesn't have a Miton logo — skip rename if file doesn't exist (logo will be optional). For any mismatch where a file is present under a different name, rename:
+The `experiences.ts` content references paths like `/images/experience/miton.jpeg`. The old portfolio doesn't have a Miton logo - skip rename if file doesn't exist (logo will be optional). For any mismatch where a file is present under a different name, rename:
 
 ```bash
 cd public/images/experience
 # Spot-check these specific mappings used in experiences.ts:
-#   miton.jpeg           — NOT in old portfolio; obtain separately or leave missing
-#   fzi.jpeg             — present
-#   synthavo.jpeg        — present
-#   cvut-ciirc.jpeg      — present
-#   charles-uni.png      — present
-#   ai-fee-ctu.png       — present
-#   sunfibre-logo.jpeg   — present
-#   cbf-logo.png         — present
-#   mit-launchx.jpeg     — present
+#   miton.jpeg           - NOT in old portfolio; obtain separately or leave missing
+#   fzi.jpeg             - present
+#   synthavo.jpeg        - present
+#   cvut-ciirc.jpeg      - present
+#   charles-uni.png      - present
+#   ai-fee-ctu.png       - present
+#   sunfibre-logo.jpeg   - present
+#   cbf-logo.png         - present
+#   mit-launchx.jpeg     - present
 ls -1
 ```
 
-If `miton.jpeg` is missing, leave the reference in `experiences.ts` — Next/Image will 404 on it at runtime. Either remove the `logo` field for Miton from `experiences.ts`, or place a downloaded Miton logo at `public/images/experience/miton.jpeg`. Simplest: edit `experiences.ts` and remove the `logo` line for the Miton entry.
+If `miton.jpeg` is missing, leave the reference in `experiences.ts` - Next/Image will 404 on it at runtime. Either remove the `logo` field for Miton from `experiences.ts`, or place a downloaded Miton logo at `public/images/experience/miton.jpeg`. Simplest: edit `experiences.ts` and remove the `logo` line for the Miton entry.
 
 - [x] **Step 3: Avatar placeholder**
 
@@ -2948,10 +2948,10 @@ Until a real avatar is placed, create a simple 200×200 Phthalo block so the `/a
 cd /home/vojta/Documents/projects/portfolio-v2
 # Use ImageMagick if available; otherwise write the file separately.
 which convert && convert -size 200x200 xc:'#123624' -fill '#D8D0C2' -gravity center -pointsize 90 -annotate 0 'VS' public/images/avatar.jpg || true
-ls -la public/images/avatar.jpg 2>/dev/null || echo "No avatar — /about will render without image."
+ls -la public/images/avatar.jpg 2>/dev/null || echo "No avatar - /about will render without image."
 ```
 
-If ImageMagick isn't installed, skip this step — the `bio.avatar` field can be set to `undefined` in `src/content/bio.ts`, and `EducationItem`/`AboutPage` already guard against missing logos/avatars.
+If ImageMagick isn't installed, skip this step - the `bio.avatar` field can be set to `undefined` in `src/content/bio.ts`, and `EducationItem`/`AboutPage` already guard against missing logos/avatars.
 
 - [x] **Step 4: Build check**
 
@@ -2990,7 +2990,7 @@ which convert && convert -size 180x180 xc:'#123624' -fill '#D8D0C2' -gravity cen
 which convert && convert -size 1200x630 xc:'#123624' -fill '#D8D0C2' -gravity center -pointsize 80 -annotate 0 'Vojtech Sykora\nAI Engineer & Product Builder' src/app/opengraph-image.png || true
 ```
 
-If `convert` is unavailable, create the files manually in Figma/Affinity (1200×630 with `#123624` bg, `#D8D0C2` text) and place in `src/app/`. Next.js App Router picks them up by filename automatically — no additional config needed.
+If `convert` is unavailable, create the files manually in Figma/Affinity (1200×630 with `#123624` bg, `#D8D0C2` text) and place in `src/app/`. Next.js App Router picks them up by filename automatically - no additional config needed.
 
 - [x] **Step 2: Build + inspect**
 
@@ -3010,7 +3010,7 @@ git commit -m "feat: add favicon, apple-icon, and default OG image"
 
 ---
 
-## M10 — Deploy
+## M10 - Deploy
 
 ### Task 10.1: GitHub Actions workflow
 
@@ -3079,7 +3079,7 @@ jobs:
 
 - [ ] **Step 2: Confirm repo Pages settings (manual action)**
 
-Write the following reminder in the commit body — it's a one-time manual step:
+Write the following reminder in the commit body - it's a one-time manual step:
 
 > After pushing, go to repo Settings → Pages → set Source to "GitHub Actions". Under "Custom domain" confirm `vojtechsykora.com`; enforce HTTPS. The `public/CNAME` file ensures it survives deploys.
 
@@ -3118,13 +3118,13 @@ Visit https://vojtechsykora.com. Check:
 
 - [ ] **Step 2: Check social-share preview**
 
-Paste `https://vojtechsykora.com` into a LinkedIn post draft or use https://www.opengraph.xyz/ — expect the OG image to render.
+Paste `https://vojtechsykora.com` into a LinkedIn post draft or use https://www.opengraph.xyz/ - expect the OG image to render.
 
-- [ ] **Step 3: No commit — this is verification only.**
+- [ ] **Step 3: No commit - this is verification only.**
 
 ---
 
-## M11 — Polish
+## M11 - Polish
 
 ### Task 11.1: Mobile + a11y pass
 
@@ -3243,10 +3243,10 @@ export function Nav() {
 
 - Confirm every nav link has visible text (already does).
 - All `<a>` with `target="_blank"` already carry `rel="noreferrer"`.
-- The hero decorative `<em>` is semantic emphasis, not a styling hack — ok.
+- The hero decorative `<em>` is semantic emphasis, not a styling hack - ok.
 - `<main>` wraps page content (layout.tsx sets this).
 - `<header>`, `<footer>`, `<article>` used where appropriate.
-- Color contrast: phthalo/bone ≈ 14:1, bordeaux/bone ≈ 8:1, muted on bg ≈ 6:1 — all AA+.
+- Color contrast: phthalo/bone ≈ 14:1, bordeaux/bone ≈ 8:1, muted on bg ≈ 6:1 - all AA+.
 
 Run a quick Lighthouse audit via Chrome DevTools on the deployed site. Fix any a11y flags (should be 0 by default here).
 
@@ -3256,7 +3256,7 @@ Run a quick Lighthouse audit via Chrome DevTools on the deployed site. Fix any a
 pnpm build && pnpm dev
 ```
 
-Resize DevTools from 320px to 1440px — no horizontal scroll, nav collapses to hamburger below `md`.
+Resize DevTools from 320px to 1440px - no horizontal scroll, nav collapses to hamburger below `md`.
 
 - [ ] **Step 4: Commit + push**
 
@@ -3281,13 +3281,13 @@ The Pages workflow redeploys automatically.
 
 ---
 
-## Appendix — Troubleshooting
+## Appendix - Troubleshooting
 
 **`pnpm install` fails on a specific transitive dep:** delete `pnpm-lock.yaml`, re-run. Commit the regenerated lockfile.
 
 **`next build` fails with `Image Optimization using the default loader is not compatible with \`next export\``:** confirmed handled by `images.unoptimized = true` in `next.config.ts`.
 
-**`next/font` complains about network access during GitHub Actions:** not typical — `next/font/google` downloads fonts at build time and caches them in the build output. If the runner is in a network-restricted region, pre-download the font via `@fontsource/dm-sans` as a fallback.
+**`next/font` complains about network access during GitHub Actions:** not typical - `next/font/google` downloads fonts at build time and caches them in the build output. If the runner is in a network-restricted region, pre-download the font via `@fontsource/dm-sans` as a fallback.
 
 **`Trailing slash` redirects break custom domains:** `trailingSlash: true` produces `/about/index.html` which GitHub Pages serves correctly at both `/about` and `/about/`. Keep it.
 
