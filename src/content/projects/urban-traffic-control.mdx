@@ -1,0 +1,19 @@
+## The problem
+
+Classical AI planners (PDDL-based) can find excellent vehicle routes, but they don't scale: throwing them at a city-sized road network is computationally hopeless. This project makes them practical by only running them where it matters.
+
+![framework](https://raw.githubusercontent.com/Matyxus/UTC_Framework/main/Images/FrameworkUTC.png)
+
+## The pipeline
+
+1. **Detect hotspots.** Gravitational clustering, similarity clustering and DBSCAN find which sub-regions of the network are actually congested.
+2. **Prune the graph.** **TopKA\*** extracts the k shortest paths through each hotspot, so the planner sees a small, focused road graph instead of the whole city.
+3. **Plan.** Off-the-shelf PDDL planners (Mercury, IPC-format) compute vehicle routes inside that sub-region.
+4. **Simulate.** SUMO (via TraCI) runs the resulting routes in a full traffic simulation to measure whether it actually helped.
+5. **Utilities.** OSM to SUMO NET.XML conversion, so any OpenStreetMap city can be imported.
+
+## Results
+
+Runs in `results_timeout/` cover full **Dublin** and **Luxembourg** scenarios, with timing tables and routed scenario bundles. The combination of edge-simplification plus TopKA\* plus DBSCAN is what makes it tractable; stock PDDL planners can't handle the unreduced graphs.
+
+Research collaboration with CTU Prague; co-authored paper submitted to *Expert Systems with Applications*.

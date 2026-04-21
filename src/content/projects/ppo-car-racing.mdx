@@ -1,0 +1,19 @@
+## What it does
+
+A reinforcement-learning agent learns to drive a car around a top-down race track from raw pixels. The twist: the environment is modified with **custom wind dynamics** that push the car sideways with variable strength and direction, making it a harder test than vanilla CarRacing.
+
+![driving agent](https://raw.githubusercontent.com/sykoravojtech/PPOCarRacing/main/car-driving.gif)
+
+## How it's trained
+
+- **Environment:** OpenAI Gym CarRacing-v2 wrapped with a wind action modifier.
+- **Algorithm:** Proximal Policy Optimization (PPO). Actor/critic architecture with a deep CNN policy.
+- **Hyperparameters:** horizon 2,250 steps, mini-batches of 1,024, γ = 0.99, learning rate 2.5e-4.
+
+![ppo algorithm](https://raw.githubusercontent.com/sykoravojtech/PPOthesis/main/images/ppo-alg.jpg)
+
+## The finding
+
+Agents pre-trained on the wind-free track and then fine-tuned on wind generalise much better than agents trained from scratch on wind. In both cases the final policy **consistently scores 900+**, which OpenAI sets as the threshold for "solving" CarRacing.
+
+Bachelor's thesis at CTU Prague. Full write-up in the linked PDF.

@@ -29,6 +29,14 @@ describe("getFeaturedProjects", () => {
   it("returns only projects with featured=true", () => {
     const result = getFeaturedProjects();
     expect(result.every((p) => p.featured)).toBe(true);
-    expect(result.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it("returns the expected three, in priority order", () => {
+    const ids = getFeaturedProjects().map((p) => p.id);
+    expect(ids).toEqual([
+      "video-transformers",
+      "multimodal-schematic-analysis",
+      "urban-traffic-control",
+    ]);
   });
 });
