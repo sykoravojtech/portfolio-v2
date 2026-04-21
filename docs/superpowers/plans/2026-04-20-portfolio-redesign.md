@@ -2744,7 +2744,7 @@ git commit -m "feat: /projects page"
 **Files:**
 - Create: `src/app/writing/page.tsx`
 
-- [ ] **Step 1: Write page**
+- [x] **Step 1: Write page**
 
 ```tsx
 import { Hero } from "@/components/hero";
@@ -2784,9 +2784,9 @@ export default function WritingPage() {
 }
 ```
 
-- [ ] **Step 2: Build + dev check — confirm empty state renders**
+- [x] **Step 2: Build + dev check — confirm empty state renders**
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A
@@ -2800,7 +2800,7 @@ git commit -m "feat: /writing list page (empty state supported)"
 **Files:**
 - Create: `src/app/writing/[slug]/page.tsx`
 
-- [ ] **Step 1: Write page**
+- [x] **Step 1: Write page**
 
 ```tsx
 import { notFound } from "next/navigation";
@@ -2848,13 +2848,13 @@ export default async function PostPage({
 
 > **Note on MDX rendering:** we use `react-markdown` (already a dep from projects-web) for simplicity. `@next/mdx` is configured in `next.config.ts` but not strictly used here — the loader reads raw MDX text and passes it through react-markdown. JSX-in-MDX is not supported with this approach; upgrade to native MDX if needed later.
 
-- [ ] **Step 2: Install react-markdown**
+- [x] **Step 2: Install react-markdown**
 
 ```bash
 pnpm add react-markdown@^10.1.0
 ```
 
-- [ ] **Step 3: Create seed post to test the page**
+- [x] **Step 3: Create seed post to test the page**
 
 `src/content/writing/hello-world.mdx`:
 
@@ -2876,7 +2876,7 @@ This is the inaugural post on the new portfolio. Expect occasional notes here on
 Short version: I wanted a recruiter-facing home that shares a design language with my [projects hub](https://projects.vojtechsykora.com/). Long version: later.
 ```
 
-- [ ] **Step 4: Build + dev check**
+- [x] **Step 4: Build + dev check**
 
 ```bash
 pnpm build && pnpm dev
@@ -2888,7 +2888,7 @@ Visit:
 
 Stop server.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add -A
@@ -2908,7 +2908,7 @@ git commit -m "feat: /writing/[slug] MDX post page + seed post"
 - Create: `src/app/icon.png`
 - Create: `src/app/opengraph-image.png`
 
-- [ ] **Step 1: Copy experience logos**
+- [x] **Step 1: Copy experience logos**
 
 ```bash
 cd /home/vojta/Documents/projects/portfolio-v2
@@ -2919,7 +2919,7 @@ ls public/images/experience/
 ls public/images/education/
 ```
 
-- [ ] **Step 2: Rename files to match content modules**
+- [x] **Step 2: Rename files to match content modules**
 
 The `experiences.ts` content references paths like `/images/experience/miton.jpeg`. The old portfolio doesn't have a Miton logo — skip rename if file doesn't exist (logo will be optional). For any mismatch where a file is present under a different name, rename:
 
@@ -2940,7 +2940,7 @@ ls -1
 
 If `miton.jpeg` is missing, leave the reference in `experiences.ts` — Next/Image will 404 on it at runtime. Either remove the `logo` field for Miton from `experiences.ts`, or place a downloaded Miton logo at `public/images/experience/miton.jpeg`. Simplest: edit `experiences.ts` and remove the `logo` line for the Miton entry.
 
-- [ ] **Step 3: Avatar placeholder**
+- [x] **Step 3: Avatar placeholder**
 
 Until a real avatar is placed, create a simple 200×200 Phthalo block so the `/about` image tag resolves:
 
@@ -2953,7 +2953,7 @@ ls -la public/images/avatar.jpg 2>/dev/null || echo "No avatar — /about will r
 
 If ImageMagick isn't installed, skip this step — the `bio.avatar` field can be set to `undefined` in `src/content/bio.ts`, and `EducationItem`/`AboutPage` already guard against missing logos/avatars.
 
-- [ ] **Step 4: Build check**
+- [x] **Step 4: Build check**
 
 ```bash
 pnpm build
@@ -2963,7 +2963,7 @@ Images referenced from content must exist, or `next/image` will complain at buil
 - adding the file to `public/images/...`, or
 - removing the `logo` field for that entry in the relevant content module.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add -A
@@ -2979,7 +2979,7 @@ git commit -m "feat: port experience and education logos from legacy portfolio"
 - Create: `src/app/apple-icon.png` (180×180)
 - Create: `src/app/opengraph-image.png` (1200×630 default)
 
-- [ ] **Step 1: Generate simple icons**
+- [x] **Step 1: Generate simple icons**
 
 Use ImageMagick if available:
 
@@ -2992,7 +2992,7 @@ which convert && convert -size 1200x630 xc:'#123624' -fill '#D8D0C2' -gravity ce
 
 If `convert` is unavailable, create the files manually in Figma/Affinity (1200×630 with `#123624` bg, `#D8D0C2` text) and place in `src/app/`. Next.js App Router picks them up by filename automatically — no additional config needed.
 
-- [ ] **Step 2: Build + inspect**
+- [x] **Step 2: Build + inspect**
 
 ```bash
 pnpm build
@@ -3001,7 +3001,7 @@ ls out | grep -E "(icon|opengraph)"
 
 Expected: at least `icon.png` is present in the build output.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A
