@@ -47,7 +47,19 @@ export function EducationItem({ item }: { item: Education }) {
         </ul>
         {item.thesis && (
           <p className="mt-2 text-[11px] italic text-muted">
-            Thesis: <span className="text-ink not-italic font-semibold">{item.thesis}</span>
+            Thesis:{" "}
+            {item.thesisLink ? (
+              <a
+                href={item.thesisLink}
+                target="_blank"
+                rel="noreferrer"
+                className="text-ink not-italic font-semibold hover:text-bordeaux"
+              >
+                {item.thesis}
+              </a>
+            ) : (
+              <span className="text-ink not-italic font-semibold">{item.thesis}</span>
+            )}
           </p>
         )}
         {item.skills.length > 0 && (

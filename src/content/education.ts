@@ -20,6 +20,7 @@ export const education: Education[] = [
     skills: ["Python", "AI", "ML", "Deep Learning", "Computer Vision"],
     thesis:
       "Multi-modal Deep Learning for Automated Schematic Analysis (FZI Research Center)",
+    thesisLink: "https://github.com/sykoravojtech/od-symbol/tree/main",
   },
   {
     id: "ctu",
@@ -40,6 +41,7 @@ export const education: Education[] = [
     skills: ["Python", "C++", "AI", "C"],
     thesis:
       "Proximal Policy Optimization for Car Racing with unpredictable Wind",
+    thesisLink: "https://github.com/sykoravojtech/PPOthesis",
   },
   {
     id: "prgai",

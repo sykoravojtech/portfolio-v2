@@ -49,6 +49,7 @@ export type Education = {
   skills: string[];
   grade?: string;
   thesis?: string;
+  thesisLink?: string;
   certificateLink?: string;
 };
 
