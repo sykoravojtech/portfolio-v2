@@ -2,6 +2,15 @@ import type { Testimonial } from "./types";
 
 export const testimonials: Testimonial[] = [
   {
+    id: "maximilian-staudenmaier",
+    author: "Maximilian Staudenmaier",
+    authorRole: "Business Development Manager, synthavo",
+    excerpt:
+      "Vojtěch consistently demonstrated a high level of professionalism, commitment, and skill. His communication was clear, precise, and well-structured, enabling smooth collaboration across technical and non-technical teams. With strong technical expertise, he was able to work and research independently, often taking initiative to explore innovative solutions.",
+    fullText:
+      "Vojtěch Sýkora was employed at synthavo as a Machine Learning Engineer from December 2024 to July 2025. He led agile development of an agentic Multimodal LLM prototype using LangChain, LangGraph, ChromaDB, and RAG techniques; communicated strategies and presented solutions to tech and business stakeholders; and researched methods of multimodal extraction of electric symbols from schematics. Vojtěch consistently demonstrated a high level of professionalism, commitment, and skill in fulfilling his duties. He regularly sought constructive feedback and effectively implemented it to improve outcomes. His communication was clear, precise, and well-structured, enabling smooth collaboration across technical and non-technical teams. With strong technical expertise, he was able to work and research independently, often taking initiative to explore innovative solutions. He prioritized meeting customer requirements and ensured that deliverables aligned with their needs, and maintained thorough and up-to-date documentation. Vojtěch worked well with colleagues and was always punctual, reliable, and respectful.",
+  },
+  {
     id: "lukas-chrpa",
     author: "Lukas Chrpa",
     authorRole: "Supervisor, CTU FEE AI Center",

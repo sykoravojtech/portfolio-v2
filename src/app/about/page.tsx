@@ -50,10 +50,14 @@ export default function AboutPage() {
           </ul>
         </section>
 
-        {testimonials[0] && (
+        {testimonials.length > 0 && (
           <section>
             <SectionHeader kicker="What people say" />
-            <Testimonial item={testimonials[0]} />
+            <div className="space-y-8">
+              {testimonials.map((t) => (
+                <Testimonial key={t.id} item={t} />
+              ))}
+            </div>
           </section>
         )}
 
