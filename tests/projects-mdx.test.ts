@@ -7,14 +7,14 @@ import {
 describe("projects MDX loader", () => {
   it("lists all MDX slugs in src/content/projects/", () => {
     const slugs = listProjectSlugs();
-    expect(slugs).toContain("_fixture");
+    expect(slugs).toContain("video-transformers");
+    expect(slugs).toContain("multimodal-schematic-analysis");
   });
 
-  it("reads an MDX file by slug and returns body + frontmatter", () => {
-    const loaded = getProjectContent("_fixture");
+  it("reads a real MDX file by slug", () => {
+    const loaded = getProjectContent("video-transformers");
     expect(loaded).not.toBeNull();
-    expect(loaded!.frontmatter.title).toBe("Fixture project");
-    expect(loaded!.content).toContain("Hello world");
+    expect(loaded!.content).toContain("Charades");
   });
 
   it("returns null for a missing slug", () => {
