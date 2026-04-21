@@ -70,16 +70,19 @@ export type Testimonial = {
 };
 
 export type Project = {
-  id: string;
+  id: string;               // stable internal key; equals slug
+  slug: string;             // URL segment & MDX filename base
   title: string;
   category: string;
   date?: string;
-  description: string;
-  tags: string[];
+  description: string;      // short — shown on card
+  tags: string[];           // short set (3–4) shown on card
+  techStack?: string[];     // longer keyword list shown on detail page
   github?: string;
   webapp?: string;
   paper?: string;
-  image?: string;
+  heroImage?: string;       // local path ("/images/projects/x.png") or external URL
+  hasDetail: boolean;       // true ⇒ card links to /projects/[slug]
   featured: boolean;
 };
 
