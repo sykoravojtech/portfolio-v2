@@ -4,7 +4,7 @@ export const bio: Bio = {
   name: "Vojtěch Sýkora",
   role: "AI Engineer & Product Builder",
   location: "Prague, Czechia",
-  tagline: "I build products I wish existed.",
+  tagline: "Taste in what to build. Agency in shipping it.",
   description:
     "For the past 5 years I have worked with research labs and startups across AI, robotics, transportation, and software. Lately I focused on AI Agents, LLMs and Computer Vision and thrive on solving complex challenges with practical and innovative solutions. Now I'm building AI products from ideas to scale at a VC while guiding with technical due diligence. Beyond the tech I'm a curious, creative problem-solver who loves to travel, play sports and make some delicious food.",
   email: "sykoravojtech01@gmail.com",

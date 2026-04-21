@@ -19,7 +19,7 @@ export function Hero({
         }`}
       >
         {kicker && (
-          <div className="text-[10px] uppercase tracking-[0.16em] text-bone/55 mb-4">
+          <div className="text-[12px] uppercase tracking-[0.16em] text-bone/55 mb-4">
             {kicker}
           </div>
         )}
