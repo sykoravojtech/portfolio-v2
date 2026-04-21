@@ -11,7 +11,7 @@ export default function ProjectsPage() {
         kicker="Projects"
         headline={
           <>
-            Things I've <em className="font-light italic text-cedar ml-[-0.02em] mr-[0.1em]">built</em>
+            Things I&apos;ve <em className="font-light italic text-cedar ml-[-0.02em] mr-[0.1em]">built</em>
           </>
         }
         tagline="Selected personal and research projects."

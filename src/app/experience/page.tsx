@@ -29,7 +29,7 @@ export default function ExperiencePage() {
         <section className="bg-bg2 border border-border rounded-xl p-6">
           <SectionHeader kicker="What I'm looking for" title="Teams, problems, technologies" />
           <p className="text-[13px] text-muted leading-relaxed mb-4">
-            I'm most energized when engineering meets product: shipping AI-powered tools that real people use, with a small team that ships fast and cares about craft. Open to senior engineering and AI-focused founding roles.
+            I&apos;m most energized when engineering meets product: shipping AI-powered tools that real people use, with a small team that ships fast and cares about craft. Open to senior engineering and AI-focused founding roles.
           </p>
           <ContactMenu>
             <Button>Get in touch</Button>
