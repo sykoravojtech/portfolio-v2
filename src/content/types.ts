@@ -7,6 +7,7 @@ export type Bio = {
   email: string;
   github: string;
   linkedin: string;
+  medium: string;
   avatar?: string;
   spokenLanguages: { name: string; proficiency: string }[];
   techStack: string[];

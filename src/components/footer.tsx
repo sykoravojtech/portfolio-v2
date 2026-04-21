@@ -14,6 +14,9 @@ export function Footer() {
           <a href={bio.linkedin} className="text-bordeaux font-semibold hover:underline" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
+          <a href={bio.medium} className="text-bordeaux font-semibold hover:underline" target="_blank" rel="noreferrer">
+            Medium
+          </a>
           <EmailCopy className="text-bordeaux font-semibold hover:underline cursor-pointer" />
           <Link href="/VojtechSykora_CV_2026.pdf" className="text-bordeaux font-semibold hover:underline" target="_blank">
             CV ↓

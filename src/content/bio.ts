@@ -10,6 +10,7 @@ export const bio: Bio = {
   email: "sykoravojtech01@gmail.com",
   github: "https://github.com/sykoravojtech",
   linkedin: "https://www.linkedin.com/in/sykoravojtech/",
+  medium: "https://medium.com/@sykoravojtech",
   spokenLanguages: [
     { name: "Czech", proficiency: "Native" },
     { name: "English", proficiency: "Full professional" },

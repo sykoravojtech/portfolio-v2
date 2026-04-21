@@ -11,8 +11,10 @@ export function ExperienceItem({
 }) {
   return (
     <div className="grid grid-cols-[90px_1fr] gap-4 py-4 border-b border-border last:border-b-0">
-      <div className="text-[11px] font-semibold text-muted pt-1">
-        {item.dateDisplay}
+      <div className="text-[11px] font-semibold text-muted pt-1 leading-tight space-y-0.5">
+        {item.dateDisplay.split(/\s*—\s*/).map((part, i) => (
+          <div key={i}>{part}</div>
+        ))}
       </div>
       <div>
         <div className="flex items-start gap-3">
