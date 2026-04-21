@@ -41,6 +41,7 @@ export const experiences: Experience[] = [
     end: "2026-01",
     dateDisplay: "May 2025 — Jan 2026",
     location: "Munich, Germany",
+    logo: "/images/experience/stealth-startup.jpeg",
     description: [
       "AI, Computer Vision, VLMs; dataset management, crowdfunding and collection; grasping point detection.",
       "Strategy, leadership, pitching, investor communication, organization.",
