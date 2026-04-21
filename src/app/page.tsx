@@ -28,7 +28,7 @@ export default function Home() {
         headline={bio.name}
         tagline={
           <>
-            I <em className="font-light italic text-green-mid">build</em> tools I wish existed.
+            I <em className="font-light italic text-green-mid">build</em> products I wish existed.
           </>
         }
         ctas={

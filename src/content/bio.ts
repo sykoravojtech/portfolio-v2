@@ -12,7 +12,7 @@ export const bio: Bio = {
   linkedin: "https://www.linkedin.com/in/sykoravojtech/",
   spokenLanguages: [
     { name: "Czech", proficiency: "Native" },
-    { name: "English", proficiency: "Full professional (Cambridge C1)" },
+    { name: "English", proficiency: "Full professional" },
     { name: "German", proficiency: "Limited working" },
   ],
   techStack: [
