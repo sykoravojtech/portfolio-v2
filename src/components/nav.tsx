@@ -41,7 +41,7 @@ export function Nav() {
                 className={cn(
                   "transition-colors",
                   isActive(l.href)
-                    ? "text-green-mid font-bold"
+                    ? "text-cedar font-bold"
                     : "text-bone/70 hover:text-bone"
                 )}
               >
@@ -83,7 +83,7 @@ export function Nav() {
                   className={cn(
                     "block py-1 transition-colors",
                     isActive(l.href)
-                      ? "text-green-mid font-bold"
+                      ? "text-cedar font-bold"
                       : "text-bone/80 hover:text-bone"
                   )}
                 >
