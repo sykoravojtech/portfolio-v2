@@ -21,8 +21,21 @@ export const now = {
   ],
 };
 
-/** Big past projects. `experienceId` opens that job's details in the sheet. */
-export const selectedWork = [
+type WorkLink = { label: string; href: string };
+
+/** Big past projects. `experienceId` opens that job's details in the sheet. `image` is a 16:10 picture;
+ *  without one the card shows `logo` on grid paper. */
+export const selectedWork: {
+  experienceId: string;
+  kicker: string;
+  title: string;
+  text: string;
+  stats: { value: string; label: string }[];
+  image?: string;
+  imageAlt?: string;
+  logo?: string;
+  links: WorkLink[];
+}[] = [
   {
     experienceId: "miton",
     kicker: "Miton / 2025–2026 / sole engineer",
@@ -32,6 +45,9 @@ export const selectedWork = [
       { value: "150K+", label: "records searched" },
       { value: "<1 s", label: "query time" },
     ],
+    image: "/images/work/alister.png",
+    imageAlt: "The public homepage of Alister, Miton's talent intelligence agent",
+    links: [{ label: "alisterai.com ↗", href: "https://alisterai.com" }],
   },
   {
     experienceId: "stealth-startup",
@@ -39,6 +55,8 @@ export const selectedWork = [
     title: "Robots that restock supermarket shelves",
     text: "Product recognition, VLM grasp points for pick-and-place, a dataset pipeline built for international rollout. Pitched investors, won letters of intent, and negotiated with REWE Digital.",
     stats: [{ value: "94.5%", label: "mAP50, shelf products" }],
+    logo: "/images/experience/stealth-startup.jpeg",
+    links: [],
   },
   {
     experienceId: "fzi",
@@ -46,6 +64,12 @@ export const selectedWork = [
     title: "Vision and language, from labs to a thesis",
     text: "Reading electronic schematics with multimodal models at FZI (my master's thesis), video transformers during my master's in Tübingen, AI research with the US Air Force Research Lab.",
     stats: [{ value: "+7.3%", label: "mAP, detection" }],
+    image: "/images/projects/multimodal-schematic-analysis.png",
+    imageAlt: "Detected symbols on an electronic schematic, from the master's thesis",
+    links: [
+      { label: "Thesis project →", href: "/projects/multimodal-schematic-analysis/" },
+      { label: "GitHub ↗", href: "https://github.com/sykoravojtech/od-symbol" },
+    ],
   },
 ];
 

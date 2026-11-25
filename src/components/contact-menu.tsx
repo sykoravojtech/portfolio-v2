@@ -37,7 +37,7 @@ export function ContactMenu({
           sideOffset={8}
           align={align}
           className={cn(
-            "bg-bone border border-border rounded-xl shadow-[0_10px_40px_rgba(21,23,26,0.18)] p-1.5 flex flex-col w-[300px] z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+            "contact-pop bg-paper border border-rule shadow-[0_14px_40px_rgba(21,23,26,0.18)] p-1.5 flex flex-col w-[300px] z-50",
             contentClassName
           )}
         >

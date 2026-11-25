@@ -393,3 +393,7 @@ body {
 /* Theme switch: the icon turns in when it changes */
 .theme-icon { animation: theme-turn 420ms var(--spring); }
 @keyframes theme-turn { from { opacity: 0; transform: rotate(-90deg) scale(0.6); } }
+
+/* Contact menu pops in under its button */
+.contact-pop[data-state="open"] { animation: rise-in var(--t-base) var(--ease); }
+.contact-pop[data-state="closed"] { animation: fade-out 120ms var(--ease-in); }

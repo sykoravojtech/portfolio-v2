@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Mark } from "./mark";
 import { ThemeToggle } from "./theme-toggle";
+import { ContactMenu } from "./contact-menu";
 
 const LINKS = [
   { href: "/#now", label: "Now" },
@@ -59,12 +60,14 @@ export function Nav() {
           ))}
         </ul>
         <ThemeToggle className="ml-auto md:ml-0" />
-        <Link
-          href="/#contact"
-          className="press hidden md:inline-flex items-center h-10 px-4 bg-ink text-paper text-[13px] font-semibold hover:bg-accent hover:text-on-accent"
-        >
-          Get in touch
-        </Link>
+        <ContactMenu align="end">
+          <button
+            type="button"
+            className="press hidden md:inline-flex items-center h-10 px-4 bg-ink text-paper text-[13px] font-semibold hover:bg-accent hover:text-on-accent"
+          >
+            Get in touch
+          </button>
+        </ContactMenu>
 
         <button
           type="button"

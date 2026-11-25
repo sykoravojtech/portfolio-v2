@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { experiences } from "@/content/experiences";
+import { education } from "@/content/education";
 import { compareByStartDesc } from "@/lib/dates";
 import { Reveal } from "@/components/reveal";
 import { SectionLabel } from "@/components/section-label";
@@ -59,7 +60,44 @@ export function Timeline() {
         })}
       </ol>
       <Link href="/experience/" className="group inline-flex items-center gap-1 mt-3 font-semibold text-[14px] text-accent-text">
-        Full CV and education <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+        Full CV <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+      </Link>
+
+      <h3 className="kicker text-muted mt-12 mb-4">Education</h3>
+      <ol>
+        {education.slice(0, 2).map((e, i) => {
+          const [from, to] = short(e.dateDisplay);
+          return (
+            <Reveal as="li" index={i} key={e.id} className="mb-2">
+              <div className="flex items-center gap-4 sm:gap-5">
+                <span className="hidden sm:block w-[110px] shrink-0 text-right font-mono text-[12px] leading-snug text-muted">
+                  {from}
+                  <br />
+                  {to}
+                </span>
+                <Link
+                  href="/education/"
+                  className="lift lift-sm group flex-1 min-w-0 flex items-center gap-4 pr-4 border border-transparent hover:bg-card"
+                >
+                  <CompanyLogo src={e.logo} name={e.school} size={52} className="lift-logo" />
+                  <span className="flex-1 min-w-0 py-3">
+                    <b className="block font-semibold text-[16px]">
+                      {e.degree}
+                      {e.field ? `, ${e.field}` : ""}
+                    </b>
+                    <span className="block text-[13px] text-muted truncate">{e.school}</span>
+                  </span>
+                  <span className="hidden sm:inline font-mono text-[11px] text-accent-text">
+                    Details <span className="lift-arrow inline-block">→</span>
+                  </span>
+                </Link>
+              </div>
+            </Reveal>
+          );
+        })}
+      </ol>
+      <Link href="/education/" className="group inline-flex items-center gap-1 mt-3 font-semibold text-[14px] text-accent-text">
+        All education and certifications <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
       </Link>
     </section>
   );

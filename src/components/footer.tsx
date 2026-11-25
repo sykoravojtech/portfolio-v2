@@ -40,7 +40,6 @@ Get in touch
         </div>
         <div className="mt-14 pt-4 border-t border-night-line flex flex-wrap gap-3 font-mono text-[11px] text-night-muted">
           <span>© {new Date().getFullYear()} {bio.name}</span>
-          <span className="ml-auto">VS / Same design system as my Lab</span>
         </div>
       </div>
     </footer>
