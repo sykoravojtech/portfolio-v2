@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Mark } from "./mark";
+import { ThemeToggle } from "./theme-toggle";
 
 const LINKS = [
   { href: "/#now", label: "Now" },
@@ -57,6 +58,7 @@ export function Nav() {
             </li>
           ))}
         </ul>
+        <ThemeToggle className="ml-auto md:ml-0" />
         <Link
           href="/#contact"
           className="press hidden md:inline-flex items-center h-10 px-4 bg-ink text-paper text-[13px] font-semibold hover:bg-accent hover:text-on-accent"
@@ -66,7 +68,7 @@ export function Nav() {
 
         <button
           type="button"
-          className="md:hidden ml-auto size-11 grid place-items-center border border-line"
+          className="md:hidden size-10 grid place-items-center border border-line"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Notebook: the design system of the Lab (projects-web). Paper, ink, one orange accent.
    Source of truth for the tokens: projects-web apps/web/src/app/globals.css. */
 :root {
@@ -50,6 +52,27 @@
   --bordeaux: var(--ink);
   --cedar: var(--accent-text);
   --bone: var(--paper);
+}
+
+/* Night log: the Lab's dark theme. A "dark" class on <html> (set before first paint in layout.tsx) */
+:root.dark {
+  color-scheme: dark;
+  --paper: #131517;
+  --ink: #ECE9E2;
+  --muted-ink: #ECE9E2a6;
+  --line: #ffffff26;
+  --rule: #ECE9E2;
+  --card: #1B1E21;
+  --accent: #FF6B3D;
+  --accent-text: #FF7F57;
+  --on-accent: #131517;
+  --grid: #ffffff0d;
+  --tint: #ffffff14;
+  --night: #0B0C0E;
+  --night-ink: #ECE9E2;
+  --night-muted: #ECE9E2b3;
+  --night-line: #ffffff26;
+  --night-accent: #FF6B3D;
 }
 
 @theme inline {
@@ -366,3 +389,7 @@ body {
 .reveal-rule.reveal { transform: none; }
 .reveal-rule > span:last-child { transform: scaleX(0); }
 .reveal-rule.in > span:last-child { transform: scaleX(1); transition: transform 900ms var(--ease) 120ms; }
+
+/* Theme switch: the icon turns in when it changes */
+.theme-icon { animation: theme-turn 420ms var(--spring); }
+@keyframes theme-turn { from { opacity: 0; transform: rotate(-90deg) scale(0.6); } }
