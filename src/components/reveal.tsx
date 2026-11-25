@@ -4,8 +4,8 @@ import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * Rises into place when it scrolls into view (CSS .reveal / .in in globals.css).
- * Plays on every visit: the owner reads "motion only once per session" as broken animations.
+ * Rises into place each time it scrolls into view (CSS .reveal / .in in globals.css), not only
+ * the first time: the owner reads "motion only once" as broken animations.
  * `index` staggers siblings by 70 ms.
  */
 export function Reveal({
@@ -29,14 +29,10 @@ export function Reveal({
     }
     const io = new IntersectionObserver(
       (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            e.target.classList.add("in");
-            io.unobserve(e.target);
-          }
-        }
+        // In when it enters, out again once it has fully left, so it plays every time it scrolls into view
+        for (const e of entries) e.target.classList.toggle("in", e.isIntersecting);
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0 },
     );
     io.observe(el);
     return () => io.disconnect();

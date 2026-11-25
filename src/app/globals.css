@@ -258,6 +258,7 @@ body {
     transition: none !important;
   }
   .reveal { opacity: 1; transform: none; }
+  .reveal-rule > span:last-child { transform: none; }
   .lift:hover, .lift-sm:hover { transform: none; }
   .orb, .orb::after, .pulse-dot { animation: none !important; }
 }
@@ -360,3 +361,8 @@ body {
 .group:hover .mark-px { animation-name: mark-in-again; }
 @keyframes mark-in { 0% { opacity: 0.12; } 100% { opacity: 1; } }
 @keyframes mark-in-again { 0% { opacity: 0.12; } 100% { opacity: 1; } }
+
+/* Section labels: the rule draws out from the left each time the label scrolls into view */
+.reveal-rule.reveal { transform: none; }
+.reveal-rule > span:last-child { transform: scaleX(0); }
+.reveal-rule.in > span:last-child { transform: scaleX(1); transition: transform 900ms var(--ease) 120ms; }

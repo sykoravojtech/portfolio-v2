@@ -1,8 +1,10 @@
+import { Reveal } from "./reveal";
+
 export function SectionLabel({ children }: { no?: string; children: React.ReactNode }) {
   return (
-    <div className="kicker flex items-center gap-3 text-muted">
+    <Reveal className="kicker flex items-center gap-3 text-muted reveal-rule">
       {children}
-      <span className="h-px flex-1 bg-line rule-in" aria-hidden="true" />
-    </div>
+      <span className="h-px flex-1 bg-line origin-left" aria-hidden="true" />
+    </Reveal>
   );
 }
