@@ -397,3 +397,17 @@ body {
 /* Contact menu pops in under its button */
 .contact-pop[data-state="open"] { animation: rise-in var(--t-base) var(--ease); }
 .contact-pop[data-state="closed"] { animation: fade-out 120ms var(--ease-in); }
+
+/* Homepage intro (components/intro). Shown only while <html data-intro> is set, before first paint. */
+.intro-overlay { display: none; }
+html[data-intro] { overflow: hidden; }
+html[data-intro] .intro-overlay { display: block; position: fixed; inset: 0; z-index: 100; background: var(--paper); cursor: pointer; }
+html[data-intro] .intro-overlay.drawing { background: transparent; }
+html[data-intro] [data-intro-target] { visibility: hidden; }
+.intro-skip {
+  position: absolute; top: calc(16px + env(safe-area-inset-top, 0px)); right: calc(16px + env(safe-area-inset-right, 0px));
+  font-size: 13px; font-weight: 500; color: var(--ink); background: var(--paper);
+  border: 1px solid var(--rule); border-radius: 2px; padding: 6px 12px;
+}
+.intro-skip:hover { border-color: var(--ink); }
+.intro-skip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

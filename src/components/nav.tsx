@@ -40,7 +40,7 @@ export function Nav() {
     >
       <nav className="max-w-[1120px] mx-auto px-6 h-16 flex items-center gap-5" aria-label="Main">
         <Link href="/" className="group flex items-center gap-2.5 font-semibold text-[16px]" onClick={() => setOpen(false)}>
-          <Mark cell={3.5} />
+          <Mark cell={3.5} introTarget />
           Vojtěch Sýkora
         </Link>
 

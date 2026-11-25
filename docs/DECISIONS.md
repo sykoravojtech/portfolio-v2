@@ -51,3 +51,7 @@ Append new decisions here - newest at top. Include date, decision, alternatives 
 - A headless CMS (Sanity, Contentful).
 
 **Why:** (1) TypeScript gives autocomplete and refactor safety; content shape is validated at compile time. (2) No runtime data fetching = simpler static output. (3) MDX for posts preserves the option to embed React components in long-form writing if the cadence ever picks up. (4) Adding a CMS for a site with ~4 posts/year is overkill.
+
+## 2026-11-25: Homepage intro ("Plotter")
+
+A canvas intro plays on the homepage once per browser session: grid paper spreads from the centre, a pen plots the pixel VS mark square by square, types the name, then the mark shrinks onto the nav logo while the paper fades to show the page. Chosen from five original concepts (canvas LSvwcHJ1ipZU5QEdN82TRX was the design canvas; the intro options page was a separate artifact). A `<head>` script sets `html[data-intro]` before first paint so the page never flashes underneath; reduced motion, deep links and repeat visits in the same session skip it. Click, any key or "Skip intro" jumps to the dock. Code: `src/components/intro/`.

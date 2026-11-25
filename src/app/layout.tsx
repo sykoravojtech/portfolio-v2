@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
+import { IntroOverlay } from "@/components/intro/intro-overlay";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
@@ -35,11 +36,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `try{document.documentElement.classList.toggle("dark",localStorage.getItem("theme")==="dark")}catch(e){}`,
           }}
         />
+        {/* Before first paint: play the intro on the homepage, once per session, never with reduced motion */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(location.pathname==="/"&&!sessionStorage.getItem("intro-seen")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.setAttribute("data-intro","")}catch(e){}`,
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col bg-paper text-ink">
         <a href="#content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 bg-ink text-paper px-3 py-2">
           Skip to content
         </a>
+        <IntroOverlay />
         <Nav />
         <main id="content" className="flex-1">{children}</main>
         <Footer />

@@ -64,6 +64,7 @@ Notebook, the Lab's design (changed from Phthalo Cream on 2026-11-25, see `docs/
 - **Motion:** `src/lib/motion.ts` + the `--t-*`, `--ease`, `--spring` tokens, copied from projects-web. CSS and the Web Animations API only, no animation library. Helpers: `Reveal` (scroll rise-in, plays on every visit), `.lift`, `.press`, the detail sheet (Radix Dialog keyed on `data-state`). Reduced motion: a 120 ms fade, nothing moves.
 - **Homepage content:** `src/content/home.ts`. The RapidSOS text names no internal product, customers or numbers, and offers no "details on request"; check every sentence with Vojta.
 - **Lab screenshots:** `public/images/lab/<app>-1.png`, `-2.png`, 390 × 844 at 2x, rendered from each app's Flutter golden tests with demo data (never live data), shown in the CSS `PhoneFrame`.
+- **Homepage intro:** `src/components/intro/` (canvas, once per session, homepage only, skipped with reduced motion). It ends by flying the mark onto the nav logo, found by `data-intro-target` (`<Mark introTarget />`).
 - `docs/DESIGN_SYSTEM.md` still describes Phthalo Cream and is historical.
 
 ## Key Docs

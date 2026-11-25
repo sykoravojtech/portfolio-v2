@@ -9,10 +9,22 @@ export const MARK_CELLS = V.flatMap((v, r) =>
   (v + "." + S[r]).split("").map((ch, c) => ({ r, c, on: ch === "X", s: c > 3 })),
 );
 
-export function Mark({ cell = 3, gap = 1, className }: { cell?: number; gap?: number; className?: string }) {
+export function Mark({
+  cell = 3,
+  gap = 1,
+  className,
+  introTarget = false,
+}: {
+  cell?: number;
+  gap?: number;
+  className?: string;
+  /** The homepage intro flies its big mark onto this one when it ends. */
+  introTarget?: boolean;
+}) {
   return (
     <span
       className={`grid shrink-0 ${className ?? ""}`}
+      {...(introTarget ? { "data-intro-target": "", "data-cell": cell, "data-gap": gap } : {})}
       style={{ gridTemplateColumns: `repeat(7, ${cell}px)`, gridAutoRows: `${cell}px`, gap }}
       aria-hidden="true"
     >
