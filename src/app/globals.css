@@ -54,7 +54,7 @@
   --bone: var(--paper);
 }
 
-/* Night log: the Lab's dark theme. A "dark" class on <html> (set before first paint in layout.tsx) */
+/* Night log: the Lab's dark theme. A "dark" class on <html>, set before first paint in layout.tsx only when the visitor chose dark; light is the default */
 :root.dark {
   color-scheme: dark;
   --paper: #131517;

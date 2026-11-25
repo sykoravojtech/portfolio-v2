@@ -10,7 +10,7 @@ function subscribe(onChange: () => void) {
 }
 const isDark = () => document.documentElement.classList.contains("dark");
 
-/** Sun / moon switch. The choice is kept in localStorage "theme"; without one the system setting wins. */
+/** Sun / moon switch. The choice is kept in localStorage "theme"; without one the site is light. */
 export function ThemeToggle({ className }: { className?: string }) {
   // Reads the class on <html>; null on the server, so the first paint shows an empty button.
   const dark = useSyncExternalStore<boolean | null>(subscribe, isDark, () => null);
