@@ -42,7 +42,7 @@ export function ProjectCard({ item }: { item: Project }) {
       {/* Body */}
       <div className="p-5 flex flex-col gap-3 flex-1">
         <TagPill>{item.category}</TagPill>
-        <h3 className="text-[18px] font-black tracking-[-0.02em] text-ink">
+        <h3 className="text-[18px] font-semibold tracking-[-0.02em] text-ink">
           {item.title}
         </h3>
         <p className="text-[12px] text-muted leading-relaxed flex-1">
@@ -67,7 +67,7 @@ export function ProjectCard({ item }: { item: Project }) {
   );
 
   const cardClass =
-    "group block bg-bg2 border border-border rounded-xl overflow-hidden shadow-[0_2px_16px_rgba(18,54,36,0.06)] hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(18,54,36,0.14)] hover:border-green/25 transition-all duration-[400ms]";
+    "group block bg-bg2 border border-border rounded-xl overflow-hidden shadow-[0_2px_16px_rgba(21,23,26,0.06)] hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(21,23,26,0.14)] hover:border-green/25 transition-all duration-[400ms]";
 
   // No link at all (Black Forest Hackathon has no external primary + no detail page)
   if (!href) {

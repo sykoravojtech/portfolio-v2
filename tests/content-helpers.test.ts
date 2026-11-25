@@ -9,7 +9,7 @@ describe("getLatestExperiences", () => {
   it("returns items sorted newest-first and limited by count", () => {
     const result = getLatestExperiences(3);
     expect(result).toHaveLength(3);
-    expect(result[0].id).toBe("miton");
+    expect(result[0].id).toBe("rapidsos");
   });
 
   it("returns all when count omitted", () => {

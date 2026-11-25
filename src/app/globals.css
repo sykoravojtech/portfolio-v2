@@ -1,53 +1,79 @@
 @import "tailwindcss";
 
+/* Notebook: the design system of the Lab (projects-web). Paper, ink, one orange accent.
+   Source of truth for the tokens: projects-web apps/web/src/app/globals.css. */
 :root {
-  /* Dark layer: nav, hero, footer */
-  --green: #123624;
-  --green-dark: #133834;
-  --green-mid: #5C8B73;
-  --bordeaux: #4A1A23;
-  --cedar: #8C603E;
-  --bone: #D8D0C2;
+  --paper: #F6F5F0;
+  --ink: #15171A;
+  --muted-ink: #15171Aa6;
+  --line: #15171A2e;
+  --rule: #15171A;
+  --card: #FFFFFF;
+  --accent: #E4572E;
+  /* Accent for small text: #E4572E is only 3.4:1 on paper */
+  --accent-text: #BF3F17;
+  /* Text on an accent fill: ink gives 4.9:1, white only 3.7:1 */
+  --on-accent: #15171A;
+  --grid: #0000000d;
+  --tint: #15171A0f;
+  /* The dark sheet: contact footer, Now block */
+  --night: #15171A;
+  --night-ink: #ECE9E2;
+  --night-muted: #ECE9E2b3;
+  --night-line: #ffffff26;
+  --night-accent: #FF6B3D;
 
-  /* Light layer: content */
-  --bg: #EDE8DF;
-  --bg2: #F2EDE4;
-  --bg3: #D8D0C2;
+  /* Motion tokens, mirrored in lib/motion.ts. --spring is spring(170, 14) from there. */
+  --t-fast: 150ms;
+  --t-base: 220ms;
+  --t-slow: 300ms;
+  --t-overlay: 320ms;
+  --t-entry: 420ms;
+  --t-stagger: 45ms;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --spring: linear(0.012, 0.103, 0.25, 0.421, 0.594, 0.75, 0.882, 0.983, 1.055, 1.099, 1.12, 1.124, 1.114, 1.097, 1.076, 1.055, 1.035, 1.018, 1.004, 0.995, 0.989, 0.985, 0.985, 0.985, 0.987, 0.99, 0.993, 0.995, 0.997, 0.999, 1, 1.001, 1.002, 1.002, 1.002, 1.002, 1.001, 1.001, 1.001, 1, 1, 1, 1, 1, 1);
 
-  /* Text on light */
-  --text: #123624;
-  --text-muted: #5a5248;
-  --text-dim: rgba(0, 0, 0, 0.05);
+  --radius: 2px;
 
-  /* Borders */
-  --border: #d0c8be;
-  --radius: 12px;
-
-  /* Legacy aliases (safety net for un-migrated references) */
-  --phthalo: var(--green);
-  --jungle: var(--green-dark);
-  --surface: var(--green-dark);
-  --wintergreen: var(--green-mid);
-  --white: var(--bg2);
-  --black: var(--text);
-  --gold: var(--cedar);
-  --umber: var(--bordeaux);
-  --muted: var(--text-muted);
-  --dim: var(--text-dim);
-  --card-bg: var(--bg2);
-  --card-border: var(--border);
+  /* Old Phthalo Cream names point at the new palette, so the older pages need no edit */
+  --bg: var(--paper);
+  --bg2: var(--card);
+  --bg3: var(--tint);
+  --text: var(--ink);
+  --text-muted: var(--muted-ink);
+  --text-dim: var(--tint);
+  --border: var(--line);
+  --green: var(--ink);
+  --green-dark: var(--ink);
+  --green-mid: var(--accent-text);
+  --bordeaux: var(--ink);
+  --cedar: var(--accent-text);
+  --bone: var(--paper);
 }
 
 @theme inline {
-  /* Light layer */
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted-ink);
+  --color-line: var(--line);
+  --color-rule: var(--rule);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-on-accent: var(--on-accent);
+  --color-tint: var(--tint);
+  --color-night: var(--night);
+  --color-night-ink: var(--night-ink);
+  --color-night-muted: var(--night-muted);
+  --color-night-line: var(--night-line);
+  --color-night-accent: var(--night-accent);
+
+  /* Legacy utilities used by the older pages */
   --color-bg: var(--bg);
   --color-bg2: var(--bg2);
   --color-bg3: var(--bg3);
-  --color-ink: var(--text);
-  --color-muted: var(--text-muted);
   --color-border: var(--border);
-
-  /* Dark layer */
   --color-green: var(--green);
   --color-green-dark: var(--green-dark);
   --color-green-mid: var(--green-mid);
@@ -55,35 +81,188 @@
   --color-cedar: var(--cedar);
   --color-bone: var(--bone);
 
-  /* Legacy color utilities (kept for existing class names) */
-  --color-phthalo: var(--green);
-  --color-jungle: var(--green-dark);
-  --color-surface: var(--green-dark);
-  --color-wintergreen: var(--green-mid);
-  --color-white: var(--bg2);
-  --color-black: var(--text);
-  --color-gold: var(--cedar);
-  --color-umber: var(--bordeaux);
-  --color-card-bg: var(--bg2);
-  --color-card-border: var(--border);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+}
 
-  --font-sans: var(--font-dm-sans);
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text-muted);
-  font-family: var(--font-dm-sans), sans-serif;
-  font-size: 13px;
-  line-height: 1.65;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 ::selection {
-  background: var(--bordeaux);
-  color: var(--bone);
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
-/* Markdown body for showcase project pages */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Notebook surfaces ---------- */
+
+.grid-paper {
+  background-image: linear-gradient(var(--grid) 1px, #0000 1px), linear-gradient(90deg, var(--grid) 1px, #0000 1px);
+  background-size: 20px 20px;
+}
+
+.ruler {
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--line) 0 1px, #0000 1px 10px);
+}
+
+.kicker {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---------- Motion: tokens on :root, helpers in lib/motion.ts ---------- */
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(10px); }
+}
+@keyframes spring-in {
+  from { opacity: 0; transform: translateY(26px) scale(0.96); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+@keyframes sheet-in {
+  from { opacity: 0; transform: translateX(48px); }
+}
+@keyframes sheet-out {
+  to { opacity: 0; transform: translateX(32px); }
+}
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+@keyframes rule-in {
+  from { transform: scaleX(0); }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, #0000); }
+  70%, 100% { box-shadow: 0 0 0 8px #0000; }
+}
+
+/* Scroll reveal: Reveal adds .in when the element enters the viewport.
+   Items inside a reveal group stagger by --i. */
+.reveal { opacity: 0; transform: translateY(18px); }
+.reveal.in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 600ms var(--ease), transform 900ms var(--spring);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+.no-js .reveal { opacity: 1; transform: none; }
+
+.rule-in { transform-origin: left; animation: rule-in 1s 100ms var(--ease) backwards; }
+.hero-rise { animation: rise-in var(--t-entry) var(--ease) backwards; animation-delay: calc(var(--i, 0) * 90ms + 80ms); }
+
+/* Cards that lift. Fill mode stays off so hover works after any entry. */
+.lift {
+  transition: transform var(--t-base) var(--ease), border-color var(--t-fast), box-shadow var(--t-base) var(--ease), background-color var(--t-fast);
+}
+.lift:hover { transform: translateY(-3px); border-color: var(--rule); box-shadow: 0 14px 36px #15171A17; }
+.lift:active { transform: translateY(0) scale(0.995); transition-duration: 90ms; }
+.lift-sm:hover { transform: translateY(-2px); box-shadow: 0 10px 28px #15171A14; }
+.lift .lift-logo { transition: transform var(--t-base) var(--ease); }
+.lift:hover .lift-logo { transform: scale(1.06); }
+.lift .lift-arrow { transition: transform var(--t-base) var(--ease); }
+.lift:hover .lift-arrow { transform: translateX(4px); }
+
+.press { transition: transform 90ms var(--ease), background-color var(--t-fast), color var(--t-fast); }
+.press:active { transform: translateY(1px); }
+
+.pulse-dot { animation: pulse-ring 2s infinite; }
+
+/* Detail sheet (Radix Dialog keyed on data-state) */
+.sheet-overlay[data-state="open"] { animation: fade-in var(--t-overlay) var(--ease); }
+.sheet-overlay[data-state="closed"] { animation: fade-out 180ms var(--ease-in); }
+.sheet-panel[data-state="open"] { animation: sheet-in 700ms var(--spring); }
+.sheet-panel[data-state="closed"] { animation: sheet-out 200ms var(--ease-in); }
+.sheet-panel[data-state="open"] .sheet-item { animation: rise-in var(--t-entry) var(--ease) backwards; animation-delay: calc(var(--i, 0) * var(--t-stagger) + 120ms); }
+
+/* Tab content of the Lab block */
+.swap { animation: rise-in var(--t-slow) var(--ease); }
+
+/* ---------- The orb ---------- */
+/* A black glass sphere lit from below, after Vojta's reference (a dark orb with a blue glow at the
+   bottom edge and a faint rim at the top). Its colour is --orb. */
+.orb {
+  --orb: var(--accent);
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse 62% 34% at 50% 104%, color-mix(in srgb, var(--orb) 92%, #fff) 0%, color-mix(in srgb, var(--orb) 75%, #0000) 32%, #0000 72%),
+    radial-gradient(ellipse 70% 26% at 50% -2%, color-mix(in srgb, var(--orb) 30%, #0000) 0%, #0000 70%),
+    radial-gradient(circle at 50% 42%, #121417 0%, #07080a 70%);
+  box-shadow:
+    inset 0 -14px 28px color-mix(in srgb, var(--orb) 55%, #0000),
+    inset 0 3px 10px color-mix(in srgb, var(--orb) 22%, #0000),
+    0 22px 60px -18px color-mix(in srgb, var(--orb) 45%, #0000);
+  animation: orb-breathe 6s ease-in-out infinite;
+}
+.orb::before {
+  /* the dark equator band, as in the reference */
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 55%;
+  height: 9%;
+  border-radius: 50%;
+  background: #050607;
+  filter: blur(6px);
+  opacity: 0.85;
+}
+.orb::after {
+  /* a soft band of light that turns slowly around the sphere */
+  content: "";
+  position: absolute;
+  inset: 4%;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #0000 0 70%, color-mix(in srgb, var(--orb) 35%, #0000) 80%, #0000 90% 100%);
+  filter: blur(14px);
+  mix-blend-mode: screen;
+  animation: orb-turn 11s linear infinite;
+}
+@keyframes orb-breathe {
+  50% { transform: translate3d(0, -6px, 0) scale(1.012); }
+}
+@keyframes orb-turn {
+  to { transform: rotate(360deg); }
+}
+
+/* Reduced motion: nothing moves or scales, a 120 ms fade at most, no loops. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 120ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .lift:hover, .lift-sm:hover { transform: none; }
+  .orb, .orb::after, .pulse-dot { animation: none !important; }
+}
+
+/* ---------- Markdown body for project and writing pages ---------- */
 .prose-showcase {
   font-size: 14px;
   line-height: 1.7;
@@ -93,7 +272,7 @@ body {
 .prose-showcase h3,
 .prose-showcase h4 {
   color: var(--text);
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: -0.02em;
   margin-top: 2em;
   margin-bottom: 0.6em;
@@ -111,14 +290,14 @@ body {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-.prose-showcase a:hover { color: var(--bordeaux); }
+.prose-showcase a:hover { color: var(--accent-text); }
 .prose-showcase ul,
 .prose-showcase ol { padding-left: 1.4em; margin: 0.9em 0; }
 .prose-showcase ul { list-style: disc; }
 .prose-showcase ol { list-style: decimal; }
 .prose-showcase li { margin: 0.3em 0; }
 .prose-showcase code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
   background: var(--bg3);
   color: var(--text);
   padding: 0.1em 0.4em;

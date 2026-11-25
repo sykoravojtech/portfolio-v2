@@ -19,7 +19,7 @@ export function SectionHeader({
         </div>
       )}
       {title && (
-        <h2 className="text-[22px] sm:text-[28px] font-black tracking-[-0.025em] text-ink">
+        <h2 className="text-[22px] sm:text-[28px] font-semibold tracking-[-0.025em] text-ink">
           {title}
         </h2>
       )}

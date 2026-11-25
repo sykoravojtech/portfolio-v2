@@ -29,7 +29,7 @@ export default function AboutPage() {
             />
           )}
           <div>
-            <h2 className="text-[22px] font-black text-ink tracking-[-0.02em]">
+            <h2 className="text-[22px] font-semibold text-ink tracking-[-0.02em]">
               {bio.name}
             </h2>
             <p className="text-[12px] text-muted mb-3">

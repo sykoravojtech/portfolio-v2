@@ -33,7 +33,7 @@ export default async function ProjectDetailPage({
           {project.category}
           {project.date ? ` · ${project.date}` : ""}
         </p>
-        <h1 className="text-[32px] sm:text-[40px] font-black tracking-[-0.035em] text-ink mb-3">
+        <h1 className="text-[32px] sm:text-[40px] font-semibold tracking-[-0.035em] text-ink mb-3">
           {project.title}
         </h1>
         <p className="text-[15px] text-muted leading-relaxed max-w-2xl">

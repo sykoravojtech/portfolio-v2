@@ -1,33 +1,39 @@
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "900"],
-  variable: "--font-dm-sans",
+// latin-ext carries the Czech letters (ě, š, č, ř, ž, ů)
+const plexSans = IBM_Plex_Sans({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-plex-sans",
+  display: "swap",
+});
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600"],
+  variable: "--font-plex-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Vojtěch Sýkora",
   description:
-    "AI Engineer & Product Builder in Prague. Building AI products at Miton VC.",
+    "AI engineer in Prague. Senior Software Engineer, AI at RapidSOS: I lead AI transformation, from the platform to the product.",
   metadataBase: new URL("https://vojtechsykora.com"),
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={dmSans.variable}>
-      <body className="min-h-screen flex flex-col bg-bg text-muted">
+    <html lang="en" className={`${plexSans.variable} ${plexMono.variable}`}>
+      <body className="min-h-screen flex flex-col bg-paper text-ink">
+        <a href="#content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 bg-ink text-paper px-3 py-2">
+          Skip to content
+        </a>
         <Nav />
-        <main className="flex-1">{children}</main>
+        <main id="content" className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>
