@@ -4,6 +4,16 @@ Append new decisions here - newest at top. Include date, decision, alternatives 
 
 ---
 
+## 2026-11-25 - Redesign to Notebook; homepage leads with current work
+
+**Decision:** Move from Phthalo Cream to the Lab's Notebook design (paper #F6F5F0, ink #15171A, one orange accent #E4572E, IBM Plex Sans + Mono, 2px corners, grid paper). The homepage leads with the current RapidSOS work, then selected past work, then the personal apps as ONE "Lab" block with phone screenshots, then a timeline whose rows open a detail sheet.
+
+**Why:** (1) projects-web itself moved to Notebook / Night log in Nov 2026, so the old palette no longer matched. (2) Six app cards took too much space next to the bigger story; one Lab block with screenshots keeps them visual without leading.
+
+**Rules:** The RapidSOS text names no internal product, no customers and no numbers, and offers no "details on request". Old Phthalo token names alias to the new palette so inner pages follow without edits. Motion tokens and helpers are copied from projects-web `lib/motion.ts`; no animation library. Lab screenshots come from each app's golden tests with demo data, never from live data.
+
+---
+
 ## 2026-04-20 - Inherit Phthalo Cream design system from `../projects-web`
 
 **Decision:** Reuse the exact same design tokens, typography, and shadcn primitives as `projects-web` instead of creating a separate portfolio identity.

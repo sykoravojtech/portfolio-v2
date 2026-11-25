@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Personal portfolio site for Vojtěch Sýkora - deployed statically to `vojtechsykora.com` via GitHub Pages. Recruiter-facing primary, light blog secondary. Projects link out to the tools hub at `projects.vojtechsykora.com` (a separate repo - this site is read-only marketing/bio/writing).
 
 ## Architecture
-Static export from Next.js 16 → GitHub Pages. No backend, no database, no auth. Structured content lives in TypeScript modules under `src/content/`; blog posts are `.mdx` files. The design system (Phthalo Cream hybrid) is **inherited from the sibling repo `../projects-web`** - the file at `apps/web/src/app/globals.css` in that repo is the source of truth for tokens.
+Static export from Next.js 16 → GitHub Pages. No backend, no database, no auth. Structured content lives in TypeScript modules under `src/content/`; blog posts are `.mdx` files. The design system (Notebook, since 2026-11-25) is **inherited from the sibling repo `../projects-web`** - the file at `apps/web/src/app/globals.css` in that repo is the source of truth for tokens.
 
 **Key pattern:** code and content are colocated. Zero runtime data layer - everything is baked at build time into static HTML/CSS/JS.
 
@@ -16,12 +16,12 @@ Static export from Next.js 16 → GitHub Pages. No backend, no database, no auth
 |-------|------|
 | Runtime | Next.js 16.2.2, React 19, TypeScript 5 |
 | Styling | Tailwind CSS v4 (`@import "tailwindcss"` + `@theme inline`), class-variance-authority, clsx, tailwind-merge |
-| UI | radix-ui (scoped exports like `Slot.Root`), lucide-react icons, DM Sans via `next/font` |
+| UI | radix-ui (scoped exports like `Slot.Root`), lucide-react icons, IBM Plex Sans + Mono via `next/font` |
 | Content | TypeScript modules + MDX (`@next/mdx`, `remark-gfm`, `gray-matter`, `rehype-slug`, `rehype-autolink-headings`) |
 | Testing | Vitest |
 | Package manager | pnpm 9+ |
 | Hosting | GitHub Pages + Cloudflare (domain via CNAME) |
-| Design | Phthalo Cream hybrid dark/light ([`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md)) - mirrored from `../projects-web` |
+| Design | Notebook (paper, ink, one orange accent) - tokens in `src/app/globals.css`, mirrored from `../projects-web` |
 
 ## Repository Structure
 ```
@@ -58,14 +58,16 @@ Next.js 16 introduces breaking changes versus Next 13/14 that may still dominate
 
 ## Design system
 
-Phthalo Cream is a two-layer system: **dark chrome** (`--green`, `--green-dark`, `--bone`) for nav + hero + footer, **light content** (`--bg`, `--bg2`, `--text`) for the rest. Single accent is **bordeaux** (`#4A1A23`) for CTAs and active states; wintergreen (`--green-mid`) for links; cedar for dividers.
+Notebook, the Lab's design (changed from Phthalo Cream on 2026-11-25, see `docs/DECISIONS.md`): paper `#F6F5F0`, ink `#15171A`, one orange accent `#E4572E` (`--accent-text` `#BF3F17` for small text), IBM Plex Sans + Mono, 2px corners, grid paper. Dark sheets (Now block, footer) use the `--night*` tokens.
 
-- **Source of truth:** `../projects-web/apps/web/src/app/globals.css` (CSS variables + Tailwind v4 `@theme inline` mappings).
-- **Mirror in this repo:** [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md) - copied as a read-only reference. If tokens change in projects-web, copy the new file over.
-- **shadcn primitives:** ported from `../projects-web/apps/web/src/components/ui/` (only what this site uses - currently Button).
+- **Source of truth:** `../projects-web/apps/web/src/app/globals.css`. This repo's `src/app/globals.css` copies the tokens; the old Phthalo names (`--green`, `--bordeaux`, `bg-bone` …) alias to the new palette so older pages need no edit. New code uses the new names.
+- **Motion:** `src/lib/motion.ts` + the `--t-*`, `--ease`, `--spring` tokens, copied from projects-web. CSS and the Web Animations API only, no animation library. Helpers: `Reveal` (scroll rise-in, plays on every visit), `.lift`, `.press`, the detail sheet (Radix Dialog keyed on `data-state`). Reduced motion: a 120 ms fade, nothing moves.
+- **Homepage content:** `src/content/home.ts`. The RapidSOS text names no internal product, customers or numbers, and offers no "details on request"; check every sentence with Vojta.
+- **Lab screenshots:** `public/images/lab/<app>-1.png`, `-2.png`, 390 × 844 at 2x, rendered from each app's Flutter golden tests with demo data (never live data), shown in the CSS `PhoneFrame`.
+- `docs/DESIGN_SYSTEM.md` still describes Phthalo Cream and is historical.
 
 ## Key Docs
-- [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md) - Phthalo Cream tokens, typography, components (mirror from projects-web)
+- [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md) - the old Phthalo Cream system (historical; see Design system above)
 - [`docs/superpowers/specs/2026-04-20-portfolio-redesign-design.md`](docs/superpowers/specs/2026-04-20-portfolio-redesign-design.md) - design spec for this build
 - [`docs/superpowers/plans/2026-04-20-portfolio-redesign.md`](docs/superpowers/plans/2026-04-20-portfolio-redesign.md) - task-by-task implementation plan
 - [`docs/content-source/linkedin-2026-04.md`](docs/content-source/linkedin-2026-04.md) - authoritative content source (bio, experiences, education, certifications, testimonial)

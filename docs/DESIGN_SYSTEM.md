@@ -1,3 +1,5 @@
+> **Historical (replaced 2026-11-25).** The site now uses the Notebook design from projects-web. See CLAUDE.md "Design system" and docs/DECISIONS.md.
+
 # Design System - Phthalo Cream (Hybrid)
 
 ## Philosophy
