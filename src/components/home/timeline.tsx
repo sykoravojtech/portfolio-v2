@@ -22,7 +22,7 @@ export function Timeline() {
 
   return (
     <section id="timeline" className="pt-16 scroll-mt-16">
-      <SectionLabel no="04">Timeline</SectionLabel>
+      <SectionLabel>Timeline</SectionLabel>
       <ol className="relative mt-5">
         <span className="absolute left-[25px] sm:left-[155px] top-3 bottom-3 w-px bg-line" aria-hidden="true" />
         {jobs.map((j, i) => {

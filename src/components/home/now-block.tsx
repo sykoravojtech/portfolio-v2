@@ -6,7 +6,7 @@ import { OpenDetailsButton } from "./open-details-button";
 export function NowBlock() {
   return (
     <section id="now" className="pt-16 scroll-mt-16">
-      <SectionLabel no="01">Now</SectionLabel>
+      <SectionLabel>Now</SectionLabel>
       <Reveal className="mt-4 bg-night text-night-ink p-7 sm:p-10 flex flex-wrap gap-10">
         <div className="flex-[999_1_480px] min-w-0">
           <p className="kicker text-night-accent">{now.kicker}</p>

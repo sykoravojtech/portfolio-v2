@@ -10,12 +10,7 @@ export default function AboutPage() {
     <>
       <Hero
         compact
-        kicker="About"
-        headline={
-          <>
-            More <em className="font-light italic text-cedar ml-[-0.02em] mr-[0.1em]">context</em>
-          </>
-        }
+        headline="About"
       />
       <div className="max-w-[760px] mx-auto px-6 py-12 space-y-10">
         <section className="flex flex-col sm:flex-row gap-6 items-start">

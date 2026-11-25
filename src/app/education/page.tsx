@@ -13,12 +13,7 @@ export default function EducationPage() {
     <>
       <Hero
         compact
-        kicker="Education"
-        headline={
-          <>
-            Where I <em className="font-light italic text-cedar ml-[-0.02em] mr-[0.1em]">studied</em>
-          </>
-        }
+        headline="Education"
         tagline="Degrees and certifications, newest first."
       />
       <div className="max-w-[900px] mx-auto px-6 py-12 space-y-14">

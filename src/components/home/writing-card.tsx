@@ -5,7 +5,7 @@ import { SectionLabel } from "@/components/section-label";
 export function WritingCard() {
   return (
     <section id="writing" className="pt-16 scroll-mt-16">
-      <SectionLabel no="05">Writing</SectionLabel>
+      <SectionLabel>Writing</SectionLabel>
       <Reveal className="mt-4">
         <Link href="/writing/" className="lift group flex flex-wrap items-center gap-x-8 gap-y-4 bg-card border border-line px-7 py-6">
           <span className="flex-[999_1_420px]">

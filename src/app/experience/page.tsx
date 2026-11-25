@@ -12,13 +12,8 @@ export default function ExperiencePage() {
     <>
       <Hero
         compact
-        kicker="Experience"
-        headline={
-          <>
-            The full <em className="font-light italic text-cedar ml-[-0.02em] mr-[0.1em]">timeline</em>
-          </>
-        }
-        tagline="Every role, every stack. Newest first."
+        headline="Experience"
+        tagline="Every role, newest first."
       />
       <div className="max-w-[900px] mx-auto px-6 py-12 space-y-10">
         <section>

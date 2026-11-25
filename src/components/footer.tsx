@@ -10,9 +10,7 @@ export function Footer() {
         <Reveal>
           <p className="kicker text-night-accent">Contact</p>
           <h2 className="mt-3 mb-7 text-[34px] sm:text-[44px] font-semibold tracking-[-0.03em] leading-[1.05]">
-            Bringing AI into a whole company?
-            <br />
-            Let&apos;s talk.
+Get in touch
           </h2>
         </Reveal>
         <div className="flex flex-wrap gap-2.5">

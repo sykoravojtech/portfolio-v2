@@ -24,7 +24,7 @@ export function LabWorkspace({ available }: { available: string[] }) {
 
   return (
     <section id="lab" className="pt-16 scroll-mt-16">
-      <SectionLabel no="03">The Lab</SectionLabel>
+      <SectionLabel>The Lab</SectionLabel>
       <div className="mt-4 flex flex-wrap gap-8 items-start">
         <Reveal className="flex-[1_1_280px]">
           <h2 className="text-[28px] font-semibold tracking-[-0.02em] leading-tight">My personal workspace</h2>
@@ -76,6 +76,7 @@ export function LabWorkspace({ available }: { available: string[] }) {
                 >
                   <PhoneFrame
                     src={has(src) ? src : undefined}
+                    dark={app.dark}
                     alt={`${app.name}: ${app.captions[i]}`}
                     className="w-[220px] sm:w-[230px] transition-transform duration-300 ease-[cubic-bezier(.2,.8,.2,1)] group-hover:-translate-y-1.5"
                   />

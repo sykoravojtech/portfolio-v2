@@ -10,13 +10,8 @@ export default function WritingPage() {
     <>
       <Hero
         compact
-        kicker="Writing"
-        headline={
-          <>
-            Long-form <em className="font-light italic text-cedar ml-[-0.02em] mr-[0.1em]">notes</em>
-          </>
-        }
-        tagline="Occasional essays on AI, product, and personal projects."
+        headline="Writing"
+        tagline="Thoughts on whatever I keep coming back to: work, tech, books, travel."
       />
       <div className="max-w-[760px] mx-auto px-6 py-12">
         <SectionHeader kicker="All posts" />
