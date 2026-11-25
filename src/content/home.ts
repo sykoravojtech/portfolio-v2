@@ -56,15 +56,17 @@ export type LabApp = {
   url?: string;
   text: string;
   stack: string;
-  /** Screenshot under /public/images/lab/. Missing = a labelled empty frame. */
-  shot?: string;
+  /** Two phone screenshots (390 × 844 at 2x) under /public/images/lab/, made from the apps' golden
+   *  tests with fake data. A missing file shows a labelled empty phone. */
+  shots: [string, string];
+  captions: [string, string];
 };
 
 export const labApps: LabApp[] = [
-  { id: "lab", name: "Lab", host: "lab.vojtechsykora.com", text: "The control room: automation results, integrations, costs and one login for every other app.", stack: "Next.js · FastAPI · Flutter" },
-  { id: "games", name: "Games", host: "games.vojtechsykora.com", url: "https://games.vojtechsykora.com", text: "Daily geography and estimation games, with a Czech mode built on all 77 districts.", stack: "Flutter · Android + web" },
-  { id: "tv", name: "TV", host: "tv.vojtechsykora.com", text: "What I watch and what is next, with years of imported history.", stack: "FastAPI · Postgres · Flutter" },
-  { id: "books", name: "Books", host: "books.vojtechsykora.com", text: "Reading tracker with editions, shelves and stats.", stack: "FastAPI · Postgres · Flutter" },
-  { id: "maps", name: "Maps", host: "maps.vojtechsykora.com", text: "Hiking places and routes on my own OpenStreetMap data.", stack: "Flutter · PostGIS" },
-  { id: "split", name: "Split", host: "split.vojtechsykora.com", text: "Shared trip expenses. Friends join as guests, no account needed.", stack: "Flutter · Android + web" },
+  { id: "lab", name: "Lab", host: "lab.vojtechsykora.com", text: "The control room: automation results, integrations, costs and one login for every other app.", stack: "Next.js · FastAPI · Flutter", shots: ["/images/lab/lab-1.png", "/images/lab/lab-2.png"], captions: ["Feed", "Automations"] },
+  { id: "games", name: "Games", host: "games.vojtechsykora.com", url: "https://games.vojtechsykora.com", text: "Daily geography and estimation games, with a Czech mode built on all 77 districts.", stack: "Flutter · Android + web", shots: ["/images/lab/games-1.png", "/images/lab/games-2.png"], captions: ["Games", "Play"] },
+  { id: "tv", name: "TV", host: "tv.vojtechsykora.com", text: "What I watch and what is next, with years of imported history.", stack: "FastAPI · Postgres · Flutter", shots: ["/images/lab/tv-1.png", "/images/lab/tv-2.png"], captions: ["Up next", "Show"] },
+  { id: "books", name: "Books", host: "books.vojtechsykora.com", text: "Reading tracker with editions, shelves and stats.", stack: "FastAPI · Postgres · Flutter", shots: ["/images/lab/books-1.png", "/images/lab/books-2.png"], captions: ["Reading", "Book"] },
+  { id: "maps", name: "Maps", host: "maps.vojtechsykora.com", text: "Hiking places and routes on my own OpenStreetMap data.", stack: "Flutter · PostGIS", shots: ["/images/lab/maps-1.png", "/images/lab/maps-2.png"], captions: ["Places", "Route"] },
+  { id: "split", name: "Split", host: "split.vojtechsykora.com", text: "Shared trip expenses. Friends join as guests, no account needed.", stack: "Flutter · Android + web", shots: ["/images/lab/split-1.png", "/images/lab/split-2.png"], captions: ["Expenses", "Balances"] },
 ];

@@ -351,3 +351,6 @@ body {
   text-align: left;
 }
 .prose-showcase th { background: var(--bg3); color: var(--text); font-weight: 600; }
+
+/* Phones in the Lab block rise in one after the other on each tab change */
+.phone-in { animation: spring-in 800ms var(--spring) backwards; animation-delay: calc(var(--i, 0) * 90ms); }
