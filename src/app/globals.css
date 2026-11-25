@@ -354,3 +354,9 @@ body {
 
 /* Phones in the Lab block rise in one after the other on each tab change */
 .phone-in { animation: spring-in 800ms var(--spring) backwards; animation-delay: calc(var(--i, 0) * 90ms); }
+
+/* Pixel VS mark: plots in on load; hover swaps to an identical animation, which restarts it */
+.mark-px { animation: mark-in 0.5s steps(1) backwards; }
+.group:hover .mark-px { animation-name: mark-in-again; }
+@keyframes mark-in { 0% { opacity: 0.12; } 100% { opacity: 1; } }
+@keyframes mark-in-again { 0% { opacity: 0.12; } 100% { opacity: 1; } }
