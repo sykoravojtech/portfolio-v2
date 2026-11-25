@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { DOCK_MS, PLAY_MS, drawFrame, geometry, type Dock, type Geometry, type Palette } from "./plotter";
+import { PLAY_MS, dockMs, drawFrame, geometry, scatterFlights, type Dock, type Geometry, type Palette } from "./plotter";
 
 /**
  * The homepage intro. A script in the layout's <head> sets `data-intro` on <html> before first paint
@@ -37,6 +37,7 @@ export function IntroOverlay() {
     let frame = 0;
     let start = 0;
     let dockAt = PLAY_MS;
+    const flights = scatterFlights();
     let finished = false;
 
     const size = () => {
@@ -67,8 +68,8 @@ export function IntroOverlay() {
         canvas.parentElement?.classList.add("drawing");
       }
       const t = now - start;
-      if (ctx && g) drawFrame(ctx, g, pal, t, dockAt, t >= dockAt ? dock() : null);
-      if (t >= dockAt + DOCK_MS) finish();
+      if (ctx && g) drawFrame(ctx, g, pal, t, dockAt, t >= dockAt ? dock() : null, flights);
+      if (t >= dockAt + dockMs(flights)) finish();
       else frame = requestAnimationFrame(tick);
     };
     skipRef.current = () => {

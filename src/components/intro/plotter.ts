@@ -1,6 +1,6 @@
 /**
  * The homepage intro, drawn on a 2D canvas: grid paper spreads out from the centre, a pen plots the
- * pixel VS mark square by square, types the name, then the mark shrinks onto the logo in the nav.
+ * pixel VS mark square by square, types the name, then its squares scatter onto the logo in the nav.
  * Pure drawing code: `IntroOverlay` owns the canvas, the clock and the DOM.
  */
 import { MARK_CELLS } from "@/components/mark";
@@ -30,7 +30,38 @@ const FILL_MS = 150;
 const TO_NAME_MS = 230;
 const CHAR_MS = 40;
 const BLINK_MS = 450;
-export const DOCK_MS = 750;
+
+/**
+ * The dock ("scatter"): every square takes off at a random moment in the first 500 ms, flies 380 to
+ * 720 ms on its own curve (one in four swings wide) and lands exactly on its cell of the nav logo.
+ * New random values every play.
+ */
+export interface Flight {
+  delay: number;
+  ms: number;
+  dx: number;
+  dy: number;
+}
+export function scatterFlights(): Map<string, Flight> {
+  const out = new Map<string, Flight>();
+  for (const { r, c, on } of MARK_CELLS) {
+    if (!on) continue;
+    const wide = Math.random() < 0.25 ? 3 : 1;
+    out.set(`${c},${r}`, {
+      delay: Math.random() * 500,
+      ms: 380 + Math.random() * 340,
+      dx: (Math.random() - 0.5) * 4 * wide,
+      dy: -(0.5 + Math.random() * 2.5) * wide,
+    });
+  }
+  return out;
+}
+/** How long the dock takes with these flights: until the last square lands. */
+export function dockMs(flights: Map<string, Flight>) {
+  let end = 0;
+  for (const f of flights.values()) end = Math.max(end, f.delay + f.ms);
+  return end;
+}
 
 // The pen draws the V top-left down and back up, lifts, then the S the way a hand writes it.
 const PEN: Array<[number, number] | null> = [
@@ -138,8 +169,10 @@ export function drawFrame(
   t: number,
   dockAt: number,
   dock: Dock | null,
+  flights: Map<string, Flight>,
 ) {
-  const k = ease(clamp((t - dockAt) / DOCK_MS));
+  // k: the paper and name fading out, over the whole dock.
+  const k = ease(clamp((t - dockAt) / dockMs(flights)));
   const docking = t >= dockAt;
   // After a skip, everything jumps to its finished state and only the dock plays.
   const pt = docking ? Math.max(t, PLAY_MS) : t;
@@ -201,12 +234,15 @@ export function drawFrame(
     let side = g.side * (0.3 + 0.7 * easeOut(u));
     let alpha = 1;
     if (docking) {
+      const f = flights.get(`${c},${r}`)!;
+      const kc = ease(clamp((t - dockAt - f.delay) / f.ms));
       if (dock) {
         const pitch = dock.cell + dock.gap;
-        x += (dock.left + c * pitch + dock.cell / 2 - x) * k;
-        y += (dock.top + r * pitch + dock.cell / 2 - y) * k;
-        side += (dock.cell - side) * k;
-      } else alpha = 1 - k;
+        const arc = Math.sin(Math.PI * kc) * g.p;
+        x += (dock.left + c * pitch + dock.cell / 2 - x) * kc + arc * f.dx;
+        y += (dock.top + r * pitch + dock.cell / 2 - y) * kc + arc * f.dy;
+        side += (dock.cell - side) * kc;
+      } else alpha = 1 - kc;
     }
     ctx.save();
     ctx.globalAlpha = alpha;
