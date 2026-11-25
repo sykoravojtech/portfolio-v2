@@ -1,6 +1,6 @@
 /**
  * The homepage intro, drawn on a 2D canvas: grid paper spreads out from the centre, a pen plots the
- * pixel VS mark square by square, types the name, then its squares scatter onto the logo in the nav.
+ * pixel VS mark square by square, types the name, then its squares fly one by one onto the logo in the nav.
  * Pure drawing code: `IntroOverlay` owns the canvas, the clock and the DOM.
  */
 import { MARK_CELLS } from "@/components/mark";
@@ -32,9 +32,8 @@ const CHAR_MS = 40;
 const BLINK_MS = 450;
 
 /**
- * The dock ("scatter"): every square takes off at a random moment in the first 500 ms, flies 380 to
- * 720 ms on its own curve (one in four swings wide) and lands exactly on its cell of the nav logo.
- * New random values every play.
+ * The dock, one by one: the squares leave in the order the pen drew them, 45 ms apart, each flying
+ * 560 ms on a small arc onto its cell of the nav logo. Same timing as the Lab apps' sign-in intro.
  */
 export interface Flight {
   delay: number;
@@ -42,18 +41,9 @@ export interface Flight {
   dx: number;
   dy: number;
 }
-export function scatterFlights(): Map<string, Flight> {
+export function dockFlights(): Map<string, Flight> {
   const out = new Map<string, Flight>();
-  for (const { r, c, on } of MARK_CELLS) {
-    if (!on) continue;
-    const wide = Math.random() < 0.25 ? 3 : 1;
-    out.set(`${c},${r}`, {
-      delay: Math.random() * 500,
-      ms: 380 + Math.random() * 340,
-      dx: (Math.random() - 0.5) * 4 * wide,
-      dy: -(0.5 + Math.random() * 2.5) * wide,
-    });
-  }
+  STOPS.forEach(({ c, r }, j) => out.set(`${c},${r}`, { delay: j * 45, ms: 560, dx: 0, dy: -1.6 }));
   return out;
 }
 /** How long the dock takes with these flights: until the last square lands. */
